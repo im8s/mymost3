@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff000000">
+
+    <RelativeLayout
+        android:id="@+id/welcome_ly"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/welcome_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_start_bg"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:id="@+id/img_text"
+            android:layout_width="110dp"
+            android:layout_height="413dp"
+            android:background="@drawable/ic_start_text"
+            android:contentDescription="@string/app_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_start_logo"
+            android:contentDescription="@string/app_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:scaleType="centerCrop"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/pull_to_refresh_progress"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@anim/check_list_loading"
+            android:padding="6dp" />
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[JXTableViewController aviFinished:]:JXTableViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.retainCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboReplyData createMatch:]:WeiboReplyData.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "parser.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboCell tableView:didSelectRowAtIndexPath:]:WeiboCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.controller.selectWeiboData">
+            </PersistentString>
+            <PersistentString
+               value = "self.controller.selectWeiboCell">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXChatViewController recordStop:]:JXChatViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "audioRecorder.currentTime">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXXMPP setupStream]:JXXMPP.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_config.XMPPDomain">
+            </PersistentString>
+            <PersistentString
+               value = "g_config">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXServer addMessage:type:data:flag:toView:]:JXServer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "jsonImages">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXUserInfoVC init]:JXUserInfoVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_myself">
+            </PersistentString>
+            <PersistentString
+               value = "g_myself.userId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[UIBadgeView drawRect:]:UIBadgeView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HBShowImageControl drawSingleImage:]:HBShowImageControl.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboViewControlle loadWeboData:complete:formDb:]:WeiboViewControlle.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "weibo.replyHeight">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXServer login:toView:]:JXServer.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXUserBaseObj update]:JXUserBaseObj.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXServer requestSuccess:]:JXServer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "task.responseData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[sendOfferVC onSend]:sendOfferVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_server.jobArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PSJobListVC tableView:cellForRowAtIndexPath:]:PSJobListVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_table">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[selectTreeVC tableView:cellForRowAtIndexPath:]:selectTreeVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.section">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXInputView layoutAndAnimateMessageInputTextView:]:JXInputView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.previousTextViewContentHeight">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXAudioRecorderViewController back]:JXAudioRecorderViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_pSelf">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[mySpaceViewController actionImage:]:mySpaceViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_App.jxServer.count_photo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXAlixPay doPayResult:]:JXAlixPay.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "result">
+            </PersistentString>
+            <PersistentString
+               value = "verifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[StartLiveView cameraButton]:StartLiveView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_cameraButton.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXServer addTask:param:toView:]:JXServer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_config.uploadUrl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[selectTreeVC init]:selectTreeVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "p2">
+            </PersistentString>
+            <PersistentString
+               value = "p1">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[admobViewController createHeaderView]:admobViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXServer doSaveImage:]:JXServer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "aDownload.responseData">
+            </PersistentString>
+            <PersistentString
+               value = "aDownload.responseString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXRoomMemberVC init]:JXRoomMemberVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[selectTreeVC tableView:didSelectRowAtIndexPath:]:selectTreeVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_typeIds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PullRefreshTableViewController aviFinished:]:PullRefreshTableViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.retainCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXAudioPlayer open]:JXAudioPlayer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_audioFile">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboViewControlle onPlayMedia:]:WeiboViewControlle.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXFriendCell initWithStyle:reuseIdentifier:]:JXFriendCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MultiUserChatViewCtl sendButton:]:MultiUserChatViewCtl.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MultiUserChatViewCtl xmppRoom:didReceiveMessage:fromOccupant:]:MultiUserChatViewCtl.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[recordVideoViewController close]:recordVideoViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXCell initWithStyle:reuseIdentifier:]:JXCell.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[sendOfferVC onWExam]:sendOfferVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_server.wExamArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXMsgViewController newMsgCome:]:JXMsgViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXUserBaseObj loadFromObject:]:JXUserBaseObj.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[StreamPlayerViewController prepareToPlayItemWithURL:]:StreamPlayerViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[commentVC tableView:numberOfRowsInSection:]:commentVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboViewControlle tableView:cellForRowAtIndexPath:]:WeiboViewControlle.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboData getDataFromDict:]:WeiboData.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[HRJobAddVC changeKeyBoard:]:HRJobAddVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "aNotifacation.object">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[selectValueVC getValuesfromArray:name:]:selectValueVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[mvViewController setPlayIndex:]:mvViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.playArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXFileCell setCellData]:JXFileCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.msg.content">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXXMPP xmppStream:didReceiveMessage:]:JXXMPP.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "msg">
+            </PersistentString>
+            <PersistentString
+               value = "myUserId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXUserBaseObj getUserHead]:JXUserBaseObj.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[mvViewController doReplyTo:]:mvViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.isEditing">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HBShowImageControl lookImageAction:]:HBShowImageControl.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_bigUrls">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[userInfoVC didServerResultSucces:dict:array:]:userInfoVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXMessageObject isMySend]:JXMessageObject.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "MY_USER_ID">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[mvViewController didServerResultSucces:dict:array:]:mvViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[loginVC onClick]:loginVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[mvViewController actionAddFriend:]:mvViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_friendStatus">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HRRegisterBaseVC didServerResultSucces:dict:array:]:HRRegisterBaseVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXImageCell setUIFrame]:JXImageCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.msg">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXMsgCell draw]:JXMsgCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "chatImage.image ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[myViewController onResume]:myViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboData heightForReply]:WeiboData.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.heightPraise">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HRMyViewVC onCompany]:HRMyViewVC.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_myself">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXMsgViewController getServerData]:JXMsgViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "isShowFooterPull">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXServer addComment:toView:]:JXServer.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXChatViewController onReceiveRoomRemind:]:JXChatViewController.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "_disableSay">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXRoomMemberVC onBlacklist]:JXRoomMemberVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboData getHeightPraise]:WeiboData.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[JXMessageObject msgWithFriendStatus:status:]:JXMessageObject.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[userId intValue]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXMsgViewController doRefresh:showNumber:]:JXMsgViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_array">
+            </PersistentString>
+            <PersistentString
+               value = "current_chat_userId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboCell setWeibo:]:WeiboCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.weibo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXExam getDataFromDict:]:offerData.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "answers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[JXMeetingObject onInviteEvent:](NSNotification *):JXMeetingObject.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "eargs.eventType">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PullRefreshTableViewController setupStrings]:PullRefreshTableViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tableView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[selectAreaVC tableView:cellForRowAtIndexPath:]:selectAreaVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[g_constant.province allValues]">
+            </PersistentString>
+            <PersistentString
+               value = "_keys count]">
+            </PersistentString>
+            <PersistentString
+               value = "_keys.count">
+            </PersistentString>
+            <PersistentString
+               value = "g_constant.province allValues">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "t">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboCell onPlayMedia:]:WeiboCell.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXAudioCell setCellData]:JXAudioCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_audioPlayer">
+            </PersistentString>
+            <PersistentString
+               value = "_audioPlayer.audioFile">
+            </PersistentString>
+            <PersistentString
+               value = "self.msg.content">
+            </PersistentString>
+            <PersistentString
+               value = "msg">
+            </PersistentString>
+            <PersistentString
+               value = "self.msg">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[recordAudioVC build]:recordAudioVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = " _btnPlay.image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[sendOfferVC didServerResultSucces:dict:array:]:sendOfferVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_server.jobArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WeiboViewControlle btnReplyAction:]:WeiboViewControlle.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[mvViewController tableView:cellForRowAtIndexPath:]:mvViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.weibo.commnetCount">
+            </PersistentString>
+            <PersistentString
+               value = "self.weibo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__32-[StartLiveView startLiveButton]_block_invoke:StartLiveView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "liveUrl">
+            </PersistentString>
+            <PersistentString
+               value = "self.liveUrl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXNewFriendViewController newRequest:]:JXNewFriendViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXRoomMemberVC onUser:]:JXRoomMemberVC.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[sendOfferVC setExamArray:]:sendOfferVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_server.wExamArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXiExamVC init]:JXiExamVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "p.frame.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "exam">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXChatViewController newReceipt:]:JXChatViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_chatPerson.userId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXServer requestError:]:JXServer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "aDownload.error">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PlayerViewController goPlaying]:PlayerViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_liveUrl">
+            </PersistentString>
+            <PersistentString
+               value = "self.view.bounds">
+            </PersistentString>
+            <PersistentString
+               value = "self.view.frame.size.width">
+            </PersistentString>
+            <PersistentString
+               value = "self.view.frame.size.height">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXMessageObject insert:]:JXMessageObject.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXLocationVC viewDidLoad]:JXLocationVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tableBody.bounds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

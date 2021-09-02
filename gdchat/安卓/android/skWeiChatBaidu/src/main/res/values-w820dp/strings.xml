@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hongbao">IM红包</string>
+    <string name="zhuanzhang">IM转账</string>
+    <string name="user_name">用户名</string>
+</resources>

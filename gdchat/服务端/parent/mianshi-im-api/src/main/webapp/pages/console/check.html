@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公众号审核</title>
+    <link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-row">
+    <div id="back" class="layui-col-md1">&nbsp;</div>
+    <div id="" class="layui-col-md10">
+        <div class="" style="margin-top: 2%">
+            <input type="text" name="" class="layui-input openCheckLog_keyword" style="width: 15%;display: inline" placeholder="">
+            <button class="layui-btn  search_openApp">搜索</button>
+            <!-- <button class="layui-btn  btn_openApp">申请列表</button> -->
+        </div>
+        <!-- 审核列表 -->
+        <div id="openCheckLogList" class="layui-card" style="margin-top: 1%">
+            <div class="layui-card-header">审核列表</div>
+            <div class="layui-card-body">
+                <table id="openCheckLog_table" lay-filter="openCheckLog_table"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input id="check_limlt" value="15" type="hidden">
+
+<!--操作-->
+<script type="text/html" id="openCheckLogListBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs detail" lay-event="detail">详情</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger del" lay-event="del">删除</a>
+</script>
+
+<script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/console_ui.js"></script>
+<script type="text/javascript" src="/pages/console/js/check.js"></script>
+</body>
+</html>

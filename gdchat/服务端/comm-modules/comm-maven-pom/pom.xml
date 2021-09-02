@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+         <groupId>com.shiku.im.modules</groupId>
+    	 <artifactId>im-comm-modules</artifactId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.shiku.im.modules</groupId>
+    <artifactId>comm-maven-pom</artifactId>
+    <version>1.0</version>
+    <!--<packaging>pom</packaging>-->
+    <properties>
+        <lombok.version>1.18.4</lombok.version>
+        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <shikucommom.version>1.0</shikucommom.version>
+        <skutil.version>1.0</skutil.version>
+    </properties>
+
+    <dependencies>
+       
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <!-- swagger注解依赖  -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>2.0.3</version>
+        </dependency>-->
+
+
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>im-core-module</artifactId>
+            <version>${shikucommom.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.commons</groupId>
+            <artifactId>skutils</artifactId>
+            <version>${skutil.version}</version>
+        </dependency>
+
+<!--
+        <dependency>
+            <groupId>com.shiku.mongodb</groupId>
+            <artifactId>mongodb-spring-data</artifactId>
+            <version>${shikucommom.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shiku.redisson</groupId>
+            <artifactId>shiku-redisson</artifactId>
+        </dependency>-->
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <!-- 要将源码放上去，需要加入这个插件 -->
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

@@ -1,0 +1,10 @@
+/* Localized versions of Info.plist keys */
+
+CFBundleDisplayName = "ddtok";
+
+NSCameraUsageDescription = "Open the camera to record the video for message sending";
+NSContactsUsageDescription = "Allows uploading of address book data to the server to discover friends who are using this APP together";
+NSLocationWhenInUseUsageDescription = "Allow the application to access your location when you use the application,And share your location on the map";
+NSMicrophoneUsageDescription = "Turn on the microphone to record audio for message sending";
+NSPhotoLibraryUsageDescription = "Open the album to select photos for sending messages";
+NSCalendarsUsageDescription = "Allow calendars to be used when using APP";

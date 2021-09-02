@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "651550724735",
+    "firebase_url": "https://kuxin-244111.firebaseio.com",
+    "project_id": "kuxin-244111",
+    "storage_bucket": "kuxin-244111.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651550724735:android:3a96ddcc15c15ae6",
+        "android_client_info": {
+          "package_name": "com.kuxin.im"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651550724735-d6au92hagjj8ge10e6cpuap0454u9liv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kuxin.im",
+            "certificate_hash": "8020b1f0a0a91d552c95675cb9698f890f07d1f3"
+          }
+        },
+        {
+          "client_id": "651550724735-bf113dv1mddk9mqt7oplomp3jk6k28km.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDowG1ECxaLFRUa7Vw9KwRrFWVaKPhS_1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651550724735-bf113dv1mddk9mqt7oplomp3jk6k28km.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

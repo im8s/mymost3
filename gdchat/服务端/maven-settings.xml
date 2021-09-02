@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <localRepository>/xxx/xxx/xxx</localRepository>
+
+    <pluginGroups/>
+
+    <proxies/>
+
+    <servers>
+        <server>
+            <id>maven-public</id>
+            <username>maven</username>
+            <password>maven</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>maven-public</id>
+			<name>maven-public</name>
+            <url>http://maven.ocurl.cn:9000/repository/maven-public/</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+</settings>

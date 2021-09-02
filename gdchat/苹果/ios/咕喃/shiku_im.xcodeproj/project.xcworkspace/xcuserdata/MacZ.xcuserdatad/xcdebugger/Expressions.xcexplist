@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[JXMessageObject getTableName]:JXMessageObject.m">
+      </ContextState>
+      <ContextState
+         contextName = "::-[JXChatViewController refresh:](JXMessageObject *):JXChatViewController.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.scrollLine">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[JXChatViewController tableView:cellForRowAtIndexPath:](UITableView *, NSIndexPath *):JXChatViewController.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "_array">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXAudioPlayer open]:JXAudioPlayer.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_audioFile">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[versionManage didReceive:]:versionManage.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[JXMessageObject doInsertMsg:tableName:]:JXMessageObject.m">
+      </ContextState>
+      <ContextState
+         contextName = "__33-[JXConnection normalRequestData]_block_invoke.134:JXConnection.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXFriendCell update]:JXFriendCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[AudioCallViewController(SipCallbackEvents) onInviteEvent:](NSNotification *):AudioCallViewController.mm">
+         <PersistentStrings>
+            <PersistentString
+               value = "audioSession.id">
+            </PersistentString>
+            <PersistentString
+               value = "eargs.sessionId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXMsgViewController alertView:clickedButtonAtIndex:]:JXMsgViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_msg">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[JXTableViewController doAutoScroll:]:JXTableViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_oldRowCount">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

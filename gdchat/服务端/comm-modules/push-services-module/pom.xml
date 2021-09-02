@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>im-comm-modules</artifactId>
+        <groupId>com.shiku.im.modules</groupId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.shiku.im.modules</groupId>
+    <artifactId>push-services-module</artifactId>
+    <version>1.0</version>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>comm-maven-pom</artifactId>
+            <version>1.0</version>
+            <exclusions>
+
+            </exclusions>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>user-core</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>room-core</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>live-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>6.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-storage</artifactId>
+            <version>1.55.0</version>
+        </dependency>
+
+
+
+        <!-- 自定义  小米 推送 -->
+        <!-- https://mvnrepository.com/artifact/com.xiaomi.mipush.sdk/mipush -->
+
+        <dependency>
+            <groupId>com.xiaomi.push</groupId>
+            <artifactId>mipush-sdk-server</artifactId>
+            <version>2.2.18</version>
+        </dependency>
+
+        <!-- 极光推送  -->
+        <dependency>
+            <groupId>cn.jpush.api</groupId>
+            <artifactId>jpush-client</artifactId>
+            <version>3.2.17</version>
+        </dependency>
+
+
+        <!-- 魅族推送 -->
+        <dependency>
+            <groupId>com.meizu.flyme</groupId>
+            <artifactId>push-server-sdk</artifactId>
+            <version>1.2.7.20181128_release</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!--Ios 推送 -->
+
+        <dependency>
+            <groupId>com.turo</groupId>
+            <artifactId>pushy</artifactId>
+            <version>0.13.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.notnoop.apns</groupId>
+            <artifactId>apns</artifactId>
+            <version>1.0.0.Beta6</version>
+        </dependency>
+
+        <!-- OPPO 推送 -->
+        <dependency>
+            <groupId>com.oppo.push</groupId>
+            <artifactId>opush-server-sdk</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+
+        <!-- VIVO  推送 -->
+        <dependency>
+            <groupId>com.vivo.push</groupId>
+            <artifactId>vPush-server-sdk</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.31.Final</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.6.2</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>friend-module</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>-->
+
+
+       <!-- <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.2</version>
+        </dependency>-->
+    </dependencies>
+
+
+    <distributionManagement>
+        <repository>
+            <id>thirdparty</id>
+            <url>http://192.168.0.227:8891/nexus/content/repositories/thirdparty</url>
+        </repository>
+    </distributionManagement>
+
+</project>

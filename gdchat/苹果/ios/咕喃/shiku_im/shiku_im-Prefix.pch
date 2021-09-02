@@ -1,0 +1,565 @@
+#import <Availability.h>
+
+#define Meeting_Version 1 //如果注释，则不编译视频聊天部分
+//#define IS_TEST_VERSION 1 //内部测试版，注释则启用短信验证码
+#define IS_Skip_SMS 1 //如果注释，则关闭发送短信20s后显示跳转下一界面入口功能
+#define USE_GOOGLEMAP 1 //如果注释,不编译googleMap,如需要googleMap,请下载googleMApSDK 拖入工程
+//#define Live_Version 1 //直播
+#define IS_SHOW_MENU 1 //如果注释,发现界面显示朋友圈。  没有注释,发现界面显示菜单栏
+//#define IS_MsgEncrypt 1 // 非对称消息加密
+//#define IS_AUTO_JOIN_ROOM 1  // 开启自动加群，关闭手动加群
+//#define XCode11 1  //如果XCode大版本是10及以下则注释掉。   XCode大版本是11及以上则不注释。
+
+
+//djk权限
+#define APIKEY @""
+
+// app group id (share extension 数据分享绑定id)
+#define APP_GROUP_ID  @"group.com.kuxin.im1"
+
+// 右上角部分响应区域 加大
+#define BTN_RANG_UP  14
+//群聊左边消息上下间距
+#define GROUP_CHAT_INSET  3
+
+// 本地存储定位到的国家代号
+#define kISOcountryCode @"kISOcountryCode"
+// 本地存储定位到的城市Id
+#define kCityId @"kCityId"
+// 本地存储选择的语言
+#define kLocalLanguage @"kLocalLanguage"
+// 本地存储聊天字体大小
+#define kChatFont @"kChatFont"
+// 是否开启多点登录
+#define kISMultipleLogin @"kISMultipleLogin"
+// 是否使用google地图
+#define kUseGoogleMap @"isShowGooMap"
+
+// 集群地址
+#define kLocationArea   @"kLocationArea"
+
+// 设备锁密码
+#define kDeviceLockPassWord @"kDeviceLockPassWord"
+// 默认取上一次成功的服务器IP
+#define kLastApiUrl @"kLastApiUrl"
+// 进入app保存经纬度
+#define kLocationLogin @"kLocationLogin"
+
+#define kMyPayPrivateKey [NSString stringWithFormat:@"kMyPayPrivateKey_%@",g_myself.userId]
+
+// 付款码key
+#define kMyQRKey [NSString stringWithFormat:@"kMyQRKey_%@",g_myself.userId]
+
+
+// 群组翻页人数
+#define kRoomMemberListNum 50
+
+
+// 是否是第一次同步聊天记录列表
+#define kISFirstGetLastChatList [NSString stringWithFormat:@"kISFirstGetLastChatList_%@",g_myself.userId]
+
+//青色，主色调
+//#define THEMECOLOR HEXCOLOR(0x48d1cc)
+#define OVERALL_LIGHT_GREEN HEXCOLOR(0xe0eeee)
+//浅灰色
+#define OVERALL_LIGHT_GRAY HEXCOLOR(0xeeeeee)
+#define SEPSRATOR_WIDTH 80
+
+// 线颜色
+#define THE_LINE_COLOR RGB(204, 204, 204)
+
+// 线的宽或者高
+#define LINE_WH (BIG_DEVICE ? 0.33 : 0.5)
+
+// 获取app名称
+#define app_name [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+#define APP_NAME [NSString stringWithFormat:@"%@",app_name]
+
+// 获取app包名
+#define app_bundle_id [[NSBundle mainBundle] bundleIdentifier]
+#define APP_BUNDLE_ID [NSString stringWithFormat:@"%@",app_bundle_id]
+
+#define THE_APP_OUR ([APP_BUNDLE_ID isEqualToString:@"com.shiku.im.push"] || [APP_BUNDLE_ID isEqualToString:@"com.shiku.coolim.push1"] || [APP_BUNDLE_ID isEqualToString:@"com.kuxin.im1"])
+
+#define kMY_USER_MYSELF @"myself"
+#define kMY_USER_TOKEN @"myToken"
+#define kMY_USER_LOGINTOKEN @"myLoginToken"
+#define kMY_USER_LOGINKEY @"myLoginKey"
+#define kMY_USER_HTTPKEY @"myHttpKey"
+#define kMY_USER_PASSWORD @"myUserPassword"
+#define kMY_USER_ID @"myUserId"
+#define kMY_USER_COMPANY_ID @"companyId"
+#define kMY_USER_NICKNAME @"myUserNickname"
+#define kMY_USER_AREACODE @"myUserAreacode"
+#define kMY_USER_INVITECODE @"myInviteCode"
+#define kMY_USER_ROLE @"myUserRole"
+#define kMY_USER_Head @"myUserHead"
+#define kMY_USER_LoginName @"myUserLoginName"
+#define kMY_USER_PrivateKey_DH [NSString stringWithFormat:@"myUserPrivateKeyDH_%@",g_myself.userId] // 我的DH私钥
+#define kMY_USER_PrivateKey_RSA [NSString stringWithFormat:@"myUserPrivateKeyRSA_%@",g_myself.userId] // 我的RSA私钥
+#define kMY_USER_ForgetPassword(telephone) [NSString stringWithFormat:@"kMY_USER_ForgetPassword_%@",telephone]    // 是否是忘记密码登录
+
+//share extension 数据分享 
+#define kMY_ShareExtensionPassword @"myShareExtensionPassword"
+#define kMY_ShareExtensionUserId @"myShareExtensionUserId"
+#define kMY_ShareExtensionToken @"myShareExtensionToken"
+#define kMY_ShareExtensionLoginToken @"myShareExtensionLoginToken"
+#define kMY_ShareExtensionLoginKey @"myShareExtensionLoginKey"
+#define kMY_ShareExtensionHttpKey @"myShareExtensionHttpKey"
+#define kDownloadAvatarUrl       @"downloadAvatarUrl" //下载头像前缀URL
+#define kUploadUrl    @"uploadUrl"   // http上传前缀URL
+#define kApiUrl    @"kApiUrl"   // http上传前缀URL
+
+#define share_defaults [[NSUserDefaults alloc] initWithSuiteName:APP_GROUP_ID]
+#define kShare_timeDifference   @"kShare_timeDifference"
+
+#define PAGE_SHOW_COUNT 20
+
+#define kLastOfflineTime  [NSString stringWithFormat:@"lastOfflineTime_%@",g_myself.userId]   // 离线时间
+#define kTHIRD_LOGIN_AUTO   @"thirdLoginAuto"   // 当前是否是第三方登录
+
+#define kXMPPLivePraiseRemindNotification @"kXMPPLivePraiseRemindNotification"  // 直播爱心
+#define kXMPPLiveGiftRemindNotification @"kXMPPLiveGiftRemindNotification"  // 直播礼物
+#define kXMPPLiveBarrageRemindNotification @"kXMPPLiveBarrageRemindNotification"  // 直播弹幕
+#define kXMPPMessageWeiboRemind @"kXMPPMessageWeiboRemind"  // 朋友圈点赞和评论
+//#define kXMPPMessageShowReadMode @"kXMPPMessageShowReadMode"  //已读模式变化
+#define kXMPPMessageEnteringNotification @"kXMPPMessageEnteringNotification"// 正在输入
+#define kXMPPMessageWithdrawNotification @"kXMPPMessageWithdrawNotification"// 消息撤回
+#define kXMPPMessageTransferReceiveNotification @"kXMPPMessageTransferReceiveNotification"// 转账已被领取消息
+#define kXMPPMessageTransferBackNotification @"kXMPPMessageTransferBackNotification"// 转账已被退回消息
+#define kXMPPMessageQrPaymentNotification @"kXMPPMessageQrPaymentNotification"//扫码支付款通知
+#define kXMPPMessageUpadtePasswordNotification @"kXMPPMessageUpadtePasswordNotification"//修改密码/首次设置支付密码/隐私设置/标签的增删改查
+#define kXMPPMessageUpadteUserInfoNotification @"kXMPPMessageUpadteUserInfoNotification"//编辑自己的基本资料/用户
+#define kXMPPMessageUpadteGroupNotification @"kXMPPMessageUpadteGroupNotification"//编辑群组资料
+#define kXMPPPayRedPacketCompleteNotification @"kXMPPPayRedPacketCompleteNotification"//银行卡红包支付完成
+#define kXMPPPayTransferCompleteNotification @"kXMPPPayTransferCompleteNotification"//银行卡转账支付完成
+
+#define kXMPPMessageReadTypeReceiptNotification @"MessageReadTypeReceiptNotification"//接收方收到已读消息的回执，改变标志避免重复发
+#define kXMPPMessageReadTypeNotification @"MessageReadTypeNotification"//发送方收到已读类型，改变消息图片为已读
+#define kXMPPNewRequestNotifaction @"xmppNewRequestNotifaction"//收到加好友请求，刷新UI
+#define kXMPPMyLastSendNotifaction @"xmppMyLastSendNotifaction"//发出消息，刷新最近的那条聊天，但不显示数量
+#define kXMPPNewMsgNotifaction @"xmppNewMsgNotifaction"//收到消息，刷新最近的那条聊天，同时显示数量
+#define kXMPPShowMsgNotifaction @"xmppShowMsgNotifaction"//显示一条消息
+#define kXMPPAllMsgNotifaction @"xmppAllMsgNotifaction"//收到批量消息，一次性刷新
+#define kXMPPReceiptNotifaction @"xmppReceiptNotifaction"//收到回执
+#define kXMPPNewFriendNotifaction @"xmppNewFriendNotifaction"//收到新朋友，刷新通讯录
+#define kXMPPSendTimeOutNotifaction @"xmppSendTimeOutNotifaction"//确定超时，收不到回执，刷新界面
+#define kXMPPReceiveFileNotifaction @"xmppReceiveFileNotifaction"//下载文件完毕
+#define kXMPPRemindNotifaction @"xmppRemindNotifaction"//提醒
+#define kXMPPRoomNotifaction @"xmppRoomNotifaction"//群聊
+#define kXmppLoginNotifaction @"xmppLoginNotifaction"//登陆成功
+#define kXmppClickLoginNotifaction @"kXmppClickLoginNotifaction"//非自动登陆成功
+#define kSendInputNotifaction @"kSendInputNotifaction"
+#define kQuitRoomNotifaction @"kQuitRoomNotifaction"//退出房间
+
+#define kFriendListRefresh @"kFriendListRefresh"    // 刷新通讯录
+#define kLiveListRefresh @"kLiveListRefresh"    // 直播列表刷新
+#define kRoomMembersRefresh @"kRoomMembersRefresh"  // 群成员刷新
+
+#define kCallAnswerNotification @"kCallAnswerNotification"
+#define kCallEndNotification @"kCallEndNotification"
+#define kCallSetMutedNotification @"kCallSetMutedNotification"
+
+//#define kSaveBadgeNotifaction @"kSaveBadgeNotifaction"//退出程序时，保存未读消息
+
+#define kSystemLoginNotifaction @"kSystemLoginNotifaction"//系统登陆成功
+#define kRegisterNotifaction @"kRegisterNotifaction"//系统登陆成功
+#define kSystemLogoutNotifaction @"kSystemLogoutNotifaction"//系统退出登陆成功
+
+#define kXMPPLoginOtherNotification @"kXMPPLoginOtherNotification"//xmpp在其他设备登录
+
+#define kAVPlayerStopNotification @"kAVPlayerStopNotification"  // 音视频停止播放通知
+
+#define kUpdateChatVCGroupHelperData @"kUpdateChatVCGroupHelperData"// 更新聊天界面群助手数据
+
+#define kUpdateUserNotifaction @"kUpdateUserNotifaction"    //更新“我”页面
+#define kDeleteUserNotifaction @"kDeleteUserNotifaction"    //删除好友
+#define kDeleteAllChatLog @"kDeleteAllChatLog"  //清除全部聊天记录
+#define kStartEnteringStatus @"kStartEnteringStatus"    // 是否开启正在输入状态
+#define kMsgComeVibration @"kMsgComeVibration"//是否振动
+#define kActionRelayQuitVC @"kActionRelayQuitVC"  // 转发后退出界面
+#define kChatViewDisappear @"kChatViewDisappear" // 聊天界面消失时
+#define kFavoritesRefresh @"kFavoritesRefresh"  // 刷新收藏夹
+
+#define kSendCourseMsg @"kSendCourseMsg"    // 发送課程消息
+#define kUpdateCourseList @"kUpdateCourseList"    // 更新课程列表
+
+#define kSetBackGroundImageView @"kSetBackGroundImageView"  // 设置聊天背景
+
+#define kWxPayFinishNotification @"kWxPayFinishNotification"    //微信支付结束
+#define kWxSendAuthRespNotification @"kWxSendAuthRespNotification"  // 微信授权回调
+
+#define kUpdateIsOnLineMultipointLogin @"kUpdateIsOnLineMultipointLogin"  // 多点登录在线离线状态更新
+
+#define kUpdateMsgSynTask @"kUpdateMsgSynTask"  // 新增离线消息任务同步
+#define kRefreshTalkListNotification @"kRefreshTalkListNotification"    // 刷新对讲机列表
+
+#define kChatVCMessageSync @"kChatVCMessageSync"    // 聊天界面消息同步
+
+#define kChatVCMessageAudioIsNotPlayback @"kChatVCMessageAudioIsNotPlayback"    // 聊天语音是否是听筒播放
+
+#define kShareShortVideo @"kShareShortVideo" //分享短视频
+
+#define kDeviceAuthNotification @"kDeviceAuthNotification" //授权登录
+
+#define kWeiboViewControllerAudioPause @"kWeiboViewControllerAudioPause" //生活圈音频播放暂停
+
+#define kLockUserNotification @"kLockUserNotification"  // 锁定用户通知
+
+
+//weiboCell点击网址
+#define kCellTouchUrlNotifaction @"kCellTouchUrlNotifaction"
+//weiboCell点击电话号码
+#define kCellTouchPhoneNotifaction @"kCellTouchPhoneNotifaction"
+//FMDB
+//#define FMDBQuickCheck(SomeBool) { if (!(SomeBool)) { NSLog(@"Failure on line %d", __LINE__); abort(); } }
+#define DATABASE_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]stringByAppendingString:@"/weChat.db"]
+
+
+
+#define g_window [UIApplication sharedApplication].keyWindow    //keyWindow,push页面使用[g_window addSubView:];
+#define g_subWindow g_App.subWindow   
+#define g_App ((AppDelegate*)[[UIApplication sharedApplication] delegate])  //appDelegate单例
+#define g_wait [ATMHud sharedInstance]   //hub单例
+#define g_factory [UIFactory sharedUIFactory]   //工厂类单例
+#define g_server ((AppDelegate*)[[UIApplication sharedApplication] delegate]).jxServer  //接口类单例
+#define g_securityUtil ((AppDelegate*)[[UIApplication sharedApplication] delegate]).securityUtil
+#define g_payServer ((AppDelegate*)[[UIApplication sharedApplication] delegate]).payServer
+#define g_loginServer ((AppDelegate*)[[UIApplication sharedApplication] delegate]).loginServer
+#define g_msgUtil ((AppDelegate*)[[UIApplication sharedApplication] delegate]).msgUtil 
+#define g_commonService ((AppDelegate*)[[UIApplication sharedApplication] delegate]).commonService  //全局共用类单例
+#define g_constant ((AppDelegate*)[[UIApplication sharedApplication] delegate]).jxConstant  //常量单例
+#define g_config ((AppDelegate*)[[UIApplication sharedApplication] delegate]).config    //配置单例
+#define g_xmpp [JXXMPP sharedInstance]  //xmpp单例
+#define g_default [NSUserDefaults standardUserDefaults] //NSUserDefaults单例
+#define g_device [UIDevice currentDevice]   //device单例
+#define g_myself ((AppDelegate*)[[UIApplication sharedApplication] delegate]).jxServer.myself   //登录者的userObject单例
+#define g_multipleLogin ((AppDelegate*)[[UIApplication sharedApplication] delegate]).jxServer.multipleLogin    // 多点登录单例
+//#define g_meetConfig [NgnEngine sharedInstance].configurationService    //音视频会议配置单例
+#define g_notify [NSNotificationCenter defaultCenter]   //通知单例
+#define g_macAddress [[[UIDevice currentDevice].identifierForVendor UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""]
+#define g_pay [JXAlixPay sharedInstance]
+#define g_mainVC g_App.mainVc   //主视图
+#define g_navigation g_App.navigation    //导航
+#define g_appName [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]  //app名
+#define g_appVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]   //app版本号
+#define g_faceVC g_App.faceView.faceView    //表情面板
+#define g_meeting ((AppDelegate*)[[UIApplication sharedApplication] delegate]).jxMeeting    //音视频会议单例
+
+#define g_hrJobAdminVC  g_App.mainVc.hrJobAdminVC
+#define g_hrWriteExamVC  g_App.mainVc.hrWriteExamVC
+#define g_hrAuditVC  g_App.mainVc.hrAuditVC
+#define g_hrMyviewVC  g_App.mainVc.hrMyviewVC
+
+#define g_psJobListVC  g_App.mainVc.psJobListVC
+#define g_psAuditVC  g_App.mainVc.psAuditVC
+#define g_psWriteExamVC  g_App.mainVc.psWriteExamVC
+#define g_psMyviewVC  g_App.mainVc.psMyviewVC
+
+// 判断iPhone X
+#define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPHoneXr
+#define SCREENSIZE_IS_XR ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPHoneX、iPHoneXs
+#define SCREENSIZE_IS_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define SCREENSIZE_IS_XS ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPhoneXs Max
+#define SCREENSIZE_IS_XS_MAX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断Plus机型
+#define SCREENSIZE_IS_PLUS ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//有刘海的手机类型
+#define THE_DEVICE_HAVE_HEAD (kDevice_Is_iPhoneX || SCREENSIZE_IS_XR ||SCREENSIZE_IS_X ||SCREENSIZE_IS_XS || SCREENSIZE_IS_XS_MAX)
+
+//使用3倍图的手机类型
+#define BIG_DEVICE (kDevice_Is_iPhoneX || SCREENSIZE_IS_XR ||SCREENSIZE_IS_X ||SCREENSIZE_IS_XS || SCREENSIZE_IS_XS_MAX || SCREENSIZE_IS_PLUS)
+
+
+// 判断为iphone
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+// 判断为ipad
+#define IS_PAD (UI_USER_INTERFACE_IDIOM()== UIUserInterfaceIdiomPad)
+
+//手机系统对比宏
+#define SYSTEM_VERSION_GRETER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+#define JX_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height     //全屏宽度
+#define JX_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width       //全屏高度
+#define JX_Statusbar_HEIGHT (THE_DEVICE_HAVE_HEAD ? 44 : 0) 
+#define WIDTH_PAGE JX_SCREEN_WIDTH
+#define JX_SCREEN_TOP (THE_DEVICE_HAVE_HEAD ? 88 : (44+20))     //顶部状态栏加导航栏高度
+#define JX_SCREEN_BOTTOM (THE_DEVICE_HAVE_HEAD ? 83 : 49)     //底部tabbar高度
+#define self_width self.view.frame.size.width   //self.view宽度
+#define self_height self.view.frame.size.height //self.view高度
+// 状态栏高度大于20（热点被连接时）
+#define STATUS_BAR_BIGGER_THAN_20 ([UIApplication sharedApplication].statusBarFrame.size.height > 20 && !THE_DEVICE_HAVE_HEAD)
+
+#define Localized(str) [g_constant LocalizedWithStr:str]    //国际化,str为国际化key
+
+#define isIOS7 [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0
+#define DATA(X)	[X dataUsingEncoding:NSUTF8StringEncoding]
+#define RSTRING(X) NSStringFromCGRect(X)
+#define COOKBOOK_PURPLE_COLOR	[UIColor colorWithRed:0.20392f green:0.19607f blue:0.61176f alpha:1.0f]
+#define BARBUTTON(TITLE, SELECTOR) 	[[UIBarButtonItem alloc] initWithTitle:TITLE style:UIBarButtonItemStylePlain target:self action:SELECTOR]
+#define IMGBARBUTTON(IMAGE, SELECTOR) [[UIBarButtonItem alloc] initWithImage:IMAGE style:UIBarButtonItemStylePlain target:self action:SELECTOR]
+#define SYSBARBUTTON(ITEM, SELECTOR) [[UIBarButtonItem alloc] initWithBarButtonSystemItem:ITEM target:self action:SELECTOR]
+#define CUSTOMBARBUTTON(VIEW) [[UIBarButtonItem alloc] initWithCustomView:VIEW]
+
+#define MY_USER_ID [[NSUserDefaults standardUserDefaults]objectForKey:kMY_USER_ID]  //我的userId
+#define MY_USER_NAME [[NSUserDefaults standardUserDefaults]objectForKey:kMY_USER_NICKNAME]  //我的name
+//我的role , 这是个数组
+#define MY_USER_ROLE [[NSUserDefaults standardUserDefaults]objectForKey:kMY_USER_ROLE]
+//#define NSLogFrame(frame) NSLog(@"%f,%f,%f,%f",frame.origin.x,frame.origin.y,frame.size.width,frame.size.height)
+#define RGB(r, g, b) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]  //RGB颜色
+#define HEXCOLOR(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]  //十六进制颜色
+#define add_dict_object(d,obj,key) if(obj)[d setObject:obj forKey:key]
+#define add_array_object(p,obj) if(obj)[p addObject:obj]
+#define isFileExist(s) [[NSFileManager defaultManager] fileExistsAtPath:s]  //判断文件是否存在
+#define THEMEBACKCOLOR HEXCOLOR(0xF2F2F2)   //这题背景色
+//#define THEMECOLOR HEXCOLOR(0x48d1cc)   //主题色
+#define g_theme [SkinManage sharedInstance]
+#define ThemeImage(str) [[SkinManage sharedInstance] themeImage:str]    //str为原始图片名
+#define ThemeImageName(str) [[SkinManage sharedInstance] themeImageName:str]    //str为原始图片名
+#define THEMECOLOR [SkinManage sharedInstance].themeColor
+#define THESIMPLESTYLE (g_theme.themeIndex == 0 || g_theme.themeIndex == 1 || g_theme.themeIndex == 2 || g_theme.themeIndex == 3 || g_theme.themeIndex == 4 || g_theme.themeIndex == 5 || g_theme.themeIndex == 6 || g_theme.themeIndex == 7) // 极简主题风格
+
+#define SYSFONT(size) [UIFont systemFontOfSize:size]
+#define docFilePath [NSString stringWithFormat:@"%@/Documents/",NSHomeDirectory()]
+#define dataFilePath [NSString stringWithFormat:@"%@/Library/Caches/",NSHomeDirectory()]
+#define tempFilePath [NSString stringWithFormat:@"%@/tmp/",NSHomeDirectory()]   //temp
+#define backImage [NSString stringWithFormat:@"%@/Documents/backImage",NSHomeDirectory()]
+// 截屏图片
+//#define ScreenShotImage [NSString stringWithFormat:@"%@/Documents/ScreenShotImage.jpg",NSHomeDirectory()]
+// 相册最后一张图片Index
+#define LastPhotoIndex @"LastPhotoIndex"
+
+#define imageFilePath [NSString stringWithFormat:@"%@/",[[NSBundle mainBundle] bundlePath]]
+#define gifImageFilePath [[NSBundle mainBundle] pathForResource:@"gif" ofType:@"bundle"]        //gif图片表情bundle路径
+#define myTempFilePath [NSString stringWithFormat:@"%@/tmp/%@/",NSHomeDirectory(),MY_USER_ID]
+// 聊天背景图片存储地址
+#define kChatBackgroundImagePath [docFilePath stringByAppendingPathComponent:@"ChatBackgroundImage.jpg"]
+
+// 设置本地服务器存储list
+#define SERVER_LIST_DATA [docFilePath stringByAppendingPathComponent:@"serverList.plist"]
+
+// 适配比例
+#define ADAPTATIONRATIO     JX_SCREEN_WIDTH / 750.0f
+
+#define Max_Rand_SongImg 10
+#define NPAGES		2
+#define MAIN_ALERT	101
+#define DX(p1, p2)	(p2.x - p1.x)
+#define DY(p1, p2)	(p2.y - p1.y)
+#define degreesToRadians(x) (M_PI*(x)/180.0)
+#define PIXEL_ADJUST_WIDTH JX_SCREEN_WIDTH/320
+#define PIXEL_ADJUST_HEIGHT JX_SCREEN_HEIGHT/568
+#define height_im_footer 49
+#define INSETS 10   //间距
+#define MAX_INSETS 15   //大间距
+#define CHAT_WIDTH_ICON 11   //聊天界面气泡与头像距离
+#define INSETS2(isGroup) (isGroup ? 20 : 10)
+#define WIDTH JX_SCREEN_WIDTH-INSETS*2
+#define HEAD_SIZE 35.f //头像大小
+#define stretch 20//拉伸
+#define imageItemHeight JX_SCREEN_WIDTH/3 -20//所有含图片的控件按比例放大
+#define webWidth self.frame.size.width/2
+
+#define kChatCellMaxWidth (JX_SCREEN_WIDTH-MAX_INSETS*2-HEAD_SIZE*2-CHAT_WIDTH_ICON*2)
+
+#define kScreenWidthScale (JX_SCREEN_WIDTH / 375) // 以屏宽为375为基础的缩放比例
+
+// 来自YYKit
+#ifndef weakify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+        #define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+        #else
+        #define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+            #define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+        #else
+            #define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+        #endif
+    #endif
+#endif
+
+#ifndef strongify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+            #define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+        #else
+            #define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+            #define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+        #else
+            #define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+        #endif
+    #endif
+#endif
+
+
+//聊天Cell的通知中心
+#define kCellVoiceStartNotifaction @"kCellVoiceStartNotifaction"
+#define kCellResendMsgNotifaction @"kCellResendMsgNotifaction"  //重发消息
+#define kCellDeleteMsgNotifaction @"kCellDeleteMsgNotifaction"  //删除消息
+#define kCellShowReadPersonsNotifaction @"kCellShowReadPersonsNotifaction"  //已读人数
+#define kCellShowCardNotifaction @"kCellShowCardNotifaction"    //聊天cell 名片点击
+#define kCellMessageReadDelNotifaction @"kCellMessageReadDelNotifaction"    //聊天cell 文字阅后即焚查看点击
+#define kCellPlayVideoNotifaction @"kCellPlayVideoNotifaction"  //聊天cell video播放
+#define kCellLocationNotifaction @"kCellLocationNotifaction"    //聊天cell 位置点击
+#define kCellReplyNotifaction @"kCellReplyNotifaction"        //聊天cell 回复点击
+#define kCellRemindNotifaction @"kCellRemindNotifaction"    //控制消息点击
+#define kCellImageNotifaction @"kCellImageNotifaction"  //照片
+#define kCellHeadImageNotification @"kCellHeadImageNotification"    //聊天cell headImage点击
+#define kcellRedPacketDidTouchNotifaction @"kcellRedPacketDidTouchNotifaction"  //聊天cell红包点击
+#define kcellTransferDidTouchNotifaction @"kcellTransferDidTouchNotifaction"  //聊天cell转账点击
+#define kCellSystemImage1DidTouchNotifaction @"kCellSystemImage1DidTouchNotifaction"    //单条图文消息点击
+#define kCellSystemImage2DidTouchNotifaction @"kCellSystemImage2DidTouchNotifaction"    //多条图文消息点击
+#define kCellSystemAVCallNotifaction @"kCellSystemAVCallNotifaction"    //音视频通话
+#define kCellSystemFileNotifaction @"kCellSystemFileNotifaction"    //文件点击
+#define kCellSystemLinkNotifaction @"kCellSystemLinkNotifaction"    //链接点击
+#define kCellSystemShakeNotifaction @"kCellSystemShakeNotifaction"    //戳一戳点击
+#define kCellSystemMergeRelayNotifaction @"kCellSystemMergeRelayNotifaction"    //合并转发点击
+#define kCellLongGesHeadImageNotification @"kCellLongGesHeadImageNotification"  //长按聊天cell头像
+#define kCellShareNotification @"kCellShareNotification" // 分享cell点击
+#define kCellSendChatKeyNotification @"kCellSendChatKeyNotification"    // 发送通信秘钥
+
+
+//改变msg的发送状态
+#define kCellReadDelNotification @"kCellReadDelNotification"//阅后即焚
+#define kImageDidTouchEndNotification @"kImageDidTouchEndNotification"//查看图片完成
+
+#define kMsgDrawIsReceiveNotifaction @"kMsgDrawIsReceiveNotifaction"    //已读回执
+#define kUploadFileProgressNotifaction @"kUploadFileProgressNotifaction"    //上传进度
+#define kCardDeleteOkNotifaction @"kCardDeleteOkNotifaction"    //名片
+
+#define kGroupHeadImageModifyNotifaction @"kGroupHeadImageModifyNotifaction"    //群组头像更新
+#define kSeachAddUserNotification @"kSeachAddUserNotification"  //搜索
+#define kNearRefreshCallPhone @"kNearRefreshCallPhone"  //刷新已拨打电话
+#define kHiddenKeyboardNotification @"kHiddenKeyboardNotification"  //隐藏键盘
+#define kApplicationDidBecomeActive @"kApplicationDidBecomeActive"  // 进入活跃
+#define kApplicationDidEnterBackground @"kApplicationDidEnterBackground"    // 进入后台
+#define kApplicationWillEnterForeground @"kApplicationWillEnterForeground"    // 进入前台
+#define kUIApplicationDidChangeStatusBarFrameNotification @"UIApplicationDidChangeStatusBarFrameNotification"    // 监听热点状态
+#define kDidReceiveRemoteDic   @"kDidReceiveRemoteDic" // 推送进入数据
+#define kFriendRemark @"kFriendRemark"  // 修改备注
+
+#define kLabelVCRefreshNotif @"kLabelVCRefreshNotif"    // 刷新标签列表
+#define kOpenReadDelNotif @"kOpenReadDelNotif"  // 开启阅后即焚
+#define kRefreshChatLogNotif @"kRefreshChatLogNotif"    // 聊天页面重新加载聊天记录
+#define kChatVCReloadNotif @"kChatVCReloadNotif"    // 聊天页面tableview刷新
+#define kChatVCRefreshNotif @"kChatVCRefreshNotif"    // 聊天页面tableview刷新
+
+#define kFriendPassNotif @"kFriendPassNotif"    // 验证通过
+#define kRefreshAddressBookNotif @"kRefreshAddressBookNotif"    //手机联系人刷新
+#define kMsgComeContactRegister @"kMsgComeContactRegister"
+
+
+#define kMsgRoomFaceNotif @"kMsgRoomFaceNotif"  // 面对面建群刷新通知
+#define kOfflineOperationUpdateUserSet @"kOfflineOperationUpdateUserSet" // 获取离线接口列表后刷新界面
+#define kOfflineOperationUpdateLabelList @"kOfflineOperationUpdateLabelList" // 获取离线接口列表后刷新标签列表
+
+#define kUpdateTransferMsgFileSize @"kUpdateTransferMsgFileSize" // 领取后改变转账消息状态
+
+#define kKeepOnSendGroupSendMessage @"kKeepOnSendGroupSendMessage" //发送下一条群发消息
+#define kWebViewChangeUrlNotif @"kWebViewChangeUrlNotif"  // 用于监听webView内部url改变
+
+#define kUpdateChatPerson @"kUpdateChatPerson"      // 更新聊天页面的User
+#define kUpdateChatKeyGroup @"kUpdateChatKeyGroup"  // 接收到群成员发送过来的秘钥
+
+/*  **** 判断字典、数组是否为空 ****  */
+#define IsDictionaryNull(dict) (nil == dict || ![dict isKindOfClass:[NSDictionary class]] || [dict isKindOfClass:[NSNull class]] || [dict allKeys].count <= 0)
+#define IsArrayNull(array) ((nil == array || ![array isKindOfClass:[NSArray class]] || [array isKindOfClass:[NSNull class]] || array.count <= 0))
+#define IsStringNull(string) (nil == string || [string isKindOfClass:[NSNull class]]|| string.length <= 0)
+#define IsObjectNull(object) (nil == object || [object isKindOfClass:[NSNull class]])
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+#import "Masonry.h"
+#ifdef Meeting_Version
+#ifdef Live_Version
+#import "GKMessageTool.h"
+#endif
+#endif
+#import "QQHeader.h"
+#import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
+#import "SBJsonParser.h"
+#import "JXXMPP.h"
+#import "JXMessageObject.h"
+#import "JXUserObject.h"
+#import "JXMultipleLogin.h"
+#import "JXMsgAndUserObject.h"
+#import "Photo.h"
+#import "UIFactory.h"
+#import "JXLabel.h"
+#import "UIImage+Tint.h"
+#import "JXImageView.h"
+#import "JXSecurityUtil.h"
+#import "JXPayServer.h"
+#ifdef IS_MsgEncrypt
+#import "JXMsgUtil.h"
+#endif
+#import "JXLoginServer.h"
+#import "AppDelegate.h"
+#import "JXConnection.h"
+#import "jxServer.h"
+#import "JXCommonService.h"
+#import "JXWaitingView.h"
+#import "JXCollectionView.h"
+#import "SBJsonWriter.h"
+#import "JXUserObject.h"
+#import "JXFriendObject.h"
+#import "weibodata.h"
+#import "WeiboReplyData.h"
+#import "TimeUtil.h"
+#import "ATMHud.h"
+#import "admobViewController.h"
+#import "JXTableViewController.h"
+#import "JXEmoji.h"
+#import "FileInfo.h"
+#import "LXActionSheet.h"
+#import "JXConstant.h"
+#import "JXMainViewController.h"
+#import "versionManage.h"
+#import "JXDatePicker.h"
+#import "MJRefreshFooterView.h"
+#import "roomData.h"
+#import "JXAudioPlayer.h"
+#import "JXVideoPlayer.h"
+#import "AFNetworking.h"
+#import "TimeUtil.h"
+#import "DESUtil.h"
+#import "AESUtil.h"
+#import "UIImageView+WebCache.h"
+#import "JXMyTools.h"
+#import "SkinManage.h"
+#import "MXWechatConfig.h"
+#import "UIControl+JXCustom.h"
+#import "JXHttpRequet.h"
+#import "JXNetwork.h"
+#import "UIImage+Color.h"
+#import "UIImage+Tint.h"
+#import "JXInputRectView.h"
+#import "webpageVC.h"
+#import "SDImageCache.h"
+#import "SDWebImageManager.h"
+#import "UIView+Frame.h"
+
+#if TAR_IM
+#ifdef Meeting_Version
+#import "JXMeetingObject.h"
+#endif
+#endif
+
+#import "JXServer+Live.h"
+
+
+#endif

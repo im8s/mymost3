@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+<!--    <base-config cleartextTrafficPermitted="true" />-->
+<!--    <domain-config>-->
+<!--        <domain includeSubdomains="true">im.im.sports-chain.com</domain>>-->
+<!--    </domain-config>-->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">com.client.im.new</domain>
+    </domain-config>
+</network-security-config>

@@ -1,0 +1,11 @@
+/* Localized versions of Info.plist keys */
+
+CFBundleDisplayName = "鲸鱼";
+
+nscamerausagedescription ="打開相機以便錄製視頻進行消息發送";
+nscontactsusagedescription ="允許上傳通訊錄數據到服務器，以便發現共同使用此app的好友";
+nslocationwheninuseusagedescription ="在使用app時允許使用定位以便尋找附近的用戶，並把自己的位置共享在地圖上";
+nsmicrophoneusagedescription ="打開麥克風以便錄製音訊進行消息發送";
+nsphotolibraryusagedescription ="打開相册以便選取照片進行消息發送";
+nscalendarsusageDescription = "在使用APP時允許使用日曆，以便選用日期";
+

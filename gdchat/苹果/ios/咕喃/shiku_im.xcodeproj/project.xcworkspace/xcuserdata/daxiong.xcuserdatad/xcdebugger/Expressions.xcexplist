@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[WCSendMessageController tableView:cellForRowAtIndexPath:]:WCSendMessageController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "msg">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WCMessageObject updateIsRead:]:WCMessageObject.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[WCMessageObject fromDictionary:]:WCMessageObject.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "p.fileData">
+            </PersistentString>
+            <PersistentString
+               value = "self.fileData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WCSendMessageController recordSwitch:]:WCSendMessageController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.selected">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WCXMPPManager xmppStream:didReceiveMessage:]:WCXMPPManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "message">
+            </PersistentString>
+            <PersistentString
+               value = "&#65339;message from&#65341;">
+            </PersistentString>
+            <PersistentString
+               value = "message from">
+            </PersistentString>
+            <PersistentString
+               value = "[message from]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[WCMessageCell layoutSubviews]:WCMessageCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "CELL_WIDTH">
+            </PersistentString>
+            <PersistentString
+               value = "self.contentView.frame.size.width">
+            </PersistentString>
+            <PersistentString
+               value = "_messageConent.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

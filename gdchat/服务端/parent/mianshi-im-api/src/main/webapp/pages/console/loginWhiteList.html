@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录白名单IP管理</title>
+</head>
+<link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+
+<body>
+
+<div class="layui-row">
+		<div id="back" class="layui-col-md1">&nbsp;</div>
+		<div id="loginWhiteList_div" class="layui-col-md10">
+			<div class="liveRoom_btn_div" style="margin-top: 2%">
+				<button onclick="LoginWhiteList.addLoginWhiteList()" class="layui-btn btn_addLive">新增登录白名单IP</button>
+			</div>
+			<div id="loginWhiteListList" class="layui-card" style="margin-top: 1%">
+				<div class="layui-card-header">登录白名单IP列表</div>
+				<div class="layui-card-body">
+					<table id="loginWhiteList_table" lay-filter="loginWhiteList_table"></table>
+				</div>
+			</div>
+		</div>
+		<div id="addLoginWhiteList" class="layui-col-md10" style="display: none;">
+			<div class="layui-card" style="margin-top: 1%">
+				<div class="layui-card-header">新增登录白名单IP</div>
+				<div class="layui-card-body">
+					<table cellspacing="0" cellpadding="0" border="0" class="layui-table">
+						<tr>
+							<td>IP</td>
+							<td><input id="ip" type="text" name="" class="layui-input"></td>
+						</tr>
+						<tr>
+							<td>端口类型</td>
+							<td>
+								<form class="layui-form" action="" style="">
+									<div class="layui-form-item">
+										<select id="type" class="layui-select" style="width: 100%">
+											<option value="">请选择</option>
+											<option value="0">PC端</option>
+											<option selected="selected" value="1">管理后台</option>
+										</select>
+									</div>
+								</form>
+							</td>
+						</tr>
+
+					</table>
+					<button onclick="LoginWhiteList.commit_addLoginWhiteList()" class="layui-btn addLiveRoombtn">提交</button>
+					<button onclick="LoginWhiteList.btn_back()" class="layui-btn layui-btn-primary layui-btn-sm" style="">&lt;&lt;返回</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--操作-->
+	<script type="text/html" id="loginWhiteListListBar">
+		<a class="layui-btn layui-btn-danger layui-btn-xs delete" lay-event="delete">删除</a>
+	</script>
+
+
+<script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+<script type="text/javascript" src="/pages/common/jquery/jquery.md5.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.form.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/console_ui.js"></script>
+<script type="text/javascript" src="/pages/console/js/loginWhiteList.js"></script>
+</body>
+</html>

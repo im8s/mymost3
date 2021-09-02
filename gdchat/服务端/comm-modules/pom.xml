@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.shiku.im.modules</groupId>
+    <artifactId>im-comm-modules</artifactId>
+    <packaging>pom</packaging>
+
+    <version>1.0</version>
+    <properties>
+
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+         <lombok.version>1.18.4</lombok.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <shikucommom.version>1.0</shikucommom.version>
+        <im-module.vserion>1.0</im-module.vserion>
+    </properties>
+    <modules>
+
+        <module>im-core-module</module>
+        <module>comm-maven-pom</module>
+        <module>user-module/user-core</module>
+        <module>room-module/room-core</module>
+        <module>room-module</module>
+        <module>friend-module</module>
+        <module>open-module</module>
+        <module>pay-module</module>
+        <module>sms-module</module>
+        <module>company-module</module>
+        <module>live-module</module>
+        <module>msg-module</module>
+        <module>user-module</module>
+        <module>redpack-module</module>
+        <module>mp-module</module>
+
+        <module>message-module</module>
+        <module>admin-console</module>
+        <module>timed-task-module</module>
+        <module>api-module/api-core</module>
+        <module>api-module</module>
+        <module>pay-module/pay-api-module</module>
+        <module>manual-pay-module</module>
+        <module>message-push-module</module>
+        <module>push-services-module</module>
+        <module>common-api</module>
+        <!-- <module>invite-module</module>-->
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!-- swagger注解依赖  -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.6.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>2.0.3</version>
+            </dependency>-->
+
+
+            <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+
+
+            <dependency>
+                <groupId>com.shiku.redisson</groupId>
+                <artifactId>shiku-redisson</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+        </dependencies>
+</dependencyManagement>
+
+    <build>
+       <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+           <!-- 要将源码放上去，需要加入这个插件 -->
+         <plugin>
+               <artifactId>maven-source-plugin</artifactId>
+               <version>2.1.2</version>
+               <configuration>
+                   <attach>true</attach>
+               </configuration>
+               <executions>
+                   <execution>
+                       <phase>compile</phase>
+                       <goals>
+                           <goal>jar</goal>
+                       </goals>
+                   </execution>
+               </executions>
+           </plugin>
+        </plugins>
+    </build>
+    <distributionManagement>
+
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <url>http://192.168.0.227:8891/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots</name>
+            <url>http://192.168.0.227:8891/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>

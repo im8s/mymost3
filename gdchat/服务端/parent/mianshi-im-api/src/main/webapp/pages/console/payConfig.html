@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付配置</title>
+    <link rel="stylesheet" href="/pages/common/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="./css/public.css" media="all" />
+</head>
+<body>
+<div  class="layui-container" style="width: 90%;margin-top: 30px;">
+    <form class="layui-form">
+        <table class="layui-table mag0">
+            <colgroup>
+                <col width="25%">
+                <col width="45%">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>参数说明</th>
+                <th>参数值</th>
+                <th>变量名</th>
+                <th>参数说明</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>单笔最大转账金额</td>
+                <td>
+                    <input type="text" class="layui-input maxTransferAmount" lay-verify="required" placeholder="请输入单笔最大转账金额">
+                </td>
+                <td>maxTransferAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单笔最大红包金额</td>
+                <td>
+                    <input type="text" class="layui-input maxRedpacktAmount" lay-verify="required" placeholder="请输入单笔最大红包金额">
+                </td>
+                <td>maxRedpacktAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单笔群红包最大发送个数</td>
+                <td>
+                    <input type="text" class="layui-input maxRedpacktNumber" lay-verify="required" placeholder="单笔群红包最大发送个数">
+                </td>
+                <td>maxRedpacktNumber</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单笔最大提现金额</td>
+                <td>
+                    <input type="text" class="layui-input maxWithdrawAmount" lay-verify="required" placeholder="请输入单笔最大提现金额">
+                </td>
+                <td>maxWithdrawAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单笔最大充值金额</td>
+                <td>
+                    <input type="text" class="layui-input maxRechargeAmount" lay-verify="required" placeholder="请输入单笔最大充值金额">
+                </td>
+                <td>maxRechargeAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单笔付款码支付最大金额</td>
+                <td>
+                    <input type="text" class="layui-input maxCodePaymentAmount" lay-verify="required" placeholder="单笔付款码支付最大金额">
+                </td>
+                <td>maxCodePaymentAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单笔二维码收款最大金额</td>
+                <td>
+                    <input type="text" class="layui-input maxCodeReceiptAmount" lay-verify="required" placeholder="单笔二维码收款最大金额">
+                </td>
+                <td>maxCodeReceiptAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单日转账最大金额</td>
+                <td>
+                    <input type="text" class="layui-input dayMaxTransferAmount" lay-verify="required" placeholder="请输入单日转账最大金额">
+                </td>
+                <td>dayMaxTransferAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单日红包最大金额</td>
+                <td>
+                    <input type="text" class="layui-input dayMaxRedpacktAmount" lay-verify="required" placeholder="请输入单日红包最大金额">
+                </td>
+                <td>dayMaxRedpacktAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单日提现最大金额</td>
+                <td>
+                    <input type="text" class="layui-input dayMaxWithdrawAmount" lay-verify="required" placeholder="请输入单日提现最大金额">
+                </td>
+                <td>dayMaxWithdrawAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单日充值最大金额</td>
+                <td>
+                    <input type="text" class="layui-input dayMaxRechargeAmount" lay-verify="required" placeholder="请输入单日充值最大金额">
+                </td>
+                <td>dayMaxRechargeAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单日付款码支付最大金额</td>
+                <td>
+                    <input type="text" class="layui-input dayMaxCodePayAmount" lay-verify="required" placeholder="请输入单日付款码支付最大金额">
+                </td>
+                <td>dayMaxCodePayAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>单日二维码收款最大金额</td>
+                <td>
+                    <input type="text" class="layui-input dayMaxCodeReceiptAmount" lay-verify="required" placeholder="请输入单日二维码收款最大金额">
+                </td>
+                <td>dayMaxCodeReceiptAmount</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>零钱提现费率</td>
+                <td>
+                    <input type="text" class="layui-input myChangeWithdrawRate" lay-verify="required" placeholder="请输入零钱提现费率">
+                </td>
+                <td>
+                    myChangeWithdrawRate
+                </td>
+                <td>
+                    提现费率不能低于0.006
+                </td>
+            </tr>
+            <tr>
+                <td>是否开启扫码手动充值</td>
+                <td>
+                    <select class="layui-input-inline isOpenManualPay">
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
+                </td>
+                <td>
+                    isOpenManualPay
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>是否开启云钱包</td>
+                <td>
+                    <select class="layui-input-inline isOpenCloudWallet ">
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
+                </td>
+                <td>
+                    isOpenCloudWallet
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>云钱包开户是否默认正常使用</td>
+                <td>
+                    <select class="layui-input-inline isDefaultFreeze">
+                        <option value="1">是</option>
+                        <option value="0">否</option>
+                    </select>
+                </td>
+                <td>
+                    isDefaultFreeze
+                </td>
+                <td>
+<!--                    冻结后需要联系管理员解冻-->
+                </td>
+            </tr>
+            <tr>
+                <td>云钱包新开户充值多少小时后可交易</td>
+                <td>
+                    <input type="text" class="layui-input newYopUserRechargeTime" lay-verify="required" placeholder="云钱包新开户充值多少小时后可交易">
+                </td>
+                <td>
+                    newYopUserRechargeTime
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>云钱包新开户第一笔充值限额</td>
+                <td>
+                    <input type="text" class="layui-input newYopUserFirstRecharge" lay-verify="required" placeholder="云钱包新开户第一笔充值限额">
+                </td>
+                <td>
+                    newYopUserFirstRecharge
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>后台管理中单笔最大充值金额</td>
+                <td>
+                    <input type="text" class="layui-input consoleMaxRechargeAmount" lay-verify="required" placeholder="后台管理中单笔最大充值金额">
+                </td>
+                <td>
+                    consoleMaxRechargeAmount
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>后台管理中单笔最大手工提现金额</td>
+                <td>
+                    <input type="text" class="layui-input consoleMaxCodePaymentAmount" lay-verify="required" placeholder="后台管理中单笔最大手工提现金额">
+                </td>
+                <td>
+                    consoleMaxCodePaymentAmount
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+        <div class="magt10 layui-center">
+            <div class="layui-input-block" style="margin-left: 0px">
+                <button class="layui-btn save" lay-submit="" lay-filter="walletConfig">保存</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+<script type="text/javascript" src="/pages/common/layui/layui.js"></script>
+<script type="text/javascript" src="/pages/common/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript" src="./js/payConfig.js"></script>
+</body>
+</html>

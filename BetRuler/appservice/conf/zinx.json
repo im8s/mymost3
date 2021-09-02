@@ -1,0 +1,8 @@
+{
+  "Name":"BetService",
+  "Host":"0.0.0.0",
+  "TcpPort":8090,
+  
+  "LogDir": "./appservice_log",
+  "LogFile":"appservice.log"
+}

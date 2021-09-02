@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+
+    <lostrate>
+        <sdlr UseAccordLR="false" AccordLR="2" SingleLR="0=200,1=60,2=30,3=20,4=10,5=10,6=7,7=5,8=4,9=3,10=3,11=3,12=2,13=2,14=2,15=2,16=3,17=3,18=3,19=4,20=5,21=7,22=10,23=10,24=20,25=30,26=60,27=200,"/>
+        <bsoelr AccordLR="3.5">
+            <Gross1314LRDefs>
+                <item UseThis="true" Gross="1000" Times="2.5"/>
+                <item UseThis="true" Gross="5000" Times="2"/>
+                <item UseThis="true" Gross="10000" Times="1"/>
+            </Gross1314LRDefs>
+            <LikeCardLRDefs>
+                <item UseThis="false" Type="12" Times="0"/>
+                <item UseThis="false" Type="13" Times="0"/>
+                <item UseThis="false" Type="14" Times="0"/>
+            </LikeCardLRDefs>
+        </bsoelr>
+        <grplr UseAlg1="true" AccordLR="5.5" Use1314LR="true" Sum1314LR="2.5" BESOLR="5.5" SEBOLR="5.5">
+            <Gross1314LRDefs>
+                <item UseThis="true" Gross="5000" Times="1.5"/>
+                <item UseThis="true" Gross="10000" Times="1"/>
+                <item UseThis="true" Gross="50000" Times="1"/>
+            </Gross1314LRDefs>
+            <LikeCardLRDefs>
+                <item UseThis="false" Type="12" Times="0"/>
+                <item UseThis="false" Type="13" Times="0"/>
+                <item UseThis="false" Type="14" Times="0"/>
+            </LikeCardLRDefs>
+        </grplr>
+        <mmlr AccordLR="15"/>
+        <lclr Use890="false">
+            <LikeCardLRDefs>
+                <item UseThis="true" Type="12" Times="30"/>
+                <item UseThis="true" Type="13" Times="2.5"/>
+                <item UseThis="true" Type="14" Times="3"/>
+            </LikeCardLRDefs>
+        </lclr>
+    </lostrate>
+	
+    <lotrule UseSDLimit="true" MaxSDDiffNum="2" HintInvalid="true" SaveScreenshot="false">
+        <LotQuota UseSDGross="true">
+            <item UseThis="true" Amount="50" Type="-1"/>
+            <item UseThis="true" Amount="10000" Type="-1"/>
+            <item UseThis="true" Amount="10000" Type="-1"/>
+            <item UseThis="true" Amount="10000" Type="-1"/>
+            <item UseThis="true" Amount="10000" Type="-1"/>
+            <item UseThis="true" Amount="10000" Type="-1"/>
+            <item UseThis="true" Amount="10000" Type="-1"/>
+            <item UseThis="true" Amount="10000" Type="-1"/>
+            <item UseThis="true" Amount="30000" Type="-1"/>
+        </LotQuota>
+        <LotForbid>
+            <item UseForbid="true" UseThis="false" Amount="30000" Type="-1"/>
+            <item UseForbid="true" UseThis="false" Amount="30000" Type="-1"/>
+            <item UseForbid="true" UseThis="false" Amount="30000" Type="-1"/>
+            <item UseForbid="true" UseThis="false" Amount="30000" Type="-1"/>
+        </LotForbid>
+    </lotrule>
+	
+	<serverParams>
+		<lotServer ip="66.232.11.213" port="8090" user="" pass="" />
+	</serverParams>
+	
+</config>

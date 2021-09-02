@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/normal_bg">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnableAutoLoadMore="true"
+        app:srlEnableLoadMore="true"
+        android:visibility="gone">
+
+        <com.sk.weichat.view.PullRefreshHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.yanzhenjie.recyclerview.SwipeRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:overScrollMode="never"
+            tools:listitem="@android:layout/simple_list_item_2" />
+
+        <com.sk.weichat.view.PullRefreshFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <com.sk.weichat.view.MergerStatus
+        android:id="@+id/mergerStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
+
+            <com.sk.weichat.view.SkinImageView
+                android:id="@+id/iv_title_left_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:padding="@dimen/dp15"
+                android:src="@mipmap/return_icon"
+                android:visibility="gone" />
+
+            <com.sk.weichat.view.SkinTextView
+                android:id="@+id/tv_title_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="middle"
+                android:maxWidth="200dp"
+                android:singleLine="true"
+                android:text="@string/life_circle"
+                android:textColor="@color/app_white"
+                android:textSize="@dimen/sp_18_text_size"
+                android:visibility="gone"/>
+
+            <com.sk.weichat.view.SkinTextView
+                android:id="@+id/tv_title_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="探索"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold"/>
+
+            <ProgressBar
+                android:id="@+id/pb_title_center"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tv_title_center"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/dialog_loading"
+                android:indeterminateOnly="true"
+                android:visibility="gone" />
+
+            <com.sk.weichat.view.SkinImageView
+                android:id="@+id/iv_title_right"
+                android:layout_width="@dimen/menu_item_size"
+                android:layout_height="@dimen/menu_item_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="14dp" />
+
+            <com.sk.weichat.view.SkinImageView
+                android:id="@+id/iv_title_right_right"
+                android:layout_width="@dimen/menu_item_size"
+                android:layout_height="@dimen/menu_item_size"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_title_right"
+                android:padding="14dp"
+                android:src="@drawable/search_near"
+                android:visibility="gone" />
+
+            <com.sk.weichat.view.SkinTextView
+                android:id="@+id/tv_title_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxWidth="100dp"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="@color/app_white"
+                android:textSize="@dimen/title_right_text_size" />
+
+        </RelativeLayout>
+    </com.sk.weichat.view.MergerStatus>
+
+    <RelativeLayout
+        android:id="@+id/rel_hot"
+        style="@style/IMTbleLine_UP"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:visibility="visible"
+        android:layout_marginTop="9dp"
+        android:layout_below="@+id/mergerStatus">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:text="热门应用"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_app"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/me_divider"
+        android:orientation="vertical"
+        android:layout_marginTop="1dp"
+        android:background="@color/normal_bg"
+        android:layout_below="@+id/rel_hot">
+
+        <RelativeLayout
+            android:id="@+id/rel_find"
+            style="@style/IMTbleLine_UP"
+            android:background="@drawable/selector_bg_white"
+            android:visibility="visible">
+
+            <com.sk.weichat.view.LightImageView
+                android:id="@+id/quan"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_circle"
+                app:srcLight="@drawable/ic_circle" />
+
+            <TextView
+                android:id="@+id/tvNumber"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/tab_unread_bg"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                android:text="1"
+                android:visibility="invisible" />
+
+            <TextView
+                style="@style/IMTbleLine_TextName"
+                android:layout_centerVertical="true"
+                android:text="社交圈"
+                android:textStyle="bold"/>
+
+            <ImageView
+                style="@style/IMTbleLine_ArrowImg.Me"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/me_chevron_right"
+                android:contentDescription="@string/app_name" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/scanning"
+            style="@style/IMTbleLine_UP"
+            android:background="@drawable/selector_bg_white"
+            android:visibility="visible">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/gray_d3"/>
+
+            <com.sk.weichat.view.LightImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_scan"
+                app:srcLight="@drawable/ic_scan" />
+
+            <TextView
+                style="@style/IMTbleLine_TextName"
+                android:layout_centerVertical="true"
+                android:text="扫一扫"
+                android:textStyle="bold"/>
+
+            <ImageView
+                style="@style/IMTbleLine_ArrowImg.Me"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/me_chevron_right"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/near_person"
+            style="@style/IMTbleLine_UP"
+            android:background="@drawable/selector_bg_white"
+            android:visibility="gone"
+            >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/gray_d3"/>
+            <com.sk.weichat.view.LightImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/message_near_person"
+                app:srcLight="@drawable/message_near_person" />
+
+            <TextView
+                style="@style/IMTbleLine_TextName"
+                android:layout_centerVertical="true"
+                android:text="附近的人"
+                android:textStyle="bold"/>
+
+            <ImageView
+                style="@style/IMTbleLine_ArrowImg.Me"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/me_chevron_right"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+
+
+        <com.yanzhenjie.recyclerview.SwipeRecyclerView
+            android:id="@+id/rec_more"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_hot_hao"
+        style="@style/IMTbleLine_UP"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:visibility="visible"
+        android:layout_marginTop="9dp"
+        android:layout_below="@+id/lin_app">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:text="热门公众号"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/me_divider"
+        android:orientation="vertical"
+        android:background="@color/normal_bg"
+        android:layout_below="@+id/rel_hot_hao">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPublicNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:clipToPadding="false"
+            android:fastScrollEnabled="false"
+            android:overScrollMode="never"
+            tools:listitem="@layout/item_square_public_number" />
+
+        <RelativeLayout
+            android:id="@+id/rel_kefu"
+            style="@style/IMTbleLine_UP"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <com.sk.weichat.view.LightImageView
+                android:id="@+id/kefu"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_circle"
+                app:srcLight="@drawable/ic_circle" />
+
+            <TextView
+                android:id="@+id/main_tab_kefu_tv"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="top|right"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/tab_unread_bg"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="10dp"
+                android:text="1"
+                android:visibility="invisible" />
+
+            <TextView
+                style="@style/IMTbleLine_TextName"
+                android:layout_centerVertical="true"
+                android:text="客服公众号" />
+
+            <ImageView
+                style="@style/IMTbleLine_ArrowImg.Me"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/me_chevron_right"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="7dp"
+            android:padding="8dp"
+            android:src="@mipmap/return_icon"
+            android:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_title_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="7dp"
+            android:padding="8dp"
+            android:src="@mipmap/more_icon"
+            android:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/load_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/loading"
+        android:textColor="@color/Grey_600"
+        android:textSize="@dimen/BigTextSize"
+        android:visibility="gone" />
+
+</RelativeLayout>

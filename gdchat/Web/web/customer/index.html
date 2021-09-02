@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="audio/amr" />
+<meta http-equiv ="proma" content = "no-cache"/>
+<meta http-equiv="cache-control" content="no cache" />
+<meta http-equiv="expires" content="0" />
+<title>系统客服</title>
+
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../layui/css/layui.css" media="all"/>
+<link rel="stylesheet" type="text/css" href="../css/coolchat.css"/>
+<link rel="stylesheet" type="text/css" href="./css/customer.css"/>
+<link rel="stylesheet" href="../assets/js/contextMenu/dist/jquery.contextMenu.css"  type="text/css" />
+
+<link rel="icon"  href="../img/favicon.ico"/>
+<!--聊天界面滚动条相关 -->
+<link rel="stylesheet" href="../scrollbar/nanoscroller.css">
+<style type="text/css">
+	body{
+		background-color: #EEF0F5;
+	}
+</style>
+</head>
+<body style="background-color: #E9E9E9;" class="">
+  <audio src="../mp3/msg.mp3" id="myMusic"></audio>
+	<div class="main" style="min-height: 600px;">			
+				
+
+				<div class="layui-fluid" style="padding:0">
+					
+					<div id="tabCon_0" class="customer_message_panel_div" >
+						<div id="chatPanel" class="customer_message_panel" >
+							
+							<div class="customer-heading" style="background-color: #EEEEEE; vertical-align:middle;border-bottom: 1px solid #d6d6d6">
+								<div style="height:40px">
+									<div id="chatAvator"  class="headContent">
+										<div class="imgAvatar">
+											<figure style="height:40px;width:40px;">
+												<img onerror="'../img/ic_avatar.png'" src="../img/logo.png" class="chat_content_avatar">
+											</figure>
+										</div>
+									</div>
+									<div class="headContent">
+										<h3 id="chatTitle" class="panel-title" style="margin-top: 15px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 150px;">&nbsp;</h3>
+									</div>
+									<div class="headContent hint" style="display: block;" id="chatHint">系统客服系统</div>
+									<div style="float: right;line-height: 40px">
+										<a id="Snapchat" href="#" class="Cbtn Cbtn-outline" onclick="Customer.register();">咨询人工客服</a>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="panel-body" style="padding: 0px;height:600px">
+								<div id='messagePanel' class="nano coolchat_message_show_area" style="height: 400px;padding: 0 17px;">
+									<div class="nano-content" style="">
+										<div id="messageContainer" style="overflow: hidden;padding: 0 17px;">
+										</div>
+										<div id="messageEnd" style="height: 0px; overflow: hidden"></div>
+									</div>
+								</div>
+								<div id="emojl-panel" class="emoji-panel" style="display: none;">
+									
+									<ul id="emojiList" class="emojiList" style=""></ul>
+								</div>
+		
+
+								<div id="userfulText-panel" class="userfulText-panel" style="display: none;">
+									<h3 class="title">
+										<a href="javascript:" id="addUsefulTextBtn" class="link-set">添加</a>
+										常用语
+									</h3>
+									<ul id="userfulTextList"></ul>
+								</div>
+
+
+
+								<div id="sendMsgScopeDiv" style="height:210px; ">
+									
+									<div style=" cursor: pointer; color: blue; font-size: 12px;">
+										<span id="btnEmojl">
+											<img id="img1" alt="" src="../img/emoji.png">
+										</span>
+										
+										<span id="btnImg">
+												<img alt="" src="../img/p.png">
+										</span>
+									
+										<span id="btnFile">
+											<img alt="" src="../img/wj.png">
+										</span>
+										
+										<span id="userfulTextBtn" style="display: none;">
+											<img style="margin-top: 5px" src="../img/userfulText.png">
+										</span>
+									</div>
+									<textarea class="Input_text" 
+									id="messageBody" wrap="hard" style="padding: 0">
+									</textarea>
+
+									<div style="/*margin-top: 15px;*/ position:absolute;">
+										<button id="btnEndChat" type="button" class="btn sou msg_panel_op_btn" style="display: none;">结束会话</button>
+									</div>
+
+									<div style="/*margin-top: 15px; */float: right;">
+										<button id="btnSend" type="button" class="btn sou msg_panel_op_btn" style="color: white; margin:10px 10px;">发送（Ctrl+Enter）</button>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				
+
+			<!-- 选择文件 -->
+			<div id="uploadFileModal" class="modal fade" tabindex="-1" role="dialog"  aria-hidden="true">
+					
+					<!-- 上传文件操作 标识  sendImg 发送图片  sendFile 发送文件  uploadFile 群文件上传 -->
+					 <!-- <input id="uploadType" name="uploadType" type="hidden" value="sendImg" /> -->
+
+					<div class="modal-dialog" style="width: 100%;max-width: 400px;margin-top: 60px;">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="uploadModalLabel">文件上传</h4>
+							</div>
+							<div class="modal-body">
+							<form id="uploadFileFrom" action="" method="post" enctype="multipart/form-data">
+									<input id="uploadUserId"  type="hidden" name="userId" value="" /><br>
+									<input id="myfile" name="file" type="file" accept="*/*" style="width: 300px;display: none;" onchange="UI.upload()"> 
+									<div class="progress">
+									    <div></div>
+									</div>
+									<!-- <span id="icon" onclick="myFn.getPicture()"> </span> -->
+									<!-- <div id="box" style="width:200px;height:200px;border:1px dashed black;">
+										拖拽到这里上传
+									</div> -->
+							</form>
+								<!-- <p class="chat_content" id="myFilePreviewPrant" style="width: 100%;display: none"> -->
+									<!-- <img src="img/uploadFile.png" onclick="myFn.getPicture()" > -->
+									<span id="myFilePreview" ></span>
+
+								<img id="myImgPreview" src="https://plus.yixin.im/res/default/card.png?8fa89eb5c07677f613cb2552cffe8280"
+									 style="width: 120px;" /> 
+								<input id="myFileUrl" name="myFileUrl" type="hidden" />
+								<input id="filePath" name="filePath" type="hidden" />
+							</div>
+							<!-- <div class="modal-footer">
+								<button type="button" class="btn sou" id="btnSendFileCancel">取消发送</button>
+								<button type="button" class="btn sou" id="btnSendFileOK">确认发送</button>
+							</div> -->
+						</div>
+					</div>
+			</div>
+			
+			
+			
+
+			
+
+			<!-- 图片缩放 -->
+			<div id='imgZoomModal' class='modal fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' >
+				<div class='modal-dialog' style="max-width: 1500px; max-height: 1150px;margin-top: 60px">
+					<div class='modal-content' style="background: #ffffff;">
+						<div  class='modal-header' style="border:0;">   <!-- class='modal-header' -->
+							<button type='button' class='close' data-dismiss='modal' aria-hidden='true' 
+							style="height: 20px; width: 20px;">&times;</button>
+						</div>
+						<div id ='imgZoomBody' class='modal-body' style="text-align: center;">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+
+
+	 
+
+    </div>
+
+
+ <!-- layui -->
+<script type="text/javascript" src="../layui/layui.all.js"></script>
+
+<script src="../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.cookie.js" type="text/javascript"></script>
+<!-- <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script> -->
+
+
+
+<!-- 聊天界面滚动条相关 -->
+<script type="text/javascript" src="../scrollbar/jquery.nanoscroller.js"></script>
+
+<!-- websocket IM  -->
+<script src="../js/protobuf.js"></script>
+<script src="../js/websocket_sdk.js"></script>
+<script src="../js/webim.js"></script>
+
+
+
+
+<script src="../js/tb_areas.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.md5.js" type="text/javascript"></script>
+
+<!-- 本地数据库 相关 -->
+<script src="../assets/js/cookieStorage.js" type="text/javascript"></script>
+<script src="../assets/js/localStoreage.js" type="text/javascript"></script>
+<script src="../js/dbUtils.js" type="text/javascript"></script>
+<script src="../js/dataUtils.js" type="text/javascript"></script>
+
+
+<!-- 系统相关的公用 方法 -->
+<script src="../js/commons.js" type="text/javascript"></script>
+<!-- 配置相关  数据储存相关  -->
+<script src="../js/_coolchat-commons.js" type="text/javascript"></script>
+<!-- 里面放的都是一些页面要调用的方法  js-->
+<script src="../js/chat-function.js" type="text/javascript"></script>
+<!--单聊 聊天有关的  js-->
+<script src="js/coolchat.js" type="text/javascript"></script>
+<!--聊天界面 UI 界面处理 相关的 -->
+<script src="js/chat-ui.js" type="text/javascript"></script>
+
+
+
+
+<!-- 客服模块js -->
+<script src="js/customer.js" type="text/javascript"></script>
+
+<!--调用接口相关的 Js -->
+<script src="../js/chat-sdk.js" type="text/javascript"></script>
+
+
+
+<!-- 消息加密相关-->
+<script src="../js/forge.js"></script>
+<script src="../assets/js/crypto-js.js"></script>
+<script src="../assets/js/jsencrypt.min.js"></script>
+<script src="../assets/js/elliptic.js"></script>
+
+<script src="../js/encryptUtils.js"></script>
+<script src="../js/apiAuthUtils.js"></script>
+
+<!-- 滚动条相关  -->
+<script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script> 
+<script type="text/javascript" src="../assets/js/jquery.scrollTo.js"></script> 
+
+
+
+
+<!-- 视频播放器 -->
+<link rel="stylesheet" href="../assets/dist/plyr.css">
+<script src="../assets/dist/plyr.min.js"></script>
+
+<script src="../Recorderjs/dist/recorder.js" type="text/javascript"></script>
+<script src="../js/chat-voice.js" type="text/javascript"></script>
+
+	
+<script type="text/javascript">
+
+	document.getElementById("messageBody").onkeydown=function(e){
+		e=e||window.event;
+		 if(e.ctrlKey && e.keyCode == 13){
+		 		var content = $("#messageBody").val();
+				if (myFn.isNil(content)) {
+					ownAlert(2,"请输入要发送的内容");
+					return;
+
+				}
+				var msg=Customer.createMessage(1, content,customerData.serviceId);
+				UI.sendMsg(msg,customerData.serviceId);
+    			$("#messageBody").val("");
+		 }
+	};
+	
+ 
+	
+</script>
+
+
+
+
+</body>
+	
+
+</html>

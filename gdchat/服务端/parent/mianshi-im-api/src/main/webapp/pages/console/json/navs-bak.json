@@ -1,0 +1,361 @@
+{
+  "contentManagement": [
+    {
+      "title": "系统配置",
+      "icon": "&#xe716;",
+      "href": "",
+      "spread": false,
+      "systemConfig": true,
+      "children": [
+        {
+          "title": "服务器配置",
+          "icon": "&#xe857;",
+          "href": "/pages/console/system_config.html",
+          "spread": false
+        },
+        {
+          "title": "客户端配置",
+          "icon": "&#xe7ae;",
+          "href": "/pages/console/clientConfig.html",
+          "spread": false
+        },
+        {
+          "title":"集群配置",
+          "icon":"&#xe656;",
+          "href":"/pages/console/clusterConfig.html",
+          "spread":false
+        },
+        {
+          "title":"支付配置",
+          "icon":"&#xe656;",
+          "href":"/pages/console/payConfig.html",
+          "spread":false
+        }
+      ]
+
+    },
+    {
+      "title": "用户管理",
+      "icon":"&#xe66f;",
+      "href": "/pages/console/userList.html",
+      "spread": false
+    },
+    {
+      "title": "角色管理",
+      "icon": "&#xe716;",
+      "href": "",
+      "spread": false,
+      "roleInfo":true,
+      "children": [
+        {
+          "title": "管理员",
+          "icon":"&#xe66c;",
+          "href": "/pages/console/admin.html",
+          "spread": false,
+          "adminUser":true
+        },
+        {
+          "title": "客服",
+          "icon":"&#xe63a;",
+          "href": "/pages/console/customer.html",
+          "spread": false,
+          "customer": true
+        },
+        {
+          "title": "财务",
+          "icon":"&#xe65e",
+          "href": "/pages/console/finance.html",
+          "spread": false,
+          "finance":true
+        },
+        {
+          "title": "机器人",
+          "icon":"&#xe606",
+          "href": "/pages/console/robot.html",
+          "spread": false,
+          "robot": true
+        },
+        {
+          "title": "游客",
+          "icon":"&#xe66f",
+          "href": "/pages/console/tourist.html",
+          "spread": false,
+          "tourist": true
+        },
+        {
+          "title": "公众号用户",
+          "icon":"&#xe612",
+          "href": "/pages/console/publicNumber.html",
+          "spread": false,
+          "publicNum": true
+        }
+      ]
+
+    },
+    {
+      "title": "群组管理",
+      "icon": "&#xe770;",
+      "href": "/pages/console/roomList.html",
+      "spread": false,
+      "roomList": true
+    },
+    {
+      "title": "单聊记录",
+      "icon": "&#xe63a;",
+      "href": "/pages/console/messageList.html",
+      "spread": false,
+      "messageList": true
+    },
+    {
+      "title": "红包记录",
+      "icon": "&#xe65e;",
+      "href": "/pages/console/redEnvelope.html",
+      "spread": false,
+      "redEnvelope": true
+    },
+    {
+      "title": "系统账单",
+      "icon": "&#xe62a;",
+      "href": "",
+      "spread": false,
+      "recharge":true,
+      "children": [
+        {
+          "title": "账单统计",
+          "icon": "&#xe632;",
+          "href": "/pages/console/billCount.html",
+          "spread": false
+        },{
+          "title": "充值记录",
+          "icon": "&#xe632;",
+          "href": "/pages/console/appRecharge.html",
+          "spread": false
+        },{
+          "title": "提现记录",
+          "icon": "&#xe632;",
+          "href": "/pages/console/raiseCash.html",
+          "spread": false
+        },{
+          "title": "转账记录",
+          "icon": "&#xe632;",
+          "href": "/pages/console/transfer.html",
+          "spread": false
+        },{
+          "title": "付款记录",
+          "icon": "&#xe632;",
+          "href": "/pages/console/paymentCode.html",
+          "spread": false
+        }
+      ]
+
+    },{
+      "title": "云钱包管理",
+      "icon": "&#xe62a;",
+      "href": "",
+      "spread": false,
+      "recharge":true,
+      "children": [
+        {
+          "title": "账户管理",
+          "icon": "&#xe632;",
+          "href": "/pages/console/ybUserInfo.html",
+          "spread": false
+        },
+        {
+          "title": "充值记录",
+          "icon": "&#xe632;",
+          "href": "/pages/console/ybRecharge.html",
+          "spread": false
+        },{
+          "title": "提现记录",
+          "icon": "&#xe632;",
+          "href": "/pages/console/ybWithdraw.html",
+          "spread": false
+        },{
+          "title": "转账记录",
+          "icon": "&#xe632;",
+          "href": "/pages/console/ybTransferAccounts.html",
+          "spread": false
+        },{
+          "title": "红包记录",
+          "icon": "&#xe632;",
+          "href": "/pages/console/ybRedPackage.html",
+          "spread": false
+        }
+      ]
+    },{
+      "title": "扫码手动充值",
+      "icon": "&#xe62a;",
+      "href": "",
+      "spread": false,
+      "recharge":true,
+      "children": [
+        {
+          "title": "收款者管理",
+          "icon": "&#xe632;",
+          "href": "/pages/console/manual_receiveAccount.html",
+          "spread": false
+        },{
+          "title": "充值申请管理",
+          "icon": "&#xe632;",
+          "href": "/pages/console/manual_checkRecharge.html",
+          "spread": false
+        },{
+          "title": "提现申请管理",
+          "icon": "&#xe632;",
+          "href": "/pages/console/manual_checkWithdraw.html",
+          "spread": false
+        }
+      ]
+    },{
+      "title": "直播管理",
+      "icon": "&#xe6ed;",
+      "href": "",
+      "spread": false,
+      "live": true,
+      "children": [
+        {
+          "title": "直 播 间",
+          "icon": "&#xe857;",
+          "href": "/pages/console/liveRoom.html",
+          "spread": false
+        },
+        {
+          "title": "礼&nbsp&nbsp&nbsp&nbsp&nbsp物",
+          "icon": "&#xe600;",
+          "href": "/pages/console/gift.html",
+          "spread": false
+        },
+        {
+          "title": "主播收入小计",
+          "icon": "&#xe65e;",
+          "href": "/pages/console/incomeTotal.html",
+          "spread": false
+        }
+      ]
+    },
+    {
+      "title": "开放平台",
+      "icon": "&#xe634;",
+      "href": "",
+      "spread": false,
+      "openPlatform": true,
+      "children": [
+        {
+          "title": "移动应用管理",
+          "icon": "&#xe857;",
+          "href": "/pages/console/openAdmin.html",
+          "spread": false
+        },
+        {
+          "title": "网站应用管理",
+          "icon": "&#xe857;",
+          "href": "/pages/console/openWebApp.html",
+          "spread": false
+        },
+        {
+          "title": "开发者管理",
+          "icon": "&#xe857;",
+          "href": "/pages/console/openDeveloper.html",
+          "spread": false
+        },
+        {
+          "title": "审核日志",
+          "icon": "&#xe65e;",
+          "href": "/pages/console/openCheckLog.html",
+          "spread": false
+        }
+      ]
+    },
+    {
+      "title": "第三方登录",
+      "icon": "&#xe6b2;",
+      "href": "/pages/console/bindingSDK.html",
+      "spread": false,
+      "complaint": true
+    },
+    {
+      "title": "举报管理",
+      "icon": "&#xe6b2;",
+      "href": "/pages/console/report.html",
+      "spread": false,
+      "complaint": true
+    },
+    {
+      "title": "朋 友 圈",
+      "icon": "&#xe6af;",
+      "href": "/pages/console/msg.html",
+      "spread": false,
+      "msgInfo":true
+    },
+    {
+      "title": "音乐管理",
+      "icon": "&#xe6af;",
+      "href": "/pages/console/music.html",
+      "spread": false,
+      "music":true
+    },
+    {
+      "title": "提示信息",
+      "icon": "&#xe702;",
+      "href": "/pages/console/promptMessage.html",
+      "spread": false,
+      "tipsMsg": true
+    },
+    {
+      "title": "敏 感 词",
+      "icon": "&#xe66e;",
+      "spread": false,
+      "href": "",
+      "openPlatform": true,
+      "children": [
+        {
+          "title": "敏感词管理",
+          "icon": "&#xe857;",
+          "href": "/pages/console/keyword.html",
+          "spread": false
+        },
+        {
+          "title": "敏感词拦截记录",
+          "icon": "&#xe857;",
+          "href": "/pages/console/keywordIntercept.html",
+          "spread": false
+        }
+      ]
+    },
+
+    {
+      "title": "全员群发",
+      "icon": "&#xe66e;",
+      "href": "/pages/console/fullPush.html",
+      "spread": false,
+      "sensitiveWords": true
+    },
+
+    {
+      "title": "接口日志",
+      "icon":"&#xe60e;",
+      "href": "/pages/console/sysApiLog.html",
+      "spread": false,
+      "interfaceLogs": true
+    },
+    {
+      "title": "公众号审核",
+      "icon":"&#xe678;",
+      "href": "/pages/console/check.html",
+      "spread": false,
+      "interfaceLogs": true
+    },
+    {
+      "title": "我的同事",
+      "icon": "&#xe770;",
+      "href": "/pages/console/companyMsg.html",
+      "spread": false,
+      "publicNum": true
+    }
+
+  ]
+
+}
+
+

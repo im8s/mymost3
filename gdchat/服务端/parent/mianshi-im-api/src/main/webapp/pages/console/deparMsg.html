@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>bootstrap-treegrid Demo</title>
+    <meta charset="utf-8" />
+    <link href="/pages/common/layui/css/layui.css" rel="stylesheet" media="all"/>
+    <link href="/pages/console/bootstrap-treegrid/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/pages/console/bootstrap-treegrid/dist/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+</head>
+<body>
+    <button class="layui-btn layui-btn" id="totalDep" style="margin-top: 10px">创建部门</button>
+    <table id="tb"></table>
+    <a href="javascript:history.go(-1)" class="layui-btn layui-btn-primary">返回&gt;&gt;</a>
+
+
+    <script src="/pages/console/bootstrap-treegrid/dist/jquery/jquery-1.11.3.min.js"></script>
+    <script src="/pages/console/bootstrap-treegrid/dist/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/pages/console/bootstrap-treegrid/dist/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="/pages/console/bootstrap-treegrid/dist/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="/pages/console/bootstrap-treegrid/src/bootstrap-treegrid.js"></script>
+    <script type="text/javascript" src="/pages/common/jquery/jquery.md5.js"></script>
+    <script type="text/javascript" src="/pages/console/js/common.js"></script>
+    <script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+
+    <script>
+        var datas = [];
+        $(function () {
+            $.ajax({
+                url: request('/console/department/list1')+"&companyId="+localStorage.getItem("company_Id"),
+                success: function (d) {
+                    if (d) {
+                        datas = d.data;
+                        console.log("..",datas);
+                        // 初始化表格
+                        initTable();
+                    }
+                }
+            });
+
+
+            //添加公司下的公司部门
+            $("#totalDep").click(function () {
+                //设置当前部门编号为公司部门编号
+                localStorage.setItem("shiku_dep_id",localStorage.getItem("company_Id"));
+                //设置操作
+                localStorage.setItem("operate",1);
+                window.location.href="/pages/console/staffMsg.html";
+            })
+        });
+
+
+        function initTable() {
+            $('#tb').bootstrapTable({
+                //method: 'post',
+                //url: '/HR/HrDept/GetList',
+                data: datas,
+                singleSelect: true,//单行选择
+                clickToSelect: true,//点击行时自动选择
+                striped: false,//是否显示行间隔色
+                treeView: true,//是否显示树形视图
+                treeId: "id",//定义关键字段来标识树节点
+                treeField: "departName",//定义树节点字段
+                treeParentId: "parentId1", //定义父级ID字段
+                treeRootLevel: 1,//树根的级别
+                treeCollapseAll: false,//是否全部折叠，默认折叠
+                cascadeCheck: false,//是否层叠选中状态(选中父级，子级全部选中) true=层叠选中，需要singleSelect: false；false=不是层叠选中
+                uniqueId: "id", //每一行的唯一标识，一般为主键列
+                columns:
+                    [
+                        {field: 'ck', checkbox: true },
+                        {field: 'departName',title: '名称'},
+                        {field: 'role',title: '员工角色', formatter: function (value, row, index) {
+                                return row.role==0?"普通员工":row.role==1?"部门管理者":row.role==2?"公司管理员":row.role==3?"公司创建者":""
+                         }},
+                        {field: 'position',title: '头衔'},
+                        {field: 'isCustomer',title: '是否客服',formatter: function (value, row, index) {
+                                return row.isCustomer==0?"否":row.isCustomer==1?"是":""
+                            }},
+                        {field: 'right',title: '操作',formatter: function (value, row, index) {
+                              if (row.isMenu == 0){
+                                  return '<span class="layui-btn layui-btn-xs layui-btn-primary" '+'onclick="info.updateDep(\''+ row.id +'\',\'' + row.departName  + '\')">修改</span>' +
+                                      '<span class="layui-btn layui-btn-xs layui-btn-danger" '+'onclick="info.deleteDep(\''+ row.id +'\')">移除</span>' +
+                                      '<span class="layui-btn layui-btn-xs layui-btn-primary" '+'onclick="info.addDep(\''+ row.id +'\')">创建部门</span>' +
+                                      '<span class="layui-btn layui-btn-xs layui-btn-primary" '+'onclick="info.addEmp(\''+ row.id +'\')">添加员工</span>';
+                              }else{
+                                  return '<span class="layui-btn layui-btn-xs layui-btn-primary" style="text-align: center;" '+ 'onclick="info.updateEmp(\''+ row.id +'\')">修改</span>' +
+                                      '<span class="layui-btn layui-btn-xs layui-btn-danger" style="text-align: center;" '+ 'onclick="info.delEmp(\''+ row.userId +'\',\'' + row.parentId  +'\')">删除</span>';
+                              }
+                           }}
+                    ]
+            });
+        };
+
+
+        var info={
+            /*添加部门*/
+            addDep:function (data) {
+                //设置当前部门编号
+                localStorage.setItem("shiku_dep_id",data);
+                //设置操作
+                localStorage.setItem("operate",1);
+                window.location.href="/pages/console/staffMsg.html";
+            },
+            /*修改部门*/
+            updateDep:function (data,name) {
+                //设置当前部门编号
+                localStorage.setItem("shiku_dep_id",data);
+                //设置部门名称
+                localStorage.setItem("shiku_dep_name",name.substr(0, name.length - 1));
+                //设置操作
+                localStorage.setItem("operate",2);
+                window.location.href="/pages/console/staffMsg.html";
+            },
+            /*移除部门*/
+            deleteDep:function (data) {
+                $.ajax({
+                    type:"POST",
+                    url:request("/console/delete/department"),
+                    data:{
+                        departmentId:data
+                    },
+                    dataType:'json',
+                    async:false,
+                    success:function(result){
+                        if(result.resultCode==1){
+                            layer.msg("删除成功！");
+                            location.reload();
+                        }else{
+                            layer.msg(result.resultMsg);
+                        }
+                    },
+                    error:function (result) {
+                        layer.msg("删除失败！");
+                    }
+                })
+            },
+            /*添加员工*/
+            addEmp:function (data) {
+                //设置当前部门编号
+                localStorage.setItem("shiku_dep_id",data);
+                //设置操作
+                localStorage.setItem("operate",3);
+                window.location.href="/pages/console/staffMsg.html";
+            },
+            /*修改员工信息*/
+            updateEmp:function (data) {
+                //设置当前部门编号
+                localStorage.setItem("shiku_dep_id",data);
+                //设置操作
+                localStorage.setItem("operate",4);
+                window.location.href="/pages/console/staffMsg.html";
+            },
+            delEmp:function(userid,parentId){
+                $.ajax({
+                    type:"POST",
+                    url:request("/console/web/employee/delete"),
+                    data:{
+                        userIds:userid,
+                        departmentId:parentId
+                    },
+                    dataType:'json',
+                    async:true,
+                    success:function(result){
+                        location.reload();
+
+                    }
+                })
+            },
+            deleteEmp:function (userid,parentId) {
+
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1127 @@
+[{
+  "code" : "0",
+  "zh" : "该功能升级中，请稍等",
+  "en" : "Function upgrading, please wait",
+  "big5" : "該功能升級中，請稍等",
+  "type" : "error"
+},
+{
+  "code" : "1",
+  "zh" : "接口调用成功",
+  "en" : "Connection Sucesessful",
+  "big5" : "接口調用成功",
+  "type" : "success"
+},
+  {
+  "code" : "10001",
+  "zh" : "系统繁忙",
+  "en" : "System is busy",
+  "big5" : "系統繁忙",
+  "type" : "error"
+},{
+  "code" : "10002",
+  "zh" : "功能未开放",
+  "en" : "Function not open",
+  "big5" : "功能 未開放",
+  "type" : "error"
+},{
+  "code" : "10003",
+  "zh" : "旧版功能已禁用,请升级更新最新版本",
+  "en" : "Please upgrade to update the latest version",
+  "big5" : "舊版功能已禁用,請升級更新最新版本",
+  "type" : "error"
+},{
+    "code" : "10101",
+    "zh" : "有数据不能删除",
+    "en" : "Have data cannot be deleted",
+    "big5" : "有數據不能刪除",
+    "type" : "error"
+},{
+  "code" : "10102",
+  "zh" : "数据不存在或已删除",
+  "en" : "Data does not exist or has been deleted",
+  "big5" : "數據不存在或已刪除",
+  "type" : "error"
+},{
+  "code" : "10110",
+  "zh" : "权限验证失败",
+  "en" : "Permission confirmation failed",
+  "big5" : "權限驗證失敗",
+  "type" : "error"
+},{
+  "code" : "10111",
+  "zh" : "权限不足",
+  "en" : "Insufficient permissions",
+  "big5" : "權限不足",
+  "type" : "error"
+ },{
+  "code" : "1010101",
+  "zh" : "请求参数验证失败，缺少必填参数或参数错误",
+  "en" : "Verification failed - lack of required parameters or wrong parameters",
+  "big5" : "請求參數驗證失敗，缺少必填參數或參數錯誤",
+  "type" : "error"
+},
+{
+  "code" : "1010102",
+  "zh" : "缺少请求参数",
+  "en" : "lack of required parameters",
+  "big5" : "缺少請求參數",
+  "type" : "error"
+},
+{
+  "code" : "1020101",
+  "zh" : "接口内部异常",
+  "en" : "Abnormal internal connection",
+  "big5" : "接口內部異常",
+  "type" : "error"
+},
+{
+  "code" : "1020102",
+  "zh" : "链接已失效",
+  "en" : "The link has expired",
+  "type" : "error",
+  "big5" : "链接已失效"
+},
+{
+  "code" : "1030101",
+  "zh" : "登录异常",
+  "en" : "Lack of access token",
+  "big5" : "登錄異常",
+  "type" : "error"
+},{
+  "code" : "1030102",
+  "zh" : "登录过期",
+  "en" : "Access token expired or invalid",
+  "big5" : "登錄過期",
+  "type" : "error"
+},{
+  "code" : "1030112",
+  "zh" : "身份认证已失效,请重新登陆",
+  "en" : "Identity authentication has expired, please re-login",
+  "big5" : "身份認證已失效,請重新登陸",
+  "type" : "error"
+},{
+  "code" : "1040101",
+  "zh" : "帐号不存在",
+  "en" : "The account does not exist",
+  "big5" : "帳號不存在",
+  "type" : "error"
+},
+{
+  "code" : "1040102",
+  "zh" : "帐号或密码错误",
+  "en" : "The account or password is invalid",
+  "big5" : "帳號或密碼錯誤",
+  "type" : "error"
+},
+{
+  "code" : "1040103",
+  "zh" : "原密码错误",
+  "en" : "The original password is invalid",
+  "big5" : "原密碼錯誤",
+  "type" : "error"
+},
+{
+  "code" : "1040104",
+  "zh" : "短信验证码错误或已过期",
+  "en" : "The verification code is invalid or expired",
+  "big5" : "短信驗證碼錯誤或已過期",
+  "type" : "error"
+},
+{
+  "code" : "1040105",
+  "zh" : "发送验证码失败,请重发!",
+  "en" : "Sending of verification code failed, please re-send!",
+  "big5" : "發送驗證碼失敗,請重發!",
+  "type" : "error"
+},
+{
+  "code" : "1040106",
+  "zh" : "请不要频繁请求短信验证码，等待{0}秒后再次请求",
+  "en" : "Please wait {0} seconds to request again",
+  "big5" : "請不要頻繁請求短信驗證碼，等待{0}秒後再次請求",
+  "type" : "error"
+},
+{
+  "code" : "1040107",
+  "zh" : "手机号码已注册!",
+  "en" : "This phone number has been registered!",
+  "big5" : "手機號碼已註冊!",
+  "type" : "error"
+},
+{
+  "code" : "1040215",
+  "zh" : "请输入图形验证码",
+  "en" : "Please enter the graphic verification code",
+  "big5" : "請輸入圖形驗證碼",
+  "type" : "error"
+},
+{
+  "code" : "1040216",
+  "zh" : "图形验证码错误",
+  "en" : "Error in graphic verification code",
+  "big5" : "圖形驗證碼錯誤",
+  "type" : "error"
+},{
+  "code" : "1040304",
+  "zh" : "账号被锁定",
+  "en" : "Account locked",
+   "big5" : "賬號被鎖定",
+  "type" : "error"
+},
+{
+  "code" : "1040205",
+  "zh" : "不能联系自己!",
+  "en" : "Cannot contact yourself",
+  "big5" : "不能聯系自己!",
+  "type" : "error"
+},
+{
+  "code" : "1040305",
+  "zh" : "第三方登录未绑定手机号码",
+  "en" : "Third party login is not bound to mobile number",
+  "big5" : "第三方登錄未綁定手機號碼",
+  "type" : "error"
+},{
+  "code" : "1040306",
+  "zh" : "第三方登录提示账号不存在",
+  "en" : "Third party login prompt account does not exist",
+  "big5" : "第三方登錄提示賬號不存在",
+  "type" : "error"
+},{
+  "code" : "1040307",
+  "zh" : "二维码未被扫取",
+  "en" : "QR code is not swiped",
+  "big5" : "二維碼未被掃取",
+  "type" : "error"
+},{
+  "code" : "1040308",
+  "zh" : "二维码已扫码未登录",
+  "en" : "QR code has been scanned and not registered",
+  "big5" : "二維碼已掃碼未登錄",
+  "type" : "error"
+},{
+  "code" : "1040309",
+  "zh" : "二维码已扫码登录",
+  "en" : "QR code has been scanned and registered",
+  "big5" : "二維碼已掃碼登錄",
+  "type" : "success"
+},{
+  "code" : "1040310",
+  "zh" : "二维码已失效，请重新扫码登录",
+  "en" : "QR code time out",
+  "big5" : "二維碼已失效，請重新掃碼登錄",
+  "type" : "success"
+},{
+  "code" : "1040316",
+  "zh" : "第三方账号已绑定",
+  "en" : "Third party account is bound",
+  "big5" : "第三方账号已绑定",
+  "type" : "error"
+},{
+  "code" : "100107",
+  "zh" : "请填写手机号",
+  "en" : "Please fill in your phone number",
+  "big5" : "請填寫手機號",
+  "type" : "error"
+},{
+  "code" : "100108",
+  "zh" : "手机号未注册",
+  "en" : "Mobile number is not registered",
+  "big5" : "手機號未註冊",
+  "type" : "error"
+},{
+  "code" : "100203",
+  "zh" : "该网页地址已被举报",
+  "en" : "The webpage address has been reported",
+  "big5" : "該網頁地址已被舉報",
+  "type" : "error"
+},{
+  "code" : "100205",
+  "zh" : "手机号已注册",
+  "en" : "Phone number is registered",
+  "big5" : "手機號已註冊",
+  "type" : "error"
+},{
+  "code" : "100206",
+  "zh" : "用户注册失败",
+  "en" : "User registration failed",
+  "big5" : "用戶註冊失敗",
+  "type" : "error"
+},{
+  "code" : "100207",
+  "zh" : "获取用户信息失败",
+  "en" : "Failed to get user information",
+  "big5" : "獲取用戶信息失敗",
+  "type" : "error"
+},{
+  "code" : "100208",
+  "zh" : "绑定关系不存在",
+  "en" : "Binding relationship does not exist",
+  "big5" : "綁定關係不存在",
+  "type" : "error"
+},{
+  "code" : "100209",
+  "zh" : "新旧密码一致,请重新输入",
+  "en" : "The old and new passwords are the same, please re-enter",
+  "big5" : "新舊密碼一致,請重新輸入",
+  "type" : "error"
+},{
+  "code" : "100210",
+  "zh" : "设置免打扰失败",
+  "en" : "Set DND failure",
+  "big5" : "設置免打擾失敗",
+  "type" : "error"
+},{
+  "code" : "100211",
+  "zh" : "该用户不存在",
+  "en" : "this user does not exist",
+  "big5" : "該用戶不存在",
+  "type" : "error"
+},{
+  "code" : "100212",
+  "zh" : "缺少通讯号",
+  "en" : "Missing communication number",
+  "big5" : "缺少通訊號",
+  "type" : "error"
+},{
+  "code" : "100213",
+  "zh" : "通讯号错误",
+  "en" : "Communication number error",
+  "big5" : "通訊號錯誤",
+  "type" : "error"
+},{
+  "code" : "100214",
+  "zh" : "缺少code",
+  "en" : "Missing code",
+  "big5" : "缺少code",
+  "type" : "error"
+},{
+  "code" : "100215",
+  "zh" : "获取openid失败",
+  "en" : "Failed to get openid",
+  "big5" : "獲取openid失敗",
+  "type" : "error"
+},{
+  "code" : "100216",
+  "zh" : "短信验证码不能为空",
+  "en" : "SMS verification code cannot be empty",
+  "big5" : "短信驗證碼不能為空",
+  "type" : "error"
+},{
+  "code" : "100217",
+  "zh" : "获取支付宝授权authInfo失败",
+  "en" : "Obtaining Alipay authorization authInfo failed",
+  "big5" : "獲取支付寶授權authInfo失敗",
+  "type" : "error"
+},{
+  "code" : "100219",
+  "zh" : "禁止访问对方朋友圈",
+  "en" : " No visits to each other's circle of friends",
+  "big5" : " 禁止訪問對方朋友圈 ",
+  "type" : "error"
+},{
+    "code" : "100222",
+    "zh" : "密码错误",
+    "en" : "Password error.",
+    "big5" : "密码错误",
+    "type" : "error"
+  },{
+  "code" : "100223",
+  "zh" : "关闭手机联系人功能",
+  "en" : "Turn off the mobile phone contact function",
+  "big5" : "關閉手機連絡人功能",
+  "type" : "error"
+},{
+  "code" : "100224",
+  "zh" : "没有权限打开地址位置相关设置",
+  "en" : "No permission to open address location related settings",
+  "big5" : "沒有許可權打開地址位置相關設定",
+  "type" : "error"
+},{
+  "code" : "100225",
+  "zh" : "该群组不支持退群",
+  "en" : "This group does not support quit",
+  "big5" : "該群組不支持退群",
+  "type" : "error"
+},{
+  "code" : "105002",
+  "zh" : "不支持收藏",
+  "en" : "does not support collection",
+  "big5" : "不支持收藏",
+  "type" : "error"
+},{
+  "code" : "105003",
+  "zh" : "当前设置不保存单聊聊天记录,暂不支持收藏",
+  "en" : "The current setting does not save single-chat chat history, and does not support collection at this time",
+  "big5" : "當前設置不保存單聊聊天記錄,暫不支持收藏",
+  "type" : "error"
+},{
+  "code" : "100401",
+  "zh" : "该群组已被后台锁定",
+  "en" : "The group has been locked in the background",
+  "big5" : "該群組已被後台鎖定",
+  "type" : "error"
+},{
+  "code" : "100402",
+  "zh" : "群成员上限不能低于当前群成员人数",
+  "en" : "The group member ceiling cannot be lower than the current group member number",
+  "big5" : "群成員上限不能低於當前群成員人數",
+  "type" : "error"
+},{
+  "code" : "100403",
+  "zh" : "请指定新群主",
+  "en" : "Please specify a new owner",
+  "big5" : "請指定新群主",
+  "type" : "error"
+},{
+  "code" : "100404",
+  "zh" : "不能转让群组给自己",
+  "en" : "Can't transfer group to yourself",
+  "big5" : "不能轉讓群組給自己",
+  "type" : "error"
+},{
+  "code" : "100405",
+  "zh" : "对方不是群成员不能转让",
+  "en" : "The other party is not a member of the group and cannot be transferred",
+  "big5" : "對方不是群成員不能轉讓",
+  "type" : "error"
+},{
+  "code" : "100406",
+  "zh" : "不能禁言群主",
+  "en" : "Can't ban the owner",
+  "big5" : "不能禁言群主",
+  "type" : "error"
+},{
+  "code" : "100407",
+  "zh" : "不是好友不能邀请",
+  "en" : "Not friends can't invite",
+  "big5" : "不是好友不能邀請",
+  "type" : "error"
+},{
+  "code" : "100408",
+  "zh" : "隐身人不可以邀请用户加群",
+  "en" : "Invisible people can't invite users to add groups",
+  "big5" : "隱身人不可以邀請用戶加群",
+  "type" : "error"
+},{
+  "code" : "100409",
+  "zh" : "该成员不在群组中",
+  "en" : "This member is not in the group",
+  "big5" : "該成員不在群組中",
+  "type" : "error"
+},{
+  "code" : "100410",
+  "zh" : "不能移出群主",
+  "en" : "Can't move out of the group owner",
+  "big5" : "不能移出群主",
+  "type" : "error"
+},{
+  "code" : "100411",
+  "zh" : "群组不存在",
+  "en" : "Group does not exist",
+  "big5" : "群组不存在",
+  "type" : "error"
+},{
+  "code" : "100412",
+  "zh" : "群主不能设置为管理员",
+  "en" : "The group owner cannot be set as an administrator",
+  "big5" : "群主不能設置為管理員",
+  "type" : "error"
+},{
+  "code" : "100413",
+  "zh" : "该成员不是隐身人",
+  "en" : "This member is not an invisible person",
+  "big5" : "該成員不是隱身人",
+  "type" : "error"
+},{
+  "code" : "100414",
+  "zh" : "该成员不是监控人",
+  "en" : "This member is not a monitor",
+  "big5" : "該成員不是監控人",
+  "type" : "error"
+},{
+  "code" : "100415",
+  "zh" : "群组已过期失效",
+  "en" : "Group has expired expired",
+  "big5" : "群組已過期失效",
+  "type" : "error"
+},{
+  "code" : "100416",
+  "zh" : "群助手已存在",
+  "en" : "Group assistant already exists",
+  "big5" : "群助手已存在",
+  "type" : "error"
+},{
+  "code" : "100417",
+  "zh" : "群助手不存在",
+  "en" : "Group assistant does not exist",
+  "big5" : "群助手不存在",
+  "type" : "error"
+},{
+  "code" : "100418",
+  "zh" : "关键字已存在",
+  "en" : "Keyword already exists",
+  "big5" : "關鍵字已存在",
+  "type" : "error"
+},{
+  "code" : "100419",
+  "zh" : "关键字不存在",
+  "en" : "The keyword does not exist",
+  "big5" : "關鍵字不存在",
+  "type" : "error"
+},{
+  "code" : "100420",
+  "zh" : "删除失败",
+  "en" : "Failed to delete",
+  "big5" : "刪除失敗",
+  "type" : "error"
+},{
+  "code" : "100421",
+  "zh" : "邀请群成员需要群主同意",
+  "en" : "Invite group members to ask the owner to agree",
+  "big5" : "邀請群成員需要群主同意",
+  "type" : "error"
+},{
+  "code" : "100422",
+  "zh" : "该后台管理员状态异常",
+  "en" : "The background administrator status is abnormal",
+  "big5" : "該後台管理員狀態異常",
+  "type" : "error"
+},{
+  "code" : "100423",
+  "zh" : "群人数已达到上限，加入人数过多",
+  "en" : "The number of people has reached the upper limit",
+  "big5" : "群人數已達到上限，加入人數過多",
+  "type" : "error"
+},{
+  "code" : "100424",
+  "zh" : "不能转让群组给隐身人",
+  "en" : "Cannot transfer group to invisible person",
+  "big5" : "不能轉讓群組給隱身人",
+  "type" : "error"
+},{
+  "code" : "100501",
+  "zh" : "不能添加自己",
+  "en" : "Can't add yourself",
+  "big5" : "不能添加自己",
+  "type" : "error"
+},{
+  "code" : "100502",
+  "zh" : "添加好友失败",
+  "en" : "Add friend failed",
+  "big5" : "添加好友失敗",
+  "type" : "error"
+},{
+  "code" : "100503",
+  "zh" : "用户禁止二维码添加好友",
+  "en" : "User prohibits QR code to add friends",
+  "big5" : "用戶禁止二維碼添加好友",
+  "type" : "error"
+},{
+  "code" : "100504",
+  "zh" : "用户禁止名片添加好友",
+  "en" : "User prohibits business card from adding friends",
+  "big5" : "用戶禁止名片添加好友",
+  "type" : "error"
+},{
+  "code" : "100505",
+  "zh" : "用户禁止从群组中添加好友",
+  "en" : "Users are prohibited from adding friends from the group",
+  "big5" : "用戶禁止從群組中添加好友",
+  "type" : "error"
+},{
+  "code" : "100506",
+  "zh" : "用户禁止手机号搜索添加好友",
+  "en" : "Users are proUser prohibits phone number search to add friends",
+  "big5" : "用戶禁止手機號搜索添加好友",
+  "type" : "error"
+},{
+  "code" : "100507",
+  "zh" : "用户禁止昵称搜索添加好友",
+  "en" : "Users are not allowed to add friends to nickname search",
+  "big5" : "用戶禁止暱稱搜索添加好友",
+  "type" : "error"
+},{
+  "code" : "100508",
+  "zh" : "不能操作自己",
+  "en" : "Can't operate yourself",
+  "big5" : "不能操作自己",
+  "type" : "error"
+},{
+  "code" : "100509",
+  "zh" : "不能重复操作",
+  "en" : "Cannot repeat operation",
+  "big5" : "不能重複操作",
+  "type" : "error"
+},{
+  "code" : "100510",
+  "zh" : "对方不是你的好友",
+  "en" : "The other party is not your friend",
+  "big5" : "對方不是你的好友",
+  "type" : "error"
+},{
+  "code" : "100511",
+  "zh" : "好友不存在",
+  "en" : "Friend does not exist",
+  "big5" : "好友不存在",
+  "type" : "error"
+},{
+  "code" : "100512",
+  "zh" : "对方已经是你的好友",
+  "en" : "The other party is already your friend",
+  "big5" : "對方已經是你的好友",
+  "type" : "error"
+},{
+  "code" : "100513",
+  "zh" : "好友不在我的黑名单中",
+  "en" : "Friends are not on my blacklist",
+  "big5" : "好友不在我的黑名單中",
+  "type" : "error"
+},{
+  "code" : "100514",
+  "zh" : "关注成功",
+  "en" : "Followed",
+  "big5" : "關注成功",
+  "type" : "error"
+},{
+  "code" : "100515",
+  "zh" : "关注成功已互为好友",
+  "en" : "Focus on success has become friends",
+  "big5" : "關注成功已互為好友",
+  "type" : "error"
+},{
+  "code" : "100516",
+  "zh" : "关注失败",
+  "en" : "Focus on failure",
+  "big5" : "關注失敗",
+  "type" : "error"
+},{
+  "code" : "100517",
+  "zh" : "已被对方添加到黑名单",
+  "en" : "Has been added to the blacklist by the other party",
+  "big5" : "已被對方添加到黑名單",
+  "type" : "error"
+},{
+  "code" : "100518",
+  "zh" : "用户禁止添加好友",
+  "en" : "Users are forbidden to add friends",
+  "big5" : "用戶禁止添加好友",
+  "type" : "error"
+},{
+  "code" : "100520",
+  "zh" : "没有通讯录好友",
+  "en" : "No address book friends",
+  "big5" : "沒有通訊錄好友",
+  "type" : "error"
+},{
+  "code" : "100601",
+  "zh" : "创建失败",
+  "en" : "Creation failed",
+  "big5" : "創建失敗",
+  "type" : "error"
+},{
+  "code" : "100602",
+  "zh" : "公司名称已存在",
+  "en" : "Company name already exists",
+  "big5" : "公司名稱已存在",
+  "type" : "error"
+},{
+  "code" : "100603",
+  "zh" : "公司不存在",
+  "en" : "Company does not exist",
+  "big5" : "公司不存在",
+  "type" : "error"
+},{
+  "code" : "100604",
+  "zh" : "部门名称重复",
+  "en" : "Duplicate department name",
+  "big5" : "部門名稱重複",
+  "type" : "error"
+},{
+  "code" : "100605",
+  "zh" : "该用户不属于客服部门",
+  "en" : "This user is not part of the customer service department",
+  "big5" : "該用戶不屬於客服部門",
+  "type" : "error"
+},{
+  "code" : "100606",
+  "zh" : "该部门不能删除",
+  "en" : "The department cannot delete",
+  "big5" : "該部門不能刪除",
+  "type" : "error"
+},{
+  "code" : "100607",
+  "zh" : "会话人数过多请稍后重试",
+  "en" : "Too many people in the conversation, please try again later",
+  "big5" : "會話人數過多請稍後重試",
+  "type" : "error"
+},{
+  "code" : "100608",
+  "zh" : "缺少公司Id或部门Id，请在管理后台设置",
+  "en" : "No companyId or departmentId, please set it in administration background",
+  "big5" : "缺少公司Id或部門Id，請在管理後臺設置",
+  "type" : "error"
+},{
+  "code" : "100701",
+  "zh" : "分组名称已存在",
+  "en" : "The group name already exists",
+  "big5" : "分組名稱已存在",
+  "type" : "error"
+},{
+  "code" : "100702",
+  "zh" : "修改失败",
+  "en" : "fail to edit",
+  "big5" : "修改失敗",
+  "type" : "error"
+},{
+  "code" : "100801",
+  "zh" : "群标识码名已被使用",
+  "en" : "Group identification code name has been used",
+  "big5" : "群標識碼名已被使用",
+  "type" : "error"
+},{
+  "code" : "100802",
+  "zh" : "群标识码已添加",
+  "en" : "Group ID has been added",
+  "big5" : "群標識碼已添加",
+  "type" : "error"
+},{
+  "code" : "100803",
+  "zh" : "添加失败",
+  "en" : "add failed",
+  "big5" : "添加失敗",
+  "type" : "error"
+},{
+  "code" : "100804",
+  "zh" : "群标识码名不能为空",
+  "en" : "Group ID code name cannot be empty",
+  "big5" : "群標識碼名不能為空",
+  "type" : "error"
+},{
+  "code" : "100805",
+  "zh" : "群标识码不存在",
+  "en" : "Group identification code does not exist",
+  "big5" : "群標識碼不存在",
+  "type" : "error"
+},{
+  "code" : "100901",
+  "zh" : "您的直播间已被锁住",
+  "en" : "Your live room has been locked",
+  "big5" : "您的直播間已被鎖住",
+  "type" : "error"
+},{
+  "code" : "100902",
+  "zh" : "用户不在该房间",
+  "en" : "User is not in the room",
+  "big5" : "用戶不在該房間",
+  "type" : "error"
+},{
+  "code" : "100903",
+  "zh" : "该直播间尚未开播，请刷新再试",
+  "en" : "The live room has not yet started, please refresh and try again",
+  "big5" : "該直播間尚未開播，請刷新再試",
+  "type" : "error"
+},{
+  "code" : "100904",
+  "zh" : "您已被踢出直播间",
+  "en" : "You have been kicked out of the live room",
+  "big5" : "您已被踢出直播間",
+  "type" : "error"
+},{
+  "code" : "100905",
+  "zh" : "暂无礼物",
+  "en" : "No gifts",
+  "big5" : "暫無禮物",
+  "type" : "error"
+},{
+  "code" : "100906",
+  "zh" : "不能设置主播为管理员",
+  "en" : "Cannot set anchor as administrator",
+  "big5" : "不能設置主播為管理員",
+  "type" : "error"
+},{
+  "code" : "100907",
+  "zh" : "该用户已经是管理员",
+  "en" : "This user is already an administrator",
+  "big5" : "該用戶已經是管理員",
+  "type" : "error"
+},{
+  "code" : "100908",
+  "zh" : "不能重复创建直播间",
+  "en" : "Cannot create a live broadcast room repeatedly",
+  "big5" : "不能重複創建直播間",
+  "type" : "error"
+},{
+  "code" : "100909",
+  "zh" : "该成员不在当前直播间中",
+  "en" : "The member is not in the current live room ",
+  "big5" : " 該成員不在當前直播間中 ",
+  "type" : "error"
+},{
+  "code" : "101001",
+  "zh" : "评论内容不能为空",
+  "en" : "Comment content cannot be empty",
+  "big5" : "評論內容不能為空",
+  "type" : "error"
+},{
+  "code" : "101002",
+  "zh" : "内容不存或已被删除",
+  "en" : "Content does not exist or has been deleted",
+  "big5" : "內容不存或已被刪除",
+  "type" : "error"
+},{
+  "code" : "101003",
+  "zh" : "该朋友圈禁止评论",
+  "en" : "This circle of friends forbids comments",
+  "big5" : "該朋友圈禁止評論",
+  "type" : "error"
+},{
+  "code" : "101004",
+  "zh" : "消息缓存解析失败",
+  "en" : "Message cache parsing failed",
+  "big5" : "消息緩存解析失敗",
+  "type" : "error"
+},{
+  "code" : "101983",
+  "zh" : "无设备号",
+  "en" : "No equipment number.",
+  "big5" : "无设备号 ",
+  "type" : "error"},{
+  "code" : "101988",
+  "zh" : "授权失败",
+  "en" : "Authorization Failed.",
+  "big5" : "授权失败 ",
+  "type" : "error"
+},{
+  "code" : "101987",
+  "zh" : "授权成功",
+  "en" : "Authorization Success.",
+  "big5" : "授权成功 ",
+  "type" : "error"
+},{
+  "code" : "101985",
+  "zh" : "设备序列号为空",
+  "en" : "Serial Null.",
+  "big5" : "设备序列号为空",
+  "type" : "error"
+},{
+  "code" : "101984",
+  "zh" : "设备版本类型为空",
+  "en" : "SerialType Null.",
+  "big5" : "设备版本类型为空",
+  "type" : "error"
+},{
+  "code" : "101983",
+  "zh" : "无设备号",
+  "en" : "devivr Null.",
+  "big5" : "无设备号",
+  "type" : "error"
+},{
+  "code" : "101982",
+  "zh" : "授权码失效",
+  "en" : "Loseeffectiveness Auth Not.",
+  "big5" : "授权码失效",
+  "type" : "error"
+},{
+  "code" : "101986",
+  "zh" : "登入超时",
+  "en" : "Login Overtime.",
+  "big5" : "登入超时",
+  "type" : "error"
+},{
+    "code" : "104001",
+    "zh" : "余额不足",
+    "en" : "Insufficient balance",
+    "big5" : "余額不足",
+    "type" : "error"
+},{
+    "code" : "104002",
+    "zh" : "支付密码未设置",
+    "en" : "Payment password is not set",
+    "big5" : "支付密碼未設置",
+    "type" : "error"
+},{
+    "code" : "104003",
+    "zh" : "支付密码错误",
+    "en" : "Payment password is invalid",
+    "big5" : "支付密码错误",
+    "type" : "error"
+},{
+  "code" : "104004",
+  "zh" : "余额异常",
+  "en" : "balance Exception",
+  "big5" : "余额异常",
+  "type" : "error"
+},{
+    "code" : "104005",
+    "zh" : "没有选择支付方式!",
+    "en" : "Payment mode has not been selected!",
+    "big5" : "沒有選擇支付方式!",
+    "type" : "error"
+ },{
+  "code" : "104006",
+  "zh" : "请输入正确的金额",
+  "en" : "Please enter the correct amount",
+  "big5" : "請輸入正確的金額",
+  "type" : "error"
+},{
+  "code" : "104007",
+  "zh" : "已超过单次充值最高限制",
+  "en" : "The maximum limit for a single recharge has been exceeded",
+  "big5" : "已超過單次充值最高限制",
+  "type" : "error"
+},{
+  "code" : "104008",
+  "zh" : "没有选择支付类型",
+  "en" : "No payment type selected",
+  "big5" : "沒有選擇支付類型",
+  "type" : "error"
+},{
+  "code" : "104009",
+  "zh" : "重复 扣款",
+  "en" : "Duplicate charge",
+  "big5" : "重複 扣款",
+  "type" : "error"
+},
+  {
+  "code" : "104101",
+  "zh" : "红包总金额超过限制",
+  "en" : "The total amount of red envelopes exceeds the limit",
+  "big5" : "紅包總金額超過限制",
+  "type" : "error"
+},{
+  "code" : "104102",
+  "zh" : "每人最少 0.01元 !",
+  "en" : "At least 0.01 yuan per person!",
+  "big5" : "每人最少 0.01元 !",
+  "type" : "error"
+},{
+  "code" : "104103",
+  "zh" : "你已经领取了该红包",
+  "en" : " You've got the red envelope.",
+  "big5" : "你已經領取了該紅包 ",
+  "type" : "error"
+},{
+  "code" : "100101",
+  "zh" : "该红包已超过24小时!",
+  "en" : "The red envelope has been more than 24 hours",
+  "big5" : "該紅包已超過24小時",
+  "type" : "success"
+},{
+
+  "code" : "100102",
+  "zh" : "你手太慢啦已经被领完了",
+  "en" : "Your hand is too slow, you have already been taken",
+  "big5" : "你手太慢啦已經被領完了",
+  "type" : "success"
+},{
+  "code" : "104106",
+  "zh" : "红包个数大于房间人数",
+  "en" : " The number of red packets is greater than the number of rooms",
+  "big5" : "紅包個數大於房間人數 ",
+  "type" : "error"
+},{
+  "code" : "104107",
+  "zh" : "回复不能为空",
+  "en" : "Reply cannot be empty",
+  "big5" : "回復不能為空",
+  "type" : "error"
+},{
+  "code" : "100301",
+  "zh" : "该转账已超过24小时",
+  "en" : "The transfer has been more than 24 hours",
+  "big5" : "該轉賬已超過24小時",
+  "type" : "error"
+},{
+  "code" : "100302",
+  "zh" : "该转账已完成或退款",
+  "en" : "The transfer has been completed or refunded",
+  "big5" : "該轉賬已完成或退款",
+  "type" : "error"
+},{
+  "code" : "104203",
+  "zh" : "收款人不正确",
+  "en" : "The payee is incorrect",
+  "big5" : "收款人不正確",
+  "type" : "error"
+},{
+  "code" : "104301",
+  "zh" : "提现不能低于最低限制",
+  "en" : "Cash withdrawal cannot be lower than the minimum limit",
+  "big5" : "提現不能低於最低限制",
+  "type" : "error"
+},{
+  "code" : "104302",
+  "zh" : "提现失败",
+  "en" : "Cash withdrawal failure",
+  "big5" : "提現失敗",
+  "type" : "error"
+},{
+  "code" : "104303",
+  "zh" : "请先微信授权没有授权不能提现",
+  "en" : "Please start with WeChat authorization without authorization",
+  "big5" : "請先微信授權沒有授權不能提現",
+  "type" : "error"
+},{
+  "code" : "104304",
+  "zh" : "请先支付宝授权没有授权不能提现",
+  "en" : "Please pay the Alipay authorization without authorization",
+  "big5" : "請先支付寶授權沒有授權不能提現",
+  "type" : "error"
+},{
+  "code" : "104305",
+  "zh" : "请输入提现金额",
+  "en" : "Please enter the amount of cash",
+  "big5" : "請輸入提現金額",
+  "type" : "error"
+},{
+  "code" : "104306",
+  "zh" : "单次提现超过了最大提现金额",
+  "en" : "A single withdrawal exceeds the maximum cash withdrawal",
+  "big5" : "單次提現超過了最大提現金額",
+  "type" : "error"
+},
+  {
+    "code" : "1040204",
+    "zh" : "付款码过期",
+    "en" : "expired payment code",
+    "big5" : "付款碼失效",
+    "type" : "error"
+},{
+  "code" : "104402",
+  "zh" : "付款码错误",
+  "en" : "Wrong payment code",
+  "big5" : "付款碼錯誤",
+  "type" : "error"
+},{
+  "code" : "104403",
+  "zh" : "付款码已失效",
+  "en" : "Payment code has expired",
+  "big5" : "付款碼已失效",
+  "type" : "error"
+},{
+  "code" : "104404",
+  "zh" : "不支持向自己付款",
+  "en" : "Does not support paying for yourself",
+  "big5" : "不支持向自己付款",
+  "type" : "error"
+},{
+  "code" : "104405",
+  "zh" : "付款失败",
+  "en" : "Payment Fail",
+  "big5" : "付款失敗",
+  "type" : "error"
+},{
+  "code" : "104401",
+  "zh" : "支付宝支付后回调出错",
+  "en" : "An error has occurred for your Alipay payment",
+  "big5" : "支付寶支付後回調出錯",
+  "type" : "error"
+},{
+  "code" : "104502",
+  "zh" : "应用未在第三方平台注册",
+  "en" : "The app is not registered on a third-party platform",
+  "big5" : "應用未在第三方平台註冊",
+  "type" : "error"
+},{
+  "code" : "104503",
+  "zh" : "验签失败",
+  "en" : "Verification failed",
+  "big5" : "驗簽失敗",
+  "type" : "error"
+},{
+  "code" : "104504",
+  "zh" : "订单不存在",
+  "en" : "Order does not exist",
+  "big5" : "訂單不存在",
+  "type" : "error"
+},{
+  "code" : "104505",
+  "zh" : "appId错误",
+  "en" : "appId error",
+  "big5" : "appId錯誤",
+  "type" : "error"
+},{
+  "code" : "104506",
+  "zh" : "已被禁止使用该功能",
+  "en" : "Disabled",
+  "big5" : "已被禁止使用該功能",
+  "type" : "error"
+},{
+  "code" : "104507",
+  "zh" : "超过单次最大金额限制",
+  "en" : "Exceeded the maximum amount of one time",
+  "big5" : "超過單次最大金額限制",
+  "type" : "error"
+},{
+  "code" : "104508",
+  "zh" : "超过单日最大金额限制",
+  "en" : "Exceeded the maximum amount per day",
+  "big5" : "超過單日最大金額限制",
+  "type" : "error"
+},{
+  "code" : "104509",
+  "zh" : "钱包未开户",
+  "en" : "Unopened wallet",
+  "big5" : "錢包未開戶",
+  "type" : "error"
+},{
+  "code" : "100425",
+  "zh" : "设置群人数不得超过10000人!",
+  "en" : "Set the group number shall not exceed 10000 people!",
+  "big5" : "設置群人數不得超過10000人!",
+  "type" : "error"
+},{
+  "code" : "100426",
+  "zh" : "禁止对隐身人禁言处理!",
+  "en" : " Forbidden to deal with invisible people!",
+  "big5" : "禁止對隱身人禁言處理!",
+  "type" : "error"
+}
+,{
+  "code" : "100427",
+  "zh" : "新建群最大人数超出最大群人数!",
+  "en" : "The maximum number of new groups exceeds the maximum number of new groups!",
+  "big5" : "新建群最大人數超出最大群人數!",
+  "type" : "error"
+},{
+  "code" : "100428",
+  "zh" : "红包类型错误，领取异常!",
+  "en" : " Wrong red packet type, abnormal collection!",
+  "big5" : " 紅包類型錯誤，領取异常 !",
+  "type" : "error"
+}
+,{
+  "code" : "100429",
+  "zh" : "触发日发送限额!",
+  "en" : "Send limit on trigger day!",
+  "big5" : "觸發日發送限額！",
+  "type" : "error"
+}
+,{
+  "code" : "100430",
+  "zh" : "非法手机号!",
+  "en" : "Illegal mobile number",
+  "big5" : "非法手機號!",
+  "type" : "error"
+},{
+  "code" : "100431",
+  "zh" : "业务限流!",
+  "en" : "Service current limiting!",
+  "big5" : " 業務限流 !",
+  "type" : "error"
+},{
+  "code" : "106001",
+  "zh" : "抱歉! 尚未开通支付相关功能!",
+  "en" : "Sorry! Payment function not available!",
+  "big5" : "抱歉! 尚未開通支付相關功能!",
+  "type" : "error"
+},{
+  "code" : "100521",
+  "zh" : "抱歉! 您没有添加好友的权限!",
+  "en" : "Sorry! You don't have permission to add friends!",
+  "big5" : "抱歉! 您沒有添加好友的許可權!",
+  "type" : "error"
+}]
+

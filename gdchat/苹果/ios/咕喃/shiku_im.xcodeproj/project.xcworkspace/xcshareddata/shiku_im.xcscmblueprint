@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "308c9b75-7562-4683-a330-42c264f6c51b++7218",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "308c9b75-7562-4683-a330-42c264f6c51b++7218" : {
+
+    },
+    "308c9b75-7562-4683-a330-42c264f6c51b++8591" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "308c9b75-7562-4683-a330-42c264f6c51b++7218" : 9223372036854775807,
+    "308c9b75-7562-4683-a330-42c264f6c51b++8591" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3387980F-9DD6-46A4-916F-1C74B771EB70",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "308c9b75-7562-4683-a330-42c264f6c51b++7218" : "KuLiao_arc_XC\/",
+    "308c9b75-7562-4683-a330-42c264f6c51b++8591" : "KL4.0.1\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "shiku_im",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "shiku_im.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/114.119.6.150",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "308c9b75-7562-4683-a330-42c264f6c51b++7218"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/114.119.6.150",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "308c9b75-7562-4683-a330-42c264f6c51b++8591"
+    }
+  ]
+}

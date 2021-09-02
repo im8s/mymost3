@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>公司列表</title>
+<link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+<link href="/pages/console/css/public.css" rel="stylesheet">
+</head>
+<body>
+	<div class="layui-row">
+		<div id="back" class="layui-col-md1">&nbsp;</div>
+		<input id="pageCount" type="" name="" style="display: none">
+	<div id="appRecharge_div" class="layui-col-md10">
+
+		<div class="hintInfo_btn_div" style="margin-top: 2%">
+			<input type="text" name="" class="layui-input" id="searchCompany_keyword" placeholder="" style="width: 10%;display: inline">
+			<button class="layui-btn" id="searchCompany_btn" >搜索</button>
+		</div>
+
+		<div id="appRecharge" class="layui-card" style="margin-top: 1%">
+			<div class="layui-card-header">公司列表</div>
+				<div class="layui-card-body">
+					<table id="companyList_table" lay-filter="companyList_table">
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- 多选操作 -->
+	<script type="text/html" id="toolbarCompanys">
+		<button  class="layui-btn layui-btn-sm"  lay-event="companyDetails">公司详情</button>
+	</script>
+
+	<script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+	<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+	<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+	<script type="text/javascript" src="/pages/console/js/common.js"></script>
+	<script type="text/javascript" src="./js/console_ui.js"></script>
+	<script type="text/javascript" src="/pages/console/js/companyMsg.js"></script>
+</body>
+</html>

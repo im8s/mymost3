@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>im-comm-modules</artifactId>
+        <groupId>com.shiku.im.modules</groupId>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.shiku.im.modules</groupId>
+    <artifactId>api-module</artifactId>
+    <version>1.0</version>
+    <properties>
+        <jackson-databind.version>2.9.5</jackson-databind.version>
+        <im-module.vserion>1.0</im-module.vserion>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>comm-maven-pom</artifactId>
+            <version>1.0</version>
+            <exclusions>
+                <!-- <exclusion>
+
+                 </exclusion>-->
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>api-core</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>company-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>user-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>friend-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>sms-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>room-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>live-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>msg-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>admin-console</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>open-module</artifactId>
+            <version>${im-module.vserion}</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>test</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+       <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <!-- swagger2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shiku.im.modules</groupId>
+            <artifactId>common-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>3.4.49.ALL</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

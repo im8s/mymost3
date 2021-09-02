@@ -1,0 +1,230 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.shiku.im</groupId>
+		<artifactId>mianshi-parent</artifactId>
+		<version>socket-2.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>mianshi-im-api</artifactId>
+	<packaging>war</packaging>
+	<name>mianshi-im-api</name>
+	
+	
+	<properties>
+
+	    <!--maven.build.timestamp保存了maven编译时间戳-->
+	    <timestamp>${maven.build.timestamp}</timestamp>
+	    <!--指定时间格式-->    
+	    <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+		<im-module.vserion>1.0</im-module.vserion>
+		<jackson-databind.version>2.9.5</jackson-databind.version>
+		<java.version>1.8</java.version>
+		<rocketmq.version>4.3.1</rocketmq.version>
+		<start-class>com.shiku.mianshi.Application</start-class>
+		<!--<main.basedir>${basedir}/../..</main.basedir>
+		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>-->
+	</properties>
+	
+
+	<dependencies>
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>  
+			<artifactId>spring-boot-starter-aop</artifactId>  
+			<version>${spring-boot.version}</version>
+		</dependency>-->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+			<groupId>com.shiku.im.modules</groupId>
+			<artifactId>api-module</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.shiku.im.modules</groupId>
+			<artifactId>mp-module</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.shiku.im.modules</groupId>
+			<artifactId>common-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<!--定时任务模块-->
+		<dependency>
+			<groupId>com.shiku.im.modules</groupId>
+			<artifactId>timed-task-module</artifactId>
+			<version>${im-module.vserion}</version>
+		</dependency>
+
+		<!-- 支付相关模块-->
+
+
+		<dependency>
+			<groupId>com.shiku.im.modules</groupId>
+			<artifactId>redpack-module</artifactId>
+			<version>${im-module.vserion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.shiku.im.modules</groupId>
+			<artifactId>pay-api-module</artifactId>
+			<version>${im-module.vserion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.shiku.im.modules</groupId>
+			<artifactId>manual-pay-module</artifactId>
+			<version>${im-module.vserion}</version>
+		</dependency>
+
+
+
+		<dependency>
+	      <groupId>com.shiku.commons</groupId>
+		  <artifactId>skutils</artifactId>
+		  <version>1.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-databind.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.shiku.im</groupId>
+			<artifactId>mianshi-service</artifactId>
+			<version>socket-2.0</version>
+		</dependency>
+
+
+			<!--swagger2 接口文档配置 -->
+		<dependency>
+			<groupId>com.shiku.swagger2</groupId>
+			<artifactId>swagger2-spring-boot-starter</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+		<!-- 许可证认证插件 -->
+
+		<!--<dependency>
+			<groupId>com.shiku.license</groupId>
+			<artifactId>im-license-plugin</artifactId>
+			<version>1.0.1</version>
+		</dependency>-->
+
+
+
+		<!--SpringBootAdmin 监控工具依赖-->
+		<!--<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>2.1.1</version>
+		</dependency>-->
+	</dependencies>
+
+	<!-- Package as an executable jar -->
+	<build>
+	<!--  <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+             <excludes>
+                <exclude>**/*.properties</exclude>
+                <exclude>**/*.xml</exclude>
+             </excludes>
+            <filtering>true</filtering>
+        </resource>
+    </resources> -->
+		<!--                   本地debug开启              -->
+		<resources>
+			<resource>
+				<directory>src/main/webapp</directory>
+				<!--注意此次必须要放在此目录下才能被访问到 -->
+				<targetPath>META-INF/resources</targetPath>
+				<includes>
+					<include>**/**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
+		<!--                   本地debug开启              -->
+    	<!-- 指定打包的文件名 -->
+		<finalName>imapi-${timestamp}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+		        <configuration>
+		          <skip>true</skip>
+		        </configuration>
+		      </plugin>
+            <!-- 要将源码放上去，需要加入这个插件 -->
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>
+	</build>
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <url>http://192.168.0.227:8891/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots</name>
+            <url>http://192.168.0.227:8891/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>

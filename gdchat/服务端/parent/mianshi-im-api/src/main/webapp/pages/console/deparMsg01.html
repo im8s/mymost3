@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>部门信息</title>
+    <link href="/pages/common/layui/css/layui.css" rel="stylesheet" media="all"/>
+    <link rel="stylesheet" href="/pages/console/assets/common.css"/>
+    <link href="/pages/console/css/public.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-row">
+    <div id="back" class="layui-col-md1">&nbsp;</div>
+    <div class="layui-col-md10" id="errorMessageList">
+        <div class="hintInfo_btn_div" style="margin-top: 2%">
+
+        </div>
+        <div class="layui-card">
+            <div class="layui-card-header">部门信息</div>
+            <div class="layui-card-body">
+                <div class="layui-btn-group">
+                    <!--<button class="layui-btn" id="btn-expand">全部展开</button>
+                    <button class="layui-btn" id="btn-fold">全部折叠</button>-->
+                    <button class="layui-btn" id="shiku-btn" style="margin-right: 10px">打 &nbsp;&nbsp; 开</button><divs style="margin-left: 20px;"></divs>
+                    <button class="layui-btn" id="btn-refresh" style="margin-right: 10px">刷新表格</button><divs style="margin-left: 20px;"></divs>
+                    <button class="layui-btn layui-btn" id="totalDep" style="margin-right: 10px">创建部门</button>
+                </div>
+
+                <table id="table1" class="layui-table" lay-filter="table1"></table>
+                <a href="javascript:history.go(-1)" class="layui-btn layui-btn-primary layui-btn-sm" style="margin-bottom: 2px;margin-left: 1305px;margin-top: 10px;">返回&gt;&gt;</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-container">
+        <div id="musicList" class="layui-card" style="margin-top: 1%">
+
+        </div>
+    </div>
+
+    <!--&lt;!&ndash; 操作列 &ndash;&gt;-->
+    <script type="text/html" id="oper-col">
+        <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+
+    <script type="text/html" id="menu">
+        {{#  if(d.isMenu == 0){ }}
+        <span class="layui-btn layui-btn-xs layui-btn-danger" onclick="info.deleteDep('{{d.id}}' )">移除</span>
+        <span class="layui-btn layui-btn-xs layui-btn-primary" onclick="info.updateDep('{{d.id}}' ,'{{d.departName}}')">修改</span>
+        <span class="layui-btn layui-btn-xs layui-btn-primary" onclick="info.addDep('{{d.id}}' )">创建部门</span>
+        <span class="layui-btn layui-btn-xs layui-btn-primary" onclick="info.addEmp( '{{d.id}}'  )">添加员工</span>
+        {{#  }else{  }}
+        <span class="layui-btn layui-btn-xs layui-btn-danger" style="margin: 0 auto;" onclick="info.delEmp('{{d.userId}}','{{d.parentId}}')">删除</span>
+        &nbsp;&nbsp;
+        <span class="layui-btn layui-btn-xs layui-btn-primary" style="margin: 0 auto;" onclick="info.updateEmp('{{d.id}}')">修改</span>
+        {{#  } }}
+    </script>
+
+
+    <script type="text/html" id="start">
+
+        <span class="treeTable-icon open" lay-tid="{{ d.id }}" lay-tpid="{{ d.pid }}" lay-ttype="{{ d.isParent ? 'dir' : 'file' }}">
+
+         {{# for(var i=0;i < d.retract;i++){ }}
+            <span class="treeTable-empty"></span>
+         {{# } }}
+
+        {{# if(d.isParent){ }}
+                <i class="layui-icon layui-icon-triangle-d"></i> <i class="layui-icon layui-icon-layer"></i>
+        {{# }else{ }}
+                <i class="layui-icon layui-icon-file"></i>
+        {{# } }}
+
+
+         {{# if(d.isStaff == 0){ }}
+            <input type="text" style="border:0px;outline:none;cursor: pointer;background: rgba(242, 242, 242,0.1);" readonly value="{{d.departName}}" >
+         {{# }else{ }}
+            <input type="text" style="border:0px;outline:none;cursor: pointer;background: rgba(242, 242, 242,0.1);" readonly value="{{d.departName}}">
+         {{# } }}
+            
+        </span>
+    </script>
+
+    <script type="text/javascript" src="/pages/common/jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+    <script type="text/javascript" src="/pages/common/jquery/jquery.md5.js"></script>
+    <script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+    <script type="text/javascript" src="/pages/console/js/common.js"></script>
+    <script type="text/javascript" src="./js/console_ui.js"></script>
+
+    <script>
+        layui.config({
+            base: 'module/'
+        }).extend({
+            treetable: 'treetable-lay/treetable'
+        }).use(['table', 'form', 'element', 'treetable'], function () {
+            var $ = layui.jquery;
+            var table = layui.table;
+            var form = layui.form;
+            var element = layui.element;
+            var treetable = layui.treetable;
+
+            // 渲染表格
+            var renderTable = function () {
+                layer.load(2);
+                treetable.render({
+                    treeColIndex: 0,
+                    treeSpid: "53102b43bf1044ed8b0ba36b",//设置在什么位置开张开树的
+                    treeIdName: 'companyId',
+                    treePidName: 'parentId',
+                    elem: '#table1',
+                    url: request('/console/department/list1')+"&companyId="+localStorage.getItem("company_Id"),
+                    treeDefaultClose: true,//默认不展开树
+                    treeLinkage: false,//默认不展开树
+                    page: false,
+                    cols: [[
+                        {field: 'departName',title: '名称', width: 497,toolbar:'#start'},
+                        {field: 'role', width: 200,title: '员工角色',templet: function(d){return d.role==0?"普通员工":d.role==1?"部门管理者":d.role==2?"公司管理员":d.role==3?"公司创建者":""}},
+                        {field: 'position', width: 200,title: '头衔'},
+                        {field: 'isCustomer', width: 200,title: '是否客服',templet: function(d){return d.isCustomer==0?"否":d.isCustomer==1?"是":""}},
+                        {fixed: 'right', width: 300,title:"操作", align:'left', toolbar: '#menu'}
+                    ]]
+                    ,done: function (res, curr, count) {
+                        console.log("..",res)
+
+                        for (var i=0;i<res.data.length;i++)   //遍历返回数据
+                        {
+                            if(res.data[i].isDep==0)    //设置条件
+                            {
+                                $("table tbody tr").eq(i).css('background','#f2f2f2')    //改变满足条件行的颜色
+                            }
+                        }
+                        layer.closeAll('loading');
+                    }
+
+
+                });
+            };
+
+            renderTable();
+
+            var i = 0;
+            $("#shiku-btn").click(function () {
+                if (i == 0){
+                    treetable.expandAll('#table1');
+                    $("#shiku-btn").html("关 &nbsp;&nbsp;闭")
+                    ++i;
+                    return;
+                }
+
+                if (i == 1){
+                    treetable.foldAll('#table1');
+                    $("#shiku-btn").html("打 &nbsp;&nbsp;开")
+                    --i;
+                    return;
+                }
+            })
+
+            $('#btn-refresh').click(function () {
+                renderTable();
+            });
+
+            //添加公司下的公司部门
+            $("#totalDep").click(function () {
+                //设置当前部门编号为公司部门编号
+                localStorage.setItem("shiku_dep_id",localStorage.getItem("company_Id"));
+                //设置操作
+                localStorage.setItem("operate",1);
+                window.location.href="/pages/console/staffMsg.html";
+            })
+        });
+
+        var info={
+            /*添加部门*/
+            addDep:function (data) {
+                //设置当前部门编号
+                localStorage.setItem("shiku_dep_id",data);
+                //设置操作
+                localStorage.setItem("operate",1);
+                window.location.href="/pages/console/staffMsg.html";
+            },
+            /*修改部门*/
+            updateDep:function (data,name) {
+                //设置当前部门编号
+                localStorage.setItem("shiku_dep_id",data);
+                //设置部门名称
+                localStorage.setItem("shiku_dep_name",name.substr(0, name.length - 1));
+                //设置操作
+                localStorage.setItem("operate",2);
+                window.location.href="/pages/console/staffMsg.html";
+            },
+            /*移除部门*/
+            deleteDep:function (data) {
+                $.ajax({
+                    type:"POST",
+                    url:request("/console/delete/department"),
+                    data:{
+                        departmentId:data
+                    },
+                    dataType:'json',
+                    async:false,
+                    success:function(result){
+                        if(result.resultCode==1){
+                            layer.msg("删除成功！");
+                            location.reload();
+                        }else{
+                            layer.msg(result.resultMsg);
+                        }
+                    },
+                    error:function (result) {
+                        layer.msg("删除失败！");
+                    }
+                })
+            },
+            /*添加员工*/
+            addEmp:function (data) {
+                //设置当前部门编号
+                localStorage.setItem("shiku_dep_id",data);
+                //设置操作
+                localStorage.setItem("operate",3);
+                window.location.href="/pages/console/staffMsg.html";
+            },
+            /*修改员工信息*/
+            updateEmp:function (data) {
+                //设置当前部门编号
+                localStorage.setItem("shiku_dep_id",data);
+                //设置操作
+                localStorage.setItem("operate",4);
+                window.location.href="/pages/console/staffMsg.html";
+            },
+            delEmp:function(userid,parentId){
+                $.ajax({
+                    type:"POST",
+                    url:request("/console/web/employee/delete"),
+                    data:{
+                        userIds:userid,
+                        departmentId:parentId
+                    },
+                    dataType:'json',
+                    async:true,
+                    success:function(result){
+                        location.reload();
+
+                    }
+                })
+            },
+            deleteEmp:function (userid,parentId) {
+
+            }
+        }
+
+    </script>
+</body>
+</html>

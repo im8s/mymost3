@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>公司部门</title>
+<link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+<link href="/pages/console/css/public.css" rel="stylesheet">
+	<style>
+		.shiku-span{
+			width: 295px;
+			margin-left: 17px;
+			display: inline-block;
+		}
+		.shiku-span-btn{
+			display: inline-block;
+		}
+		.layui-btn-sm {
+			height: 21px;
+			line-height: 24px;
+			padding: 0 16px;
+			font-size: 12px;
+		}
+		#shiku-card-header{
+			display: inline-block;
+		}
+		#shiku-card-right{
+			display: inline-block;
+		}
+		.updateDep{
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-row">
+		<div id="back" class="layui-col-md1">&nbsp;</div>
+		<div class="layui-col-md10" id="errorMessageList">
+			<div class="hintInfo_btn_div" style="margin-top: 2%">
+				<input type="text" name="" class="layui-input" id="code" placeholder="" style="width: 10%;display: inline">
+				<button class="layui-btn" onclick="Pro.findPromptList()">搜索</button>
+			</div>
+			<div class="layui-card">
+				<div class="layui-card-header" id="shiku-card-header"></div>
+				<div id="shiku-card-right"></div>
+				<div class="layui-card-body">
+					<div class="layui-collapse" id="messageList_table">
+						<div class="layui-colla-item">
+
+						</div>
+					</div>
+				</div>
+				<a href="javascript:history.go(-1)" class="layui-btn layui-btn-normal layui-btn-lg"  style="position:relative; float: right;bottom: -20px;">返回</a>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+	<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+	<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+	<script type="text/javascript" src="/pages/console/js/common.js"></script>
+	<script type="text/javascript" src="./js/console_ui.js"></script>
+	<script type="text/javascript" src="/pages/console/js/companyDepartmentMsg.js"></script>
+	<!--<script type="text/javascript" src="/pages/js/_coolchat-commons.js"></script>-->
+</body>
+</html>

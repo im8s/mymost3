@@ -1,0 +1,158 @@
+/*公共样式*/
+.childrenBody{ padding:10px;}
+.layui-table-view{ margin:0 !important;}
+.magb0{margin-bottom:0 !important;}
+.magt0{ margin-top:0 !important;}
+.magt3{ margin-top:3px !important;}
+.magt10{ margin-top:10px !important;}
+.magb15{ margin-bottom:15px !important;}
+.magt30{ margin-top:30px !important;}
+.layui-left{text-align:left;}
+.layui-block{ width:100% !important;}
+.layui-center{text-align:center;}
+.layui-right{text-align:right;}
+.layui-elem-quote.title{ padding:10px 15px; margin-bottom:0;}
+.layui-bg-white{ background-color:#fff !important;}
+.border{ border:1px solid #e6e6e6 !important; padding:10px; border-top:none;}
+.main_btn .layui-btn{ margin:2px 5px 2px 0;}
+.layui-timeline-axis{ left:-4px;}
+.layui-elem-quote{ word-break: break-all;}
+.icons li,.icons li:hover,.loginBody .seraph,.loginBody .seraph:hover,.loginBody .layui-form-item.layui-input-focus label,.loginBody .layui-form-item label,.loginBody .layui-form-item.layui-input-focus input,.loginBody .layui-form-item input{transition: all 0.3s ease-in-out;-webkit-transition: all 0.3s ease-in-out;}
+.icons li:hover i,.icons li i{transition: font-size 0.3s ease-in-out;-webkit-transition: font-size 0.3s ease-in-out;}
+.loginBody .layui-input-focus .layui-input::-webkit-input-placeholder{transition: color 0.2s linear 0.2s;-webkit-transition: color 0.2s linear 0.2s;}
+.loginBody .layui-input-focus .layui-input::-moz-placeholder{transition: color 0.2s linear 0.2s;}
+.loginBody .layui-input-focus .layui-input:-ms-input-placeholder{transition: color 0.2s linear 0.2s;}
+.loginBody .layui-input-focus .layui-input::placeholder{transition: color 0.2s linear 0.2s;-webkit-transition: color 0.2s linear 0.2s;}
+
+
+
+/*登录*/
+.loginHtml,.loginBody{ height:100%;}
+
+
+.loginBody{ background:url("../img/background.jpg") no-repeat center center;}
+
+.loginBody .layui-form-item{ 
+	position:relative;
+
+}
+
+.login-page form.layui-form{ 
+	padding:0 30px; 
+	width:360px; 
+	height:350px; 
+	position:absolute; 
+	left:50%; 
+	top:50%; 
+	margin:-180px 0 0 -180px; 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box; 
+	-o-box-sizing:border-box; 
+	box-sizing:border-box; 
+	background:#fff;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px; 
+}
+.qrLogin_page{
+	padding:0 30px; 
+	width:360px; 
+	height:350px; 
+	position:absolute; 
+	left:50%; 
+	top:50%; 
+	margin:-180px 0 0 -180px; 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box; 
+	-o-box-sizing:border-box; 
+	box-sizing:border-box; 
+	background:#fff;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px; 
+}
+
+.img-code{ 
+	position:relative;
+}
+
+.img-code img{
+ position:absolute; 
+ top:1px; 
+ right:1px;
+ width: 90px;
+ height: 35px;
+ cursor:pointer;
+}
+
+
+
+
+
+/*注册*/
+.register_page form.layui-form{ 
+	padding:0 30px; 
+	width:360px; 
+	height:510px; 
+	position:absolute; 
+	left:50%; 
+	top:50%; 
+	margin:-180px 0 0 -180px; 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box; 
+	-o-box-sizing:border-box; 
+	box-sizing:border-box; 
+	background:#fff;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px; 
+}
+
+
+.reset_passwd_page form.layui-form{ 
+	padding:0 30px; 
+	width:360px; 
+	height:450px; 
+	position:absolute; 
+	left:50%; 
+	top:50%; 
+	margin:-180px 0 0 -180px; 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box; 
+	-o-box-sizing:border-box; 
+	box-sizing:border-box; 
+	background:#fff;
+	-webkit-border-radius:5px; 
+	-moz-border-radius:5px; 
+	border-radius:5px; 
+}
+
+
+.checkcode-warp {
+    position: relative;
+    /*width: 250px;*/
+}
+
+.checkcode-warp .get-check-code {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.layui-form-danger{
+    border-color: #FF5722!important;
+}
+
+/*响应式*/
+@media screen and (max-width:450px) {
+    #userFaceBtn{ height: 30px;line-height: 30px; padding: 0 10px; font-size: 12px;}
+    .user_right img#userFace{ width:100px; height:100px; margin-top:0;}
+    .layui-col-xs12 .layui-form-label{ width:60px; padding-left:0;}
+    .layui-col-xs12 .layui-input-block,.layui-col-xs12 .layui-input-inline{ margin-left:75px;}
+    .layui-col-xs12 .layui-input-inline{ left:0 !important; width:auto !important;}
+    .noFind{ padding-top:0;}
+    *[pc]{ display:none;}
+}

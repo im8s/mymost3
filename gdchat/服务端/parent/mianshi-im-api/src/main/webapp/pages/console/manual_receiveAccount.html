@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扫码手动充值-收款账户管理</title>
+    <link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-row">
+    <div id="back" class="layui-col-md1">&nbsp;</div>
+    <div id="receiveAccountList" class="layui-col-md10">
+        <div class="" style="margin-top: 2%">
+            <input type="text" name="" class="layui-input receiveAccount_keyword" style="width: 15%;display: inline" placeholder="请输入账户名称">
+            <button class="layui-btn  search_receiveAccount">搜索</button>
+            <button class="layui-btn  add_receiveAccount_btn">添加收款人</button>
+            <form class="layui-form" action="" style="float: left">
+                <div class="layui-form-item">
+                    <select id="receiveAccount_select" class="layui-select" lay-verify="required" value="">
+                        <option value="0">选择账户类型</option>
+                        <option value="1">微信账户</option>
+                        <option value="2">支付宝账户</option>
+                        <option value="3">银行卡账户</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <!-- 接收账户列表 -->
+        <div id="receiveAccountList_table" class="layui-card" style="margin-top: 1%">
+            <div class="layui-card-header">收款账户列表</div>
+            <div class="layui-card-body">
+                <table id="receiveAccount_table" lay-filter="receiveAccount_table"></table>
+            </div>
+        </div>
+    </div>
+    <!--添加收款用户-->
+    <div id="AddreceiveAccount" class="layui-col-md10" style="display: none">
+        <input type="text" id="updateReceiveAccountId" style="display: none">
+        <div id="addUserTitle" class="layui-card-header">新增收款用户</div>
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <td width="20%">收款参数</td>
+                    <td>账户信息</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>账户类型</td>
+                    <td>
+                        <select class="layui-select" lay-verify="required" name="" id="add_Account_type" onclick="ManualPay.changeSelect()">
+                            <option value="1">微信账户</option>
+                            <option value="2">支付宝账户</option>
+                            <option value="3">银行账户</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="url_tr">
+                    <td>收款码</td>
+                    <td>
+                        <button class="layui-btn" onclick="ManualPay.selectUpdateCodeMsg()">选择收款码</button>
+                        <span id="receiveCodeImg_update"></span>
+                        <form id="uploadreceiveCodeImg" name="uploadreceiveCodeImg" action="" method="post" enctype="multipart/form-data" style="display: none;">
+                            <input id="uploadCodeImg" type="file" name="file" onchange="ManualPay.uploadCodeMsg()" accept=".png,.jpg,.jpeg,.gif,.psd,.tiff,.swf,.svg,.bmp">
+                        </form>
+                    </td>
+                </tr>
+                <tr id="name_tr">
+                    <td>账户名称</td>
+                    <td><input id="name" type="" name="" class="layui-input" ></td>
+                </tr>
+                <tr id="payNo_tr">
+                    <td>微信或支付宝账号</td>
+                    <td><input id="payNo" type="" name="" class="layui-input" ></td>
+                </tr>
+                <tr id="bankCard_tr">
+                    <td>银行卡号</td>
+                    <td><input id="bankCard" type="" name="" class="layui-input" ></td>
+                </tr>
+                <tr id="bankName_tr">
+                    <td>开户银行名称</td>
+                    <td><input id="bankName" type="" name="" class="layui-input" ></td>
+                </tr>
+            </tbody>
+        </table>
+        <button onclick="ManualPay.commit_addReceiveAccount()" class="layui-btn addLiveRoombtn">提交</button>
+        <button onclick="ManualPay.btn_back()" class="layui-btn layui-btn-primary layui-btn-sm" style="">&lt;&lt;返回</button>
+    </div>
+</div>
+
+<script type="text/html" id="receiveAccountBar">
+    <a class="layui-btn layui-btn-xs layui-btn-primary updateAccountInfo" lay-event="updateAccountInfo">修改</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger delete" lay-event="delete">删除</a>
+</script>
+</body>
+<script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.form.js"></script>
+<script type="text/javascript" src="/pages/console/js/common.js"></script>
+<script type="text/javascript" src="./js/console_ui.js"></script>
+<script type="text/javascript" src="./js/manual_receiveAccount.js"></script>
+</html>

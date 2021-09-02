@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_nearby_grid_root"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:background="@drawable/list_selector_background_ripple"
+    android:clipToPadding="false"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingEnd="@dimen/dp10"
+    android:paddingStart="@dimen/dp10">
+
+    <com.sk.weichat.view.CircleImageView
+        android:id="@+id/iv_nearby_head"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_toEndOf="@+id/iv_delete"
+        app:round_size="16"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_toStartOf="@id/action_ll"
+        android:layout_toEndOf="@id/iv_nearby_head"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_nearby_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/message_nick_size"
+            tools:text="@string/example_name"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"/>
+
+        <ImageView
+            android:id="@+id/img_sex"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="4dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_man1"
+            android:gravity="center_vertical"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/action_ll"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_nearby_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="km"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/message_time_size" />
+
+        <TextView
+            android:id="@+id/tv_nearby_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dp"
+            android:gravity="center"
+            android:text="日期"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/message_time_size"
+            android:visibility="visible"
+            tools:ignore="SpUsage"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lin_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/normal_bg">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginEnd="-10dp"
+            android:layout_marginStart="-10dp"
+            android:background="@drawable/message_divider" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0510D537-B0C4-4182-AB04-427A9926F619}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">10.0.19041.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>5.14.2_msvc2017_64</QtInstall>
+    <QtModules>concurrent;core;gui;network;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>5.14.2_msvc2017_64</QtInstall>
+    <QtModules>concurrent;core;gui;network;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="QtSettings">
+    <QtInstall>5.14.2_msvc2017</QtInstall>
+    <QtModules>core;gui;network;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'" Label="QtSettings">
+    <QtInstall>5.14.2_msvc2017</QtInstall>
+    <QtModules>core;gui;network;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>D:\grpc\x64\debug\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\grpc\x64\debug\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <IncludePath>D:\grpc\x64\release\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\grpc\x64\release\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformName)\$(Configuration)\</IntDir>
+    <IncludePath>D:\grpc\win32\debug\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\grpc\win32\debug\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(PlatformName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(PlatformName)\$(Configuration)\</IntDir>
+    <IncludePath>D:\grpc\win32\release\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\grpc\win32\release\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Link>
+      <ImportLibrary>$(SolutionDir)lib\$(PlatformName)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>grpc++_reflection.lib;grpc++.lib;libprotobufd.lib;grpc.lib;zlibstaticd.lib;cares.lib;address_sorting.lib;re2.lib;absl_hash.lib;absl_city.lib;absl_wyhash.lib;absl_raw_hash_set.lib;absl_hashtablez_sampler.lib;absl_exponential_biased.lib;absl_statusor.lib;absl_bad_variant_access.lib;gpr.lib;upb.lib;absl_status.lib;absl_cord.lib;absl_str_format_internal.lib;absl_synchronization.lib;absl_stacktrace.lib;absl_symbolize.lib;absl_debugging_internal.lib;absl_demangle_internal.lib;absl_graphcycles_internal.lib;absl_malloc_internal.lib;absl_time.lib;absl_strings.lib;absl_throw_delegate.lib;absl_strings_internal.lib;absl_base.lib;absl_spinlock_wait.lib;absl_int128.lib;absl_civil_time.lib;absl_time_zone.lib;absl_bad_optional_access.lib;absl_raw_logging_internal.lib;absl_log_severity.lib;-ignore:4221;ssl.lib;crypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(PlatformName)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Link>
+      <ImportLibrary>$(SolutionDir)lib\$(PlatformName)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>grpc++_reflection.lib;grpc++.lib;libprotobuf.lib;grpc.lib;zlibstatic.lib;cares.lib;address_sorting.lib;re2.lib;absl_hash.lib;absl_city.lib;absl_wyhash.lib;absl_raw_hash_set.lib;absl_hashtablez_sampler.lib;absl_exponential_biased.lib;absl_statusor.lib;absl_bad_variant_access.lib;gpr.lib;upb.lib;absl_status.lib;absl_cord.lib;absl_str_format_internal.lib;absl_synchronization.lib;absl_stacktrace.lib;absl_symbolize.lib;absl_debugging_internal.lib;absl_demangle_internal.lib;absl_graphcycles_internal.lib;absl_malloc_internal.lib;absl_time.lib;absl_strings.lib;absl_throw_delegate.lib;absl_strings_internal.lib;absl_base.lib;absl_spinlock_wait.lib;absl_int128.lib;absl_civil_time.lib;absl_time_zone.lib;absl_bad_optional_access.lib;absl_raw_logging_internal.lib;absl_log_severity.lib;-ignore:4221;ssl.lib;crypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(PlatformName)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalDependencies>grpc++_reflection.lib;grpc++.lib;libprotobufd.lib;grpc.lib;zlibstaticd.lib;cares.lib;address_sorting.lib;re2.lib;absl_hash.lib;absl_city.lib;absl_wyhash.lib;absl_raw_hash_set.lib;absl_hashtablez_sampler.lib;absl_exponential_biased.lib;absl_statusor.lib;absl_bad_variant_access.lib;gpr.lib;upb.lib;absl_status.lib;absl_cord.lib;absl_str_format_internal.lib;absl_synchronization.lib;absl_stacktrace.lib;absl_symbolize.lib;absl_debugging_internal.lib;absl_demangle_internal.lib;absl_graphcycles_internal.lib;absl_malloc_internal.lib;absl_time.lib;absl_strings.lib;absl_throw_delegate.lib;absl_strings_internal.lib;absl_base.lib;absl_spinlock_wait.lib;absl_int128.lib;absl_civil_time.lib;absl_time_zone.lib;absl_bad_optional_access.lib;absl_raw_logging_internal.lib;absl_log_severity.lib;-ignore:4221;ssl.lib;crypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(PlatformName)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>$(SolutionDir)lib\$(PlatformName)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>grpc++_reflection.lib;grpc++.lib;libprotobuf.lib;grpc.lib;zlibstatic.lib;cares.lib;address_sorting.lib;re2.lib;absl_hash.lib;absl_city.lib;absl_wyhash.lib;absl_raw_hash_set.lib;absl_hashtablez_sampler.lib;absl_exponential_biased.lib;absl_statusor.lib;absl_bad_variant_access.lib;gpr.lib;upb.lib;absl_status.lib;absl_cord.lib;absl_str_format_internal.lib;absl_synchronization.lib;absl_stacktrace.lib;absl_symbolize.lib;absl_debugging_internal.lib;absl_demangle_internal.lib;absl_graphcycles_internal.lib;absl_malloc_internal.lib;absl_time.lib;absl_strings.lib;absl_throw_delegate.lib;absl_strings_internal.lib;absl_base.lib;absl_spinlock_wait.lib;absl_int128.lib;absl_civil_time.lib;absl_time_zone.lib;absl_bad_optional_access.lib;absl_raw_logging_internal.lib;absl_log_severity.lib;-ignore:4221;ssl.lib;crypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(PlatformName)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImportLibrary>$(SolutionDir)lib\$(PlatformName)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>CORELIB_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>CORELIB_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>CORELIB_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>CORELIB_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ABetRobot.cpp" />
+    <ClCompile Include="BetApplication.cpp" />
+    <ClCompile Include="BetChatDialog.cpp" />
+    <ClCompile Include="BetChatWidget.cpp" />
+    <ClCompile Include="BetCtlManager.cpp" />
+    <ClCompile Include="BetTask.cpp" />
+    <ClCompile Include="br.grpc.pb.cc" />
+    <ClCompile Include="br.pb.cc" />
+    <ClCompile Include="ControlManager.cpp" />
+    <ClCompile Include="DataPacket.cpp" />
+    <ClCompile Include="gdata.cpp" />
+    <ClCompile Include="LotteryQueryGrpcClient.cpp" />
+    <ClCompile Include="LotteryRule.cpp" />
+    <ClCompile Include="LRSettings.cpp" />
+    <ClCompile Include="msg.pb.cc" />
+    <ClCompile Include="Packet.cpp" />
+    <ClCompile Include="PacketBase.cpp" />
+    <ClCompile Include="pdata.cpp" />
+    <ClCompile Include="RobotApplication.cpp" />
+    <ClCompile Include="RobotManager.cpp" />
+    <ClCompile Include="RobotRunnable.cpp" />
+    <ClCompile Include="SMachine.cpp" />
+    <ClCompile Include="TaskBase.cpp" />
+    <ClCompile Include="TaskRobot.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
+    <QtMoc Include="ABetRobot.h" />
+    <QtMoc Include="BetApplication.h" />
+    <QtMoc Include="BetTask.h" />
+    <QtMoc Include="BetChatDialog.h" />
+    <QtMoc Include="BetCtlManager.h" />
+    <QtMoc Include="ControlManager.h" />
+    <QtMoc Include="BetChatWidget.h" />
+    <ClInclude Include="br.grpc.pb.h" />
+    <ClInclude Include="br.pb.h" />
+    <ClInclude Include="DataPacket.h" />
+    <ClInclude Include="gdata.h" />
+    <QtMoc Include="LotteryQueryGrpcClient.h" />
+    <ClInclude Include="LotteryRule.h" />
+    <ClInclude Include="LRSettings.h" />
+    <ClInclude Include="msg.pb.h" />
+    <QtMoc Include="Packet.h" />
+    <QtMoc Include="PacketBase.h" />
+    <ClInclude Include="pdata.h" />
+    <QtMoc Include="SMachine.h" />
+    <ClInclude Include="RobotRunnable.h" />
+    <ClInclude Include="tinyxml2.h" />
+    <ClInclude Include="ToolFunc.h" />
+    <QtMoc Include="TaskRobot.h" />
+    <QtMoc Include="TaskBase.h" />
+    <QtMoc Include="RobotManager.h" />
+    <QtMoc Include="RobotApplication.h" />
+    <QtMoc Include="ARobot.h" />
+    <QtMoc Include="BetManager.h" />
+    <QtMoc Include="ChatDialog.h" />
+    <QtMoc Include="ChatMsgDisplayWidget.h" />
+    <QtMoc Include="Connection.h" />
+    <ClInclude Include="corelib_global.h" />
+    <ClCompile Include="ARobot.cpp" />
+    <ClCompile Include="BetManager.cpp" />
+    <ClCompile Include="ChatDialog.cpp" />
+    <ClCompile Include="ChatMsgDisplayWidget.cpp" />
+    <ClCompile Include="Connection.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="BetChatDialog.ui" />
+    <QtUic Include="BetChatWidget.ui" />
+    <QtUic Include="ChatDialog.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="CoreLib.qrc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

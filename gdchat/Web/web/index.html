@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="audio/amr" />
+<meta http-equiv ="proma" content = "no-cache"/>
+<meta http-equiv="cache-control" content="no cache" />
+<meta http-equiv="expires" content="0" />
+<title>Web版</title>
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="css/bootstrap-select.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./layui/css/layui.css" media="all"/>
+<link rel="stylesheet" type="text/css" href="css/coolchat.css?x=21312256" />
+<link rel="stylesheet" href="assets/js/contextMenu/dist/jquery.contextMenu.css"  type="text/css" />
+
+<link rel="icon"  href="img/favicon.ico"/>
+<!--聊天界面滚动条相关 -->
+<link rel="stylesheet" href="scrollbar/nanoscroller.css">
+<style type="text/css">
+	body{
+		background-color: #EEF0F5;
+	}
+	
+</style>
+</head>
+<body style="background-color: #E9E9E9;" class="">
+  <audio src="mp3/msg.mp3" id="myMusic"></audio>
+	<div class="main">
+		<div class="main_inner">
+			<!-- <div class="visible-xs" style="width: 100%;height: 50px;background-color: #2E3238;color: white;position: fixed;
+				    top: 0px;z-index: 1000">
+				<table class="table">
+					<tr style="text-align: center;">
+						<td style="width: 14%;"><a href="#messagesTab" data-toggle="tab" style="text-decoration: none" onclick="UI.showMessages()"><p onclick='UI.handoverImg(this)'><img id='messageImg' style="width: 20px;" src="img/messageImg.png"><p class="zero">聊天消息</p></p></a></td>
+						<td style="width: 14%"><a href="#friendsTab" data-toggle="tab" style="text-decoration: none" onclick="UI.showFriends(0)"><p onclick='UI.handoverImg(this)'><img id='friendImg' style="width: 20px;" src="img/friendImg.png"><p class="zero">我的好友</p></p></a></td>
+						<td style="width: 14%"><a href="#roomTab" data-toggle="tab" style="text-decoration: none" onclick="GroupManager.showMyRoom(0)"><p onclick='UI.handoverImg(this)'><img id='roomImg' style="width: 20px;" src="img/roomImg.png"><p class="zero">我的群组</p></p></a></td>
+						<td style="width: 14%"><a href="#companyTab" style="text-decoration: none" data-toggle="tab"  onclick="CompanyManager.findCompany()"><p onclick='UI.handoverImg(this)'><img id='compImg' style="width: 20px;" src="img/compImg.png"><p class="zero">我的同事</p></p></a></td>
+			
+						<td style="width: 14%"><a href="#liveRoom" style="text-decoration: none" data-toggle="tab"  onclick="LiveManager.showLiveRoomList(0)"><p onclick='UI.handoverImg(this)'><img id='liveRoom' style="width=device: 20px;" src="img/roomImg.png"><p class="zero">直播列表</p></p></a></td>
+						
+					</tr>
+				</table>
+			</div> -->
+			
+			<!-- 左侧菜单栏 -->
+			<div id="to"  class="hidden-xs coolchat_left_nav" >
+					<div class="header">
+				        <div class="info">
+				            <h3 >
+				                <span class="display_name">咕喃</span>
+				                <a class="system_menu_opt" href="javascript:;" style="float: right;">
+				                	<i class="system_menu_icon"></i>
+				                </a>
+				            </h3>
+				        </div>
+				    </div>
+					<div id="system_menu_panel" class="mmpop ng-scope system_menu" tabindex="-1" style="top: 50px; left: 80px; display: none;">
+						<ul class="dropdown_menu">
+						    <li>
+						       <a tabindex="-1" href="javascript:;" onclick="UI.showSetting()" title="隐私设置" class="ng-scope">
+						            <i class="menuicon_push_on"></i>隐私设置        
+						       </a>
+						    </li>
+						    <li> 
+						        <a tabindex="-1" href="javascript:;" onclick="UI.showPwd()" title="修改密码" class="ng-scope">
+						            <i class="menuicon_volume_on"></i>修改密码
+						        </a>
+						    </li>
+						    <li class="last_child">
+						        <a tabindex="-1" href="javascript:;" onclick="UI.quit()" title="退出登录">
+						            <i class="menuicon_quit"></i>退出登录
+						        </a>
+						    </li>
+						</ul>
+
+					</div>
+
+					<div id="photo" style="height: 130px;text-align: center;"></div>
+					<dl>
+						<dt>
+							<a href="#messagesTab" data-toggle="tab" style="text-decoration: none" onclick="UI.showMessages()">  
+								<p id="messages" onclick='UI.handoverImg(this)' style=" position:relative;" class="back">
+								   <img id='messageImg' style="width: 20px;margin-top: -4px;color: " src="img/messageImg.png">&nbsp;&nbsp;聊天消息
+								   <i id="messageNum" class="messageNum"></i>
+								</p>   
+							</a>
+						</dt>
+					</dl>
+
+					<dl>
+						<dt>
+							<a href="#friendsTab" data-toggle="tab" style="text-decoration: none" onclick="UI.showFriends(0)">
+								<p id="friend" onclick='UI.handoverImg(this)' class="left_title_old">
+								   <img id='friendImg' style="width: 20px;margin-top: -4px" src="img/friendImg2.png">&nbsp;&nbsp;<span >我的好友</span>
+								</p>   
+							</a>
+						</dt>
+					</dl>
+					<dl>
+						<dt>
+							<a href="#roomTab" data-toggle="tab" style="text-decoration: none" onclick="GroupManager.showMyRoom(0)">
+								<p id="room" onclick='UI.handoverImg(this)' class="left_title_old">
+						   			<img id='roomImg' style="width: 25px;margin-top: -4px" src="img/roomImg2.png">&nbsp;&nbsp;群组聊天
+						   		</p>
+						   	</a>
+						</dt>
+					</dl>
+					<!-- <dl>
+						<dt>
+							<a href="#companyTab" style="text-decoration: none" data-toggle="tab"  onclick="CompanyManager.findCompany()">
+								<p id="company" onclick='UI.handoverImg(this)' class="left_title_old">
+									<img id='compImg' style="width: 25px;margin-top: -4px" src="img/compImg2.png">&nbsp;&nbsp;我的同事
+								</p>
+							</a>
+						</dt>
+					</dl> -->
+					<!-- <dl>
+						<dt>
+							<a href="#liveRoom" style="text-decoration: none" data-toggle="tab"  onclick="LiveManager.showLiveRoomList(0)">
+								<p id="liveP" onclick='UI.handoverImg(this)' class="left_title_old">
+									<img id='live' style="width: 25px;margin-top: -4px;text-align: center;" src="img/live2.png">&nbsp;&nbsp;直播列表
+								</p>
+							</a>
+						</dt>
+					</dl> -->
+			</div>
+
+			<!-- 好友、聊天面板 -->
+			<div class="coolchat_content_nav box" style="">
+				<!-- 假接听 -->
+				<!--<div id="fakeCall" style="border-radius: 5px;;position:absolute;background-color: #2E3238;width: 375px;height: 600px;float: right;z-index: 1;margin-top:50px;margin-left: 550px;display: none">-->
+				<div id="fakeCall" style="border-radius: 5px;position:absolute;background-color: #2E3238;width: 375px;height: 600px;z-index: 1;display: none;left: 50%;top: 50%;transform: translate(-50%,-50%)">
+					<p style="color: red;margin-left: 50px;margin-top: 10px">推荐使用Google浏览器,请勿阻拦弹出式窗口</p>
+					<div id="CalluserPhoto" style="margin-left: 137px;margin-top: 50px">
+						<img style="width: 100px" class="roundAvatar" onerror='this.src="img/ic_avatar.png"' src="img/ic_avatar.png">
+					</div>
+					<!-- 呼叫昵称 -->
+					<div id="answerbeCalledNickName" style="margin-left: 90px;width: 200px;margin-top: 20px">
+						<p id="beCalledNickName" style="color: white;text-align: center;font-size: 25px"></p>
+					</div>
+					<div style="margin-top: 50px;text-align: center;">
+						<p id="whoCall" style="color: white"></p>
+					</div>
+					<p id="msgfromJid" style="display: none"></p>
+					<p id="msgfromUserId" style="display: none;"></p>
+					<p id="msgObjectId" style="display: none"></p>
+					<div style="margin-left: 65px;margin-top: 155px">
+						<div style="width: 100px;height: 120px;text-align: center">
+							<!-- <img onclick="closeCall()" style="width: 75px;height: 75px;margin-right: 50px;text-align: center;margin-left: 14%" src="jitsi/images/hangup.png"> -->
+							<p style="color: white;margin-top: 5px;text-align: center">挂断</p>
+						</div>
+						<div style="width: 100px;height: 120px;float: right;margin-right: 65px;margin-top: -119px;text-align: center">
+							<!-- <img onclick="AnswerCall()" style="width: 75px;height: 75px" src="jitsi/images/accept.png"> -->
+							<p style="color: white;margin-top: 5px">接听</p>
+						</div>
+
+					</div>
+				</div>
+				
+				<!-- 假拨号 -->
+				<!--<div id="fakeAnswer" style="border-radius: 5px;position:absolute;background-color: #2E3238;width: 375px;height: 600px;float: right;z-index: 1;margin-top:50px;margin-left: 550px;display: none;">-->
+				<div id="fakeAnswer" style="border-radius: 5px;position:absolute;background-color: #2E3238;width: 375px;height: 600px;z-index: 1;display: none;left: 50%;top: 50%;transform: translate(-50%,-50%);">
+					<!-- <span>&nbsp;</span> -->
+					<p style="position: absolute;color: red;margin-left: 50px;margin-top: 10px">推荐使用Google浏览器,请勿阻拦弹出式窗口</p>
+					<!-- <p style="color: yellow;margin-left: 200px"></p> -->
+					<div id="AnsweruserPhoto" style="margin-left: 137px;margin-top: 50px">
+						<img style="width: 100px;height: 100px;" class="roundAvatar" onerror='this.src="img/ic_avatar.png"' src="img/ic_avatar.png">
+					</div>
+					<!-- 被呼叫昵称 -->
+					<div id="answeruserNickname" style="margin-left: 90px;width: 200px;margin-top: 20px">
+						<p id="callNickName" style="color: white;text-align: center;font-size: 25px"></p>
+					</div>
+					<div style="margin-left: 90px;margin-top: 35px;width: 200px;">
+						<p id="whoAnswer" style="color: white;text-align: center;font-size: 15px">正在等待对方接受邀请...</p>
+					</div>
+					<div style="margin-left: 137px;margin-top: 240px;text-align: center">
+						<div style="width: 100px;height: 100px">
+							<!-- <img onclick="closeCall()" style="width: 75px;height: 75px;" src="jitsi/images/hangup.png"> -->
+							<p style="color: white;margin-top: 5px">挂断</p>
+						</div>
+
+					</div>
+				</div>
+			
+
+				<!-- 接听会议界面 -->
+				<div id="callView" style="position:absolute;z-index: 1;background-color: #2E3238;width: 100%;height: 100%;left: 50%;top:50%;transform: translate(-50%, -50%);display: none">
+				<!--<div id="callView" style="position:absolute;float: right;z-index: 1;margin-top:150px;background-color: #2E3238;width: 900px;height: 700px;display: none;transform: translate(30%, -15%)">-->
+					<!--<img onclick="closeMeet()" style="opacity: 0.01;position: absolute;float: right;width: 45px;top: 91%;left: 47.5%;" src="jitsi/images/hangup.png">-->
+					<!-- <img onclick="closeMeet()" style="opacity: 0.01;position: absolute;float: right;width: 45px;top: 93%;left: 49%;" src="jitsi/images/hangup.png"> -->
+				</div>
+				
+
+				<div class="layui-fluid" style="width: 1030px;">
+					<div id="o" class="coolchat_data_panel" >
+						<div class="tab-content" style="height: 760px;">
+							<div id="friendsTab" class="tab-pane fade">
+
+
+								<div class="coolchat_data_panel_head">
+									<img id="back" src="img/back.png" style="width: 30px;float: left;margin-top: 12.5px;margin-left: 5px;display: none;cursor:pointer;" onclick="UI.showFriends(0)">
+									<p style="display: inline;"
+										 id="friendsTabTitle" >我的好友</p>
+									<div id="myFriend" class="head-operations contact-operations" >
+						            	<i class="iconfont icon-add" htitle="添加好友" htitle-offset="left" onclick='UI.showNearbyUser(0)'></i>
+						         	</div>
+								</div>
+
+								<div id="btnFooter" class="row" style="margin-left: 0px; margin-right: 0px;">
+									<p id="btnMyFriends" type="button" class="col-xs-6" style="border-radius: 0;height: 35px;line-height: 35px;text-align: center;font-size: 15px;cursor:pointer;" onclick="UI.showFriends(0,1);">我的好友
+									</p>
+									<p id="btnAttentionList" type="button" class=" col-xs-6" style="border-radius: 0;height: 35px;line-height: 35px;text-align: center;font-size: 15px;cursor:pointer;" onclick="UI.showBlackList(0);">黑名单
+									</p>
+								</div>
+
+								<div style="height: 676px;">
+									<div class="fWarp" id="myFriendsList" style="height:660px; overflow-y:auto; overflow-x:hidden;">
+
+										<div  class="" id="friends_10001" onclick="UI.isChoose(10001);">
+											<div class="chat_item slide-left active" onclick="UI.showNewFriends(0);" >
+												<div class="avatar">
+													<img class="img roundAvatar" src="img/im_10001.png" alt="">
+													<i id="msgNum_10001" class="icon web_wechat_reddot_middle">1</i>
+												</div>
+												<div class="info">
+													<div class="nickname">
+														<span class="nickname_text">新的朋友</span>
+													</div>
+													<p class="msg">
+														<span style="color:#3a3f45">新朋友消息</span>
+													</p>
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="fWarp" id="blackList" style="height:660px; overflow-y:auto; overflow-x:hidden;">
+										
+									</div>
+
+								</div>
+							</div> 
+							<div id="messagesTab" class="tab-pane fade in active">
+								<div class="coolchat_data_panel_head">
+									<p id="charMessage" style="display: inline;">聊天消息</p>
+								</div>
+								<div id="messageDisplayArea" style="height: 676px; overflow-y:auto;overflow-x:hidden;">
+									<div class="fWarp" id="myMessagesList">
+										
+										
+										<div  class="" id="friends_10000" onclick="UI.isChoose(10000);">
+									        <div class="chat_item slide-left active" onclick="UI.showUser(10000);">
+									        
+									            <div class="avatar">
+									                <img class="img roundAvatar" src="img/im_10000.png" alt="">
+									                <i id="msgNum_10000" class="icon web_wechat_reddot_middle">1</i>
+									            </div>
+									            <div id="friends_10000Div" class="info">
+									                <div class="nickname">
+									                    <span class="nickname_text">系统客服</span>
+									                    <span id='timeSend_10000' class="timeStr" value=""></span>
+									                </div>
+
+									                <p class="msg">
+									                    <span id="titfriends_10000" >系统消息</span>
+									                </p>
+									            </div>
+									        </div>
+									    </div>
+
+										<div  class="" id="friends_10001" onclick="UI.isChoose(10001);">
+									        <div class="chat_item slide-left active" onclick="UI.showNewFriends(0);" >
+									            <div class="ext"> <p class="attr"></p> </div>
+									            <div class="avatar">
+								                <img class="img roundAvatar" src="img/im_10001.png" alt="">
+								                <i id="msgNum_10001" 
+								                class="icon web_wechat_reddot_middle msgNumHide" 
+								                style=""></i>
+									            </div>
+									            <div class="info">
+									                <h3 class="nickname">
+									                    <span class="nickname_text">新的朋友</span>
+									                </h3>
+									                <p class="msg">
+									                    <span style="color:#3a3f45">好友验证消息</span>
+									                </p>
+									            </div>
+									        </div>
+									    </div>
+									    
+										
+									</div>
+								</div>
+							</div> 
+							<div id="roomTab" class="tab-pane fade">
+								<!-- 647 -->
+								<div class="coolchat_data_panel_head" id="btnMyRoom">
+									<p style="display: inline;">我的群组</p>
+									<div id="newGroup" class="head-operations contact-operations" >
+						            	<i class="iconfont icon-add" htitle="创建群组" htitle-offset="left" onclick='UI.newCreateRoome()'></i>
+						         	</div>
+								</div>
+								<!--<div class="row" style="margin-left: 0px; margin-right: 0px;/*border-top: 1px solid #EEEEEE;*/">
+									<p id="btnMyRoom" type="button" class="col-xs-6" style="border-radius: 0;height: 35px;line-height: 35px;text-align: center;cursor:pointer;">我的群组</p>
+									<p id="btnAllRoom" type="button" class="col-xs-6" style="border-radius: 0;height: 35px;line-height: 35px;text-align: center;cursor:pointer;">所有群组</p>
+								</div>-->
+								<div style="height: 676px;">
+
+									<div class="search_bar" id="search_bar" style="margin-top: 4px" >
+										<i id="search_room_btn" class="web_wechat_search" onclick="GroupManager.showSearchRooms()"></i>
+								        <input id="search_all_room" class="frm_search" type="text" placeholder="输入群组名称">
+								    </div>
+
+									<div id="myRoomList" style="display: none;"></div>
+									<div id="allRoomList" style="display: none; padding-top:10px; ">
+										<div id="_allRoomList"></div>
+									</div>
+								</div>
+							</div>
+							<!-- 公司列表显示区 -->
+							<div id="companyTab" class="tab-pane fade" style="height:100%;" >
+						      	<div class="coolchat_data_panel_head">
+								  <p style="display: inline;">我的同事</p>
+								  
+								  <div id="creatCompanyImg" class="head-operations contact-operations" >
+						            <i class="iconfont icon-add" htitle="创建公司" htitle-offset="left" onclick="$('#newCompanyModal').modal('show');"></i>
+						          </div>
+								</div>
+						       <div id="companyListShow" style="height: 710px; overflow-y:auto;">  <!--  overflow-y:auto; -->
+			                        <!-- 组织结构显示区 -->
+			                        <div id="orgShow"></div>
+							   </div>
+							</div>
+							<!-- 直播相关 -->
+							<div id="liveRoomTab" class="tab-pane fade">
+								<div class="coolchat_data_panel_head">
+									<p style="display: inline;">直播列表</p>
+								</div>
+								<div style="height: 676px;">
+									<div id="liveRoomList" style=""></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="tabCon_new" class="coolchat_message_panel_div" style="display: none">
+						<div class="coolchat_message_panel_1" >
+							<div class="panel-heading message_panel_head" >
+								<div style="height:40px;margin-top: -5px;">
+									<div  class="headContent">
+										<div class="imgAvatar">
+											<figure style="height: 40px;width: 40px;">
+												<img class="chat_content_avatar" src="img/im_10001.png">
+											</figure>
+										</div>
+									</div>
+									<div class="headContent">
+										<h3 class="panel-title user_nickname" style="margin-top: 10px">
+											<span style="font-size: 16px">新的朋友</span>
+										</h3>
+										
+									</div>
+									<div class="headContent hint" style="display: none;" id="chatHint"></div>
+									<div class="layui-form" style="float:right; width: 160px;">	
+									</div>
+								</div>
+							</div>
+							<div id="divNewFriendList" class="tab-content" style="height: 710px;background-color: white">
+							</div>
+						</div>
+					</div>
+					<div id="tabCon_0" class="coolchat_message_panel_div" >
+						
+						<div id="chatPanel" class="coolchat_message_panel" >
+							<div class="panel-heading message_panel_head" >
+								<div style="height:40px;margin-top: -5px;">
+									<div id="chatAvator"  class="headContent"></div>
+									<div class="headContent">
+										<h3 id="chatTitle" class="panel-title user_nickname" >&nbsp;</h3>
+									</div>
+									<div class="headContent hint" style="display: none;" id="chatHint"></div>
+									<div id="switchReadDelDiv" class="layui-form" style="float:right; width: 160px;">
+										<label class="layui-form-label" style="width: 90px;">阅后即焚</label>				
+										<div class="layui-input-block" style="margin-left: 90px;">
+											<input id="switchReadDel"  lay-filter="switchReadDel"  type="checkbox" name="" lay-skin="switch">
+										</div>
+									</div>
+									<div id="groupDetails">
+										<img src="img/menuBar_big.png"  onclick="msgMabayRoom()" style="width: 25px;float: right;margin: 7px 0;">
+									</div>
+								</div>
+							</div>
+							<div class="panel-body" style="padding: 0px;height:710px">
+								<div id='messagePanel' class="nano coolchat_message_show_area" style="height: 500px;padding: 0 17px;">
+									<div class="nano-content" style="">
+										<div id="messageContainer" style="overflow: hidden;padding: 0 17px;">
+										</div>
+										<div id="messageEnd" style="height: 0px; overflow: hidden"></div>
+									</div>
+
+
+								</div>
+
+								<div id="emojl-panel" class="emoji-panel" style="display: none;">	
+									<ul id="emojiList" class="emojiList" style=""></ul>
+								</div>
+								
+								<div id="gif-panel" class="emoji-panel" style="display: none; height: 260px;">
+									<ul id="gifList" class="emojiList"></ul>
+								</div>
+
+								<div id="userfulText-panel" class="userfulText-panel" style="display: none;">
+									<h3 class="title">
+										<a href="javascript:" id="addUsefulTextBtn" class="link-set">添加</a>
+										常用语
+									</h3>
+									<ul id="userfulTextList"></ul>
+								</div>
+								<div id="sendMsgScopeDiv" style="height:210px; ">
+									<!-- 全体禁言 的遮盖层 -->
+									<div id="chatBannedDiv" class="chat_banned">
+										全体禁言中
+									</div>
+									<div style=" cursor: pointer; color: blue; font-size: 12px;">
+										<span id="btnEmojl">
+											<img id="img1" alt="" src="img/emoji.png">
+										</span>
+										<span id="btnGif">
+											<img id="gif" alt="" src="img/gif.png">
+										</span>
+										<span id="btnImg">
+												<img alt="" src="img/p.png">
+										</span>
+										 <!-- 用于触发图片上传 -->
+										<span id="imgUploadAction" style="display: none;"></span>
+
+										<!-- <span id="btnVoice">
+											<img src="img/voice_zhm.png">
+										</span> -->
+										
+										<span id="btnFile">
+											<img alt="" src="img/wj.png">
+										</span>
+										<span id="btnmin" onclick="UI.sendCard(0)">
+											<img alt="" src="img/mingping.png">
+										</span>
+										<span id="place">
+											<img src="img/wz.png">
+										</span>
+										<!-- web 取消发送红包功能吧  -->
+										<!-- <span id="redback">
+											<img style="margin-top: 5px" src="img/red.png">
+										</span> -->
+										<span id="userfulTextBtn" style="display: none;">
+											<img style="margin-top: 5px" src="img/userfulText.png">
+										</span>
+										
+										<!-- <ul id="vo" style="z-index: 1;display: inline;float: right;margin-right: 240px;color: black;font-size: 12px;display: none">
+											<li id="call" style="background-color: white;width: 50px;list-style-type: none">语音通话</li>
+											<li id="video" style="background-color: white;width: 50px;list-style-type: none">视频通话</li>
+										</ul> -->
+									</div>
+									<textarea class="Input_text" 
+									id="messageBody" wrap="hard" style="padding: 0">
+									</textarea>
+
+									<div style="/*margin-top: 15px;*/ position:absolute;">
+										<button id="btnEndChat" type="button" class="btn sou msg_panel_op_btn" style="display: none;">结束会话</button>
+									</div>
+									<div style="/*margin-top: 15px; */float: right;">
+										<button id="btnSend" type="button" class="btn sou msg_panel_op_btn" style="color: white; margin:10px 10px;">发送（Enter）</button>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!--好友详情-->
+				<div id="tabCon_1" class="col-sm-7 friends_detail_panel">
+					<div style="background-color: white;margin-left: 20%;margin-top: 7%;height: 650px;text-align: center;border: 1px solid #ddd;width: 400px">
+						<div id="friend_img_div" style="margin-top: 15%">
+						
+						</div>
+						<div style="text-align: center;margin-top: 10%">
+							<span class="one">昵称</span><div id="desname" style="line-height: 50px;font-size: 16px;"></div>
+						</div>
+						<div>
+							<span class="one">性别</span><div id="dessex" style="line-height: 50px;;font-size: 16px"></div>
+						</div>
+						<div>
+							<span class="one">生日</span><div id="desbirthday" style="line-height: 50px;;font-size: 16px"></div>
+						</div>
+						<div>
+							<span class="one">国家</span><div id="descountry" style="line-height: 50px;margin-left: 30px;font-size: 16px"></div>
+						</div>
+						<div>
+							<span class="one">省份</span><div id="desprovince" style="line-height: 50px;margin-left: 30px;font-size: 16px"></div>
+						</div>
+
+						<div id="friendDetailsBtn" style="margin-top: 15%">
+							<!-- <button class="btn danger_btn" style="margin-right: 25px;width: 150px">删除好友</button>
+							<button class="btn danger_btn" style="background-color: black;width: 150px">加入黑名单</button> -->
+						</div>
+					</div>
+					
+				</div>
+				<!-- <div id="tabCon_1" class="col-sm-7 friends_detail_panel" >
+					<div class='friendDetails'>
+						好友详细信息
+					</div>
+					<div class="ring">
+						<div class="one">头像</div>
+						<div id="desphoto" style="float: left;margin-left:30px;margin-top:5px;"></div>
+					</div>
+					<div class="ring">
+						<span class="one">昵称</span><div id="desname" style="float: left;margin-left: 30px;;line-height: 50px;font-size: 14px"></div>
+					</div>
+					<div class="ring">
+						<span class="one">性别</span><div id="dessex" style="float: left;margin-left: 30px;;line-height: 50px;;font-size: 14px"></div>
+					</div>
+					
+					<div class="ring">
+						<span class="one">生日</span><div id="desbirthday" style="float: left;margin-left: 30px;;line-height: 50px;;font-size: 14px"></div>
+					</div>
+					<div class="ring">
+						<span class="one">国家</span><div id="descountry" style="float: left;line-height: 50px;margin-left: 30px;;font-size: 14px"></div>
+					</div>
+					<div class="ring">
+						<span class="one">省份</span><div id="desprovince" style="float: left;line-height: 50px;margin-left: 30px;;font-size: 14px"></div>
+					</div>
+					&nbsp;
+					<div id="friendDetailsBtn">
+						
+					</div>
+					
+				</div>  -->
+
+				<!--群组详情-->
+				<div id="tabCon_2" class="col-sm-6 groupDetails group_details_panel layui-form">
+
+					<div class="head" >群组详细信息</div>
+					
+					<div class="groupDetailSettingRow" onclick="chengRoomname()">
+						<p class="groupSettingItem_p">群名称</p>
+							<div id="gname" class="text-length groupDetailText" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 250px;"></div>
+							<img src="img/seting.png" class="groupDetailSettingImg" >
+					</div>
+					<div class="groupDetailSettingRow" onclick="roomstate()">
+						<p class="groupSettingItem_p">群说明</p>
+						<div id='gdesc' class="text-length groupDetailText" ></div>
+						<img src="img/seting.png" class="groupDetailSettingImg">
+					</div>
+					<div class="groupDetailSettingRow" id="noticeInfo" onclick="noticeInfo(0)">
+						<div>
+							<p class="groupSettingItem_p">群公告</p>
+							<div id='gnotice' class="text-length groupDetailText" ></div>
+							<img src="img/seting.png" class="groupDetailSettingImg">
+						</div>
+					</div>
+					<div class="groupDetailSettingRow" onclick="groupNickname()">
+						<div>
+							<p class="groupSettingItem_p">群昵称</p>
+							<div id='gnickname' class="text-length groupDetailText" ></div>
+							<img src="img/seting.png" class="groupDetailSettingImg">
+						</div>
+					</div>
+					<div class="groupDetailSettingRow">
+						<div>
+							<p class="groupSettingItem_p">创建者</p>
+							<div id="creator" class="text-length groupDetailText"></div>
+						</div>
+					</div>
+
+					<div class="groupDetailSettingRow" onclick='groupfile()'>
+						<div >
+							<p class="groupSettingItem_p">群共享文件</p>
+							<img src="img/seting.png" class="groupDetailSettingImg">
+						</div>
+					</div>
+					
+					<div id="btnInvite" class="groupDetailSettingRow">
+						<div >
+							<p class="groupSettingItem_p" style='margin-top: 2.5%;'>邀请好友</p>
+							<img src="img/seting.png" class="groupDetailSettingImg">
+						</div>
+					</div>
+					<div id="btnKicking" class="groupDetailSettingRow">
+						<div >
+							<p class="groupSettingItem_p" id="btnKicking_1" style='margin-top: 2.5%;'>成员列表</p>
+							<img src="img/seting.png" class="groupDetailSettingImg">
+						</div>
+					</div>
+					<div id="groupTransferDiv" class="groupDetailSettingRow">
+						<div >
+							<p class="groupSettingItem_p" id="" style='margin-top: 2.5%;'>群主转让</p>
+							<img src="img/seting.png" class="groupDetailSettingImg">
+						</div>
+					</div>
+					<!-- <div class="groupDetailSettingRow">
+						<div>
+							<p class="groupSettingItem_p">创建时间</p>
+							<div id='gcreateTime' style='float: left;margin-left: 60px;margin-top: 3%;font-size: 14px'></div>
+						</div>
+					</div> -->
+					<div id="shieldSettingDiv"  class="groupDetailSettingRow groupSettingSwitchDiv">
+						<!-- <p class="groupSettingItem_p">消息免打扰</p> -->
+						<!-- <span id="btnShield" class="switch-off"  ></span> -->
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">消息免打扰</p>
+							<input id="btnShield"  lay-filter="btnShield"  type="checkbox" name="" lay-skin="switch">
+						</div>
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc text-length" style="">
+							 	启用后,当前群组收到消息 不会有新消息提醒
+							</p>
+						</div> -->
+					</div>
+					<div id="allBannedDiv"  class="groupDetailSettingRow groupSettingSwitchDiv">
+						<!-- <p class="groupSettingItem_p">全体禁言</p> -->
+						<!-- <span id="btnallBanned" class="switch-off"  ></span> -->
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">全体禁言</p>
+							<input id="btnallBanned"  lay-filter="btnallBanned"  type="checkbox" name="" lay-skin="switch">
+						</div>
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							 	启用后,其他所有成员不能发送消息 
+							</p> 
+						</div> -->
+					</div>
+					<div id="openReadDiv" class="groupDetailSettingRow groupSettingSwitchDiv" >
+						<!-- <p class="groupSettingItem_p">显示群消息已读人数</p> -->
+						<!-- <span id="openRead" class="switch-off"  ></span> -->
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">显示群消息已读人数</p>
+							<input id="openRead"  lay-filter="openRead"  type="checkbox" name="" lay-skin="switch">
+						</div>
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							  启用后,群组的每条消息 都会显示已读人数 可点击查看 
+							</p> 
+						</div> -->
+					</div>
+					<div class="groupDetailSettingRow groupSettingSwitchDiv">
+						
+						
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">私密群组</p>
+							<input id="isLook"  lay-filter="isLook"  type="checkbox" name="" lay-skin="switch" >
+						</div>
+
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							 启用后,无法搜索到当前群组 
+							</p> 
+						</div> -->
+						
+					</div>
+					<div class="groupDetailSettingRow groupSettingSwitchDiv">
+						<!-- <p class="groupSettingItem_p">开启进群验证</p> -->
+						<!-- <span id="isNeedVerify" value="0" class="switch-off"></span> -->
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">开启进群验证</p>
+							<input id="isNeedVerify"  lay-filter="isNeedVerify"  type="checkbox" name="" lay-skin="switch">
+						</div>
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							 启用后,群成员邀请好友进群需要群主确认
+							</p> 
+						</div> -->
+					</div>
+
+					<div class="groupDetailSettingRow groupSettingSwitchDiv">
+						<!-- <p class="groupSettingItem_p">允许显示群成员列表</p> -->
+						<!-- <span id="showMember" value="1" class="switch-on"></span> -->
+
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">允许显示群成员列表</p>
+							<input id="showMember"  lay-filter="showMember"  type="checkbox" name="" lay-skin="switch" >
+						</div>
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							 关闭后,普通成员不能查看成员列表
+							</p> 
+						</div> -->
+					</div>
+
+					<div class="groupDetailSettingRow groupSettingSwitchDiv">
+						<!-- <p class="groupSettingItem_p">允许普通群成员私聊</p>
+						<span id="allowSendCard" value="1" class="switch-on"  ></span> -->
+
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">允许普通群成员私聊</p>
+							<input id="allowSendCard"  lay-filter="allowSendCard"  type="checkbox" name="" lay-skin="switch">
+						</div>
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							 关闭后,不允许群内成员私聊 不允许发送名片
+							</p> 
+						</div> -->
+					</div>
+
+					<div class="groupDetailSettingRow groupSettingSwitchDiv">
+						<!-- <p class="groupSettingItem_p">允许普通成员邀请好友</p>
+						<span id="allowInviteFriend" value="1" class="switch-on"  ></span> -->
+
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">允许普通成员邀请好友</p>
+							<input id="allowInviteFriend"  lay-filter="allowInviteFriend"  type="checkbox" name="" lay-skin="switch" >
+						</div>
+
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							 关闭后,普通成员 不能邀请好友入群
+							</p>
+						</div> -->
+					</div>
+
+					<div class="groupDetailSettingRow groupSettingSwitchDiv">
+						<!-- <p class="groupSettingItem_p">允许普通成员上传共享文件</p> -->
+						<!-- <span id="allowUploadFile" value="1" class="switch-on"  ></span> -->
+
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">允许普通成员上传共享文件</p>
+							<input id="allowUploadFile"  lay-filter="allowUploadFile"  type="checkbox" name="" lay-skin="switch">
+						</div>
+
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							 关闭后,普通成员不能上传群共享文件
+							</p>
+						</div> -->
+					</div>
+
+					<div class="groupDetailSettingRow groupSettingSwitchDiv">
+						<!-- <p class="groupSettingItem_p">允许普通成员发起会议</p> -->
+
+						<div class="layui-input-block" style="margin-left:0;" >
+							<p class="groupSettingItem_p" style="width: 85%; text-align: left;">允许普通成员发起会议</p>
+							<input id="allowConference"  lay-filter="allowConference"  type="checkbox" name="" lay-skin="switch">
+						</div>
+
+						<!-- <span id="allowConference" value="1" class="switch-on"  ></span> -->
+
+
+						<!-- <div class="groupSettingItemDiv" >
+							<p class="groupSettingItem_desc" style="">
+							 关闭后,普通成员不能主动发起语音会议和视频会议
+							</p>
+						</div> -->
+					</div>
+					
+				
+					<div style='width: 100%;text-align: center;'>
+						<div>
+						    <button id="btnDelete" class="btn danger_btn">解散群组</button>
+						</div>
+					</div>
+
+					<div id="btnexit" style='width: 100%;text-align: center; margin-top: 20px; '>
+						<div>
+							<button class="danger_btn" onclick='exitgrounp()'>退出该群</button>
+						</div>
+					</div>
+						
+				</div>
+
+				<!--附近人详情-->
+				<div id="tabCon_3" style="border-radius: 3px;display: none">
+					<div style="height: 8%;background-color: #EEF0F5;border-radius: 5px;text-align: center;line-height:55px;font-size: 18px;color: #55CBC4;">
+						附近用户详情
+					</div>
+					<div class="ring">
+						<div class="one">头像</div><div id="desphoto" style="float: left;margin-left: 30px;"></div>
+					</div>
+					<div class="ring">
+						<span class="one">昵称</span><div id="desname" style="float: left;margin-left: 30px;;line-height: 50px;font-size: 16px"></div>
+					</div>
+					<div class="ring">
+						<span class="one">性别</span><div id="dessex" style="float: left;margin-left: 30px;;line-height: 50px;;font-size: 16px"></div>
+					</div>
+					<div class="ring">
+						<span class="one">签名</span><div id="dessign" style="float: left;margin-left: 30px;line-height: 50px;;font-size: 16px"></div>
+					</div>
+					<div class="ring">
+						<span class="one">生日</span><div id="desbirthday" style="float: left;margin-left: 30px;;line-height: 50px;;font-size: 16px"></div>
+					</div>
+					<div class="ring">
+						<span class="one">国家</span><div id="descountry" style="float: left;line-height: 50px;margin-left: 30px;;font-size: 16px"></div>
+					</div>
+					<div class="ring">
+						<span class="one">省份</span><div id="desprovince" style="float: left;line-height: 50px;margin-left: 30px;;font-size: 16px"></div>
+					</div>
+					&nbsp;&nbsp;
+					<div>
+						<button class="btn btn-default" style="background-color: #55CBC4;width: 500px;height: 50px;margin-left: 140px;font-size: 16px">加好友</button>
+					</div>
+					&nbsp;&nbsp;
+					<div>
+						<button class="btn btn-default" style="background-color: #55CBC4;width: 500px;height:50px;margin-left:140px;font-size:16px"></button>
+					</div>
+					</div>
+					<div id="voice" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<!--<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px;">-->
+						<div class="modal-dialog" style="width: 375px;height: 600px;margin-top: 60px;">
+							<div class="modal-content" style="background-color: #2E3238">
+								<h4 class="modal-title" id="myModalLabel" style="text-align: center;margin-top: 25px;color: white">发送语音消息</h4>
+								<div class="modal-body">
+									<div class="row">
+										<p style="margin-left: 40px;color: red">提示: 网站需要支持 https 否则 获取权限会失败！</p>
+										<div class="col-sm-7" style="height: 500px;">
+
+											<div onmousedown="startRecording()" onmouseup="stopRecording()" style="background-color: #d25a58;width: 150px;height: 150px;border-radius: 75px;margin-left: 100px;margin-top: 150px;">
+
+												<img id="voice_img" src="img/round.png" width="150px" height="150px">
+												<img id="voice_gif" src="img/recordnew.gif" style="display: none;width: 110px;height: 110px;margin-left: 20px;margin-top: 20px;">
+											</div>
+										</div>
+									</div>	
+								</div>
+							</div>
+						</div>
+						<audio id="voice_audio"  controls autoplay></audio>
+						<input id="voiceUrl" type="" name="" style="display: none">
+					</div>
+				<div id="newRoomModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="myModalLabel">新建群组</h4>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-sm-7">
+										<form class="form-horizontal">
+											<div class="form-group">
+												<label class="col-sm-3 control-label">群组名称</label>
+												<div class="col-sm-9">
+													<input id="roomName" name="roomName" type="text" placeholder="" class="form-control" maxlength="20">
+													<p class="help-block">请填写群组名称</p>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label">群组描述</label>
+												<div class="col-sm-9">
+													<input id="roomDesc" name="roomDesc" type="text" placeholder="" class="form-control" maxlength="20">
+													<p class="help-block">请填写群组描述</p>
+												</div>
+											</div>
+											<p>已选好友:</p>
+											<div id="createGroupShow" class="" style="/*border: 1px solid #f2f2f2;*/ max-height:300px; overflow-y:auto;">
+												
+											</div>
+
+											<div id="createGroupSetting"  >
+												<!-- <div class="createGroupSettingDiv">
+													<p>显示群消息已读人数</p>
+														<span id="showRead" value="0"  class="switch-off"></span>
+												</div> -->
+
+												<!-- <div class="createGroupSettingDiv">
+													<p>私密群组</p>
+														<span id="isLook" value="0" class="switch-on"></span>
+												</div> -->
+												<!-- <div class="createGroupSettingDiv">
+													<p>开启进群验证</p>
+														<span id="isNeedVerify" value="0" class="switch-off"></span>
+												</div>
+												<div class="createGroupSettingDiv">
+													<p>允许显示群成员列表</p>
+														<span id="showMember" value="1" class="switch-on"></span>
+												</div>
+												<div class="createGroupSettingDiv">
+													<p>允许普通群成员私聊</p>
+														<span id="allowSendCard" value="1" class="switch-on"  ></span>
+												</div> -->
+											</div>
+
+
+										</form>
+									</div>
+									<div class="col-sm-5">
+										选择好友：<br/>
+										<div
+											style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom:1px solid #eeeeee; height: 480px;">
+											<table class="table" id="tbFriendsList">
+												
+											</table>
+											<div id="friends_page"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn sou" id="btnCreateGroup" style="color: white;">完成创建</button>
+								<div id="loading_1" style="display: none;">
+									<img src="img/loading.gif" />&nbsp;创建中...
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<div id="groupname" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">群组重命名</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-7" style="width:70%">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">请输入名称</label>
+											<div class="col-sm-9">
+												<input id="newgroupname" name="newNotice" type="text" placeholder="" autocomplete="off" class="form-control" maxlength="20">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="submit" style="background-color: #55CBC4;border: 0">提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--修改房间说明-->
+			<div id="groupdesc" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">修改群组说明</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-7">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">群组说明</label>
+											<div class="col-sm-9">
+												<input id="newdesc" name="newdesc" type="text" placeholder="" autocomplete="off" class="form-control" maxlength="20">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="btndesc" style="background-color: #55CBC4;border: 0">提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 群公告详情 -->
+			<div id="groupBulletinInfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width:500px;margin-top: 60px">
+					<div class="modal-content" style="height:400px;">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<span class="modal-title" id="notices">群公告详情</span>
+							<button type="button" class="btn sou" id="release" style="float:right;margin-right:30px;" onclick="notice()">发布公告</button>
+						</div>
+						<div class="modal-body">
+							<div style="height:260px;  overflow-x: hidden;">
+								<table class="table">
+									<tbody id="noticesInfo">
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+						<!-- 公告分页 -->
+						<div id="noticesCardPage"></div>
+						<div class="modal-footer">
+							<button type="button" class="btn sou" onclick="$('#groupBulletinInfo').modal('hide');">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 显示群组公告 -->
+			<div id="showGroupNotices"></div>
+
+			<!--修改群公告-->
+			<div id="groupnotice" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">发布公告</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-7">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">公告信息</label>
+											<div class="col-sm-9">
+												<input id="newNotice" name="newNotice" type="text" placeholder="请输入公告" autocomplete="off"
+												class="form-control" >
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" id="btnNotice" class="btn sou" >提交</button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--修改群昵称-->
+			<div id="updategname" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">修改群昵称</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-7">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">昵称</label>
+											<div class="col-sm-9">
+												<input id="newNickname" name="newNickname" type="text" placeholder="" autocomplete="off" class="form-control" maxlength="20">
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="btnNickname" style="background-color: #55CBC4;border: 0">提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--我的资料-->
+			<div id="prop" class="my_profile_panel" >
+				<div class="my_profile_title">我的资料</div>
+				
+				<div style="padding:20px 20px 0 20px">
+					
+					<div style="margin-bottom:35px;text-align: center;">
+						<form id="avatarForm" action="" method="post" enctype="multipart/form-data">
+							<input id="avatarUserId" name="userId" type="hidden" > 
+							<!-- <input id="avatar" name="file" type="file" accept="image/*" style="width: 250px;display: none;" onchange="UI.uploadPhoto(this)">  -->
+							<input id="avatar" name="file" type="file" accept="image/*" style="width: 250px;display: none;" onchange="UI.uploadPhoto(this)">
+							<!-- <img id="avatar_preview" onerror="this.src='img/ic_avatar.png'"  src="" style="width: 150px;max-height: 150px;border-radius: 100%;" onclick="myFn.getAvatar()"/> -->
+							<img id="avatar_preview" onerror="this.src='img/ic_avatar.png'"  src="" style="width: 150px;max-height: 150px;border-radius: 100%;" />
+						</form>
+						<!-- <input id="avatarUpload" class="btn btn-primary" style="background-color:#55CBC4;border:0;float: right;margin-top: -150px;" type="button" value="上传头像" > --> 
+					</div>
+
+					<form id="from" role="form" class="form-horizontal layui-form"   lay-filter="my_profile_form"   enctype="multipart/form-data">
+						
+						<div class="layui-form-item">
+						    <label class="layui-form-label">昵 称</label>
+						    <div class="layui-input-inline">
+						      <input type="text" id="mynickname" name="nickname" lay-verify="required" autocomplete="off" class="layui-input">
+						    </div>
+						</div>
+
+						<div class="layui-form-item">
+						    <label class="layui-form-label">性 别</label>
+						    <div class="layui-input-inline">
+						      <input type="radio" id="sex" name="sex" value="1" title="男" >
+						      <input type="radio" id="sex" name="sex" value="0" title="女" >
+						    </div>
+						</div>
+
+						<!-- <div style="margin: 15px 0;">
+							<p style="display: inline; font-size: 14px;">生 日</p>
+							<input id="mybirthday" name="birthday" type="text" class="datepicker form-control" style="width: 85%; height:28px; display: inline;"/>
+						</div> -->
+						
+						<div class="layui-form-item">
+						    <label class="layui-form-label">生 日</label>
+						    <div class="layui-input-inline">
+						      <input type="text" id="mybirthday" name="birthday" lay-verify="required" class="layui-input">
+						    </div>
+						</div>
+
+						<div style="text-align: center;vertical-align: middle;margin-top: 50px;">
+							<!-- <button type="button" class="btn btn-primary" id="btnEditCancel" style="background-color:#3A3F45;border: 0">取消</button> -->
+							<button type="button" class="defult_btn" id="btnEditOK" onclick="">保存</button>
+						</div>
+					</form>
+				</div>
+
+			</div> 
+
+			<!--隐私设置-->
+			<div id="privacy" class="privacy_set_panel layui-form" style="display: none;">
+				<div  class="privacy_set_title">隐私设置</div>
+
+				<div style="padding: 0 20px 0 20px;">
+					
+					
+					<div class="privacy_option">
+						<div class="layui-input-block" style="margin-left:0;  " >
+							<label class="layui-form-label" style="width: 220px; text-align: left;">需要好友验证</label>
+							<input id="friendsVerify"  lay-filter="friendsVerify"  type="checkbox" name="friendsVerify" lay-skin="switch">
+						</div>
+					</div>
+					
+					<div class="privacy_option">
+						<div class="layui-input-block" style="margin-left:0; " >
+							<label class="layui-form-label" style="width: 220px; text-align: left;">消息加密传输</label>
+							<input id="infoEncrypt"  lay-filter="infoEncrypt"  type="checkbox" name="infoEncrypt" lay-skin="switch">
+						</div>
+					</div>
+					
+					<!-- <div class="privacy_option">
+						<div class="layui-input-block" style="margin-left:0; " >
+							<label class="layui-form-label" style="width: 220px; text-align: left;">客服模式</label>
+							<input id="customerService"  lay-filter="customerService"  type="checkbox" name="customerService" lay-skin="switch" >
+						</div>
+					</div> -->
+					
+					<div style="text-align: center;vertical-align: middle;margin-top: 50px;">
+						<button type="button" class="defult_btn" id="btnSettingOK" style="width: 104px;" onclick="">保存</button>
+					</div>	
+
+					<div style="text-align: center;vertical-align: middle;">
+						<button type="button" class="danger_btn" style="width: 104px;" onclick="DataUtils.clearAll();">清除本地数据</button>
+					</div>
+					
+				</div>
+			</div>
+
+			<!--修改密码-->
+			<div id="setPassword" class="password_set_panel" style="display: none;">
+				<div class="password_set_title">密码管理</div>
+				<div style="padding: 0 20px 0 20px">
+					<form id="form5" role="form" class="form-horizontal layui-form" style="text-align: center;padding:100px 20px;">
+						
+							    <!-- <label class="layui-form-label">旧密码</label> -->
+							    <div class="layui-input-inline" style="margin-bottom: 20px;width: 90%;">
+							      <input type="password" id="oldPwd" name="oldPwd" required lay-verify="required" placeholder="请输入旧密码" autocomplete="off" class="layui-input">
+							    </div>
+
+							    <div class="layui-input-inline" style="margin-bottom: 20px;width: 90%;">
+							      <input type="password" id="newPassword" name="newPassword" required lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+							    </div>
+
+
+							    <div class="layui-input-inline" style="margin-bottom: 20px;width: 90%;">
+							      <input type="password" id="password1" name="password1" required lay-verify="required" placeholder="确认新密码" autocomplete="off" class="layui-input">
+							    </div>
+
+						<!-- <div>
+							<p>旧密码</p>
+							<div>
+								<input id="oldPwd" class="form-control" type="password" name="oldPwd" style="width: 200px">
+							</div>
+						</div>
+						<div>
+							<p>新密码</p>
+							<div>
+								<input id="newPassword" class="form-control" type="password" name="newPassword" style="width: 200px">
+							</div>
+						</div>
+						<div>
+							<p>确认新密码</p>
+							<div>
+								<input id="password1" class="form-control" type="password" name="password1" style="width: 200px">
+							</div>
+						</div> -->
+						
+						<div style="text-align: center;vertical-align: middle;margin-top: 50px;">
+							<!-- <button type="button" class="btn btn-primary" id="btnPwdCancel" style="background-color:#2E3238;border: 0">取消</button> -->
+							<button type="button" class="defult_btn" id="btnPwdOK" onclick="">保存</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!--加好友-->
+			<div id="addfriend" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 350px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">添加好友</h4>
+						</div>
+						<div class="modal-body">
+							
+							<div class="search_bar" id="search_bar" >
+						        <i class="web_wechat_search"></i>
+						        <input id="search_all_user" class="frm_search" type="text" placeholder="输入用户昵称或手机号">
+						    </div>
+		
+							<div id="_myNearUserList" style="min-height: 140px;"></div>
+							<div id="myNearPage" style="height: 30px"></div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+
+			<div id="memberInviteDialog" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 400px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">成员邀请</h4>
+						</div>
+						<div class="modal-body">
+							<div style=" height:480px;overflow-y: scroll; overflow-x: hidden;">
+								<table class="table">
+									<thead>
+										<td width="100%" colspan="2" style="padding:0;">
+											<input id="seekkey" type="text" placeholder="" class="form-control" style="border-radius: 5px 0 0 5px;height: 33.5px;margin-top: 0.6px;">
+										</td>
+										<td style="margin-bottom: 5px;padding:0" >
+											<button id="seek" type="button" class="searchButten sou" >
+												<img width="18" height="18" src="img/search.png" alt="">搜索
+											</button>
+										</td>
+									</thead>
+									<tbody id="tbInviteList">
+										
+									</tbody>
+								</table>
+							</div>
+							<div id="cardPage"></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn sou" onclick="GroupManager.doMemberInvite();">确认邀请</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 发送名片 -->
+			<div id="card" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 400px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">选择发送名片</h4>
+						</div>
+						<div class="modal-body">
+							<div style="border-left: 1px solid #ddd; border-right: 1px solid #eeeeee; border-bottom:1px solid #eeeeee; height: 480px; overflow-y: auto;">
+								<table class="table">
+									<tbody id="friends">
+									</tbody>
+								</table>
+							</div>
+							<div id="cardPage"></div>
+						</div>
+						<div class="modal-footer">
+							<button id="sendOK" type="button" class="btn sou">确认发送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 音视频 -->
+			<div id="callvideos" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 400px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">选择邀请成员</h4>
+						</div>
+						<div class="modal-body">
+							<div style="border-left: 1px solid #ddd; border-right: 1px solid #eeeeee; border-bottom:1px solid #eeeeee; height: 480px; overflow-y: auto;">
+								<table class="table">
+									<tbody id="callvideosfriends">
+									</tbody>
+								</table>
+							</div>
+							<div id="callvideoscardPage"></div>
+						</div>
+						<div class="modal-footer">
+							<button id="callvideossendOK" type="button" class="btn sou">确认邀请</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--好友列表 群列表-->
+			<div id="divFriendList" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 400px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="divFriendListTitle">选择好友</h4>
+						</div>
+						<div class="modal-body">
+							<table width="100%">  
+								<tr>
+									<td width="100%">
+										<input id="keyword" type="text" placeholder="" class="form-control" 
+											style="border-radius: 5px 0 0 5px;height: 33.5px;margin-top: 0.6px;">
+									</td>
+									<td style="margin-bottom: 5px;">
+										<button id="keywordSearchBtn" type="button" 
+										 class="searchButten sou" onclick="UI.searchFriendAndMember();" >
+											<img width="18" height="18" src="img/search.png" alt="">搜索
+										</button>
+									</td>
+								</tr>
+							</table>
+							<div style="border-left: 1px solid #ddd; border-right: 1px solid #eeeeee; border-bottom:1px solid #eeeeee; height: 300px; overflow-y: scroll; overflow-x: hidden;">
+								<table class="table">
+									<tbody id="friendlist">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					
+						<div class="modal-footer">
+							<button id="divFriendListBtnOk" type="button" class="btn sou">确认发送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--消息转发 -->
+			<div id="msgTranspond" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 400px;">
+					<div class="modal-content">
+						<div class="modal-header" style="padding: 5px 5px 0 0; border:0;">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<div style="width: 100%;margin-left:10px;">
+								<div class="modal-title transpond" id="friendTitle" style="" 
+								onclick="Transpond.toggleFriendOrGroup('friend')">好友</div>
+								<div class="modal-title transpond" id="groupTitle" style="margin-left: -10px;" 
+								onclick="Transpond.toggleFriendOrGroup('group')">群组</div>
+							</div>
+						</div>
+						<div class="modal-body" style="margin-top:22px;padding-top:0;">
+							<table width="100%" id="search">  
+								<tr>
+									<td width="100%">
+										<input id="keywordTranspond" type="text" placeholder="" class="form-control" style="border-radius: 5px 0 0 5px;height: 33px;margin-top: 0.6px;">
+									</td>
+									<td style="margin-bottom: 5px;">
+										<button id="searchBtn" type="button" class="searchButten sou" onclick="Transpond.search('friend')">
+											<img width="18" height="18" src="img/search.png" >搜索
+										</button>
+									</td>
+								</tr>
+							</table>
+
+							<div style="border-left: 1px solid #ddd; border-right: 1px solid #eeeeee; border-bottom:1px solid #eeeeee; height: 480px; overflow-y: auto;">
+								<table class="table"> <tbody id="friendList"> </tbody> </table>
+								<table class="table"> <tbody id="groupList" style="display: none;"></tbody> </table>
+							</div>
+							<div id="pageFriend"></div>
+							<div id="pageGroup" style='display: none;'></div>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn sou" onclick="Transpond.confirmTranspond()">确认发送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--红包-->
+			<div id="divRedPacket" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 400px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header" style="background-color: #ff4528">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel" style="text-align: center;">红包</h4>
+						</div>
+						<div class="modal-body">
+							
+								<table class="table">
+									<tbody id="redname">
+										<tr height='60'>
+											<td class="input-group"><span class="input-group-addon">类型</span>
+												<!-- selectpicker -->
+												<select id="redType" data-toggle="select" class=" form-control"  name="redType" 
+													onchange="UI.commandRedPacket()">
+														<option  value="1" selected="true">普通红包</option>
+														<option id="luck" value="2">拼手气红包</option>
+														<option value="3">口令红包</option>
+												</select>
+											</td>
+										</tr>
+										<tr height='60'>
+											<td class="input-group">
+												<span   class="input-group-addon">金额</span>
+												<input id="money" class="form-control" type="text" name="" style="z-index: 0">
+												<span class="input-group-addon">元</span>
+											</td>
+										</tr>
+										<tr id="trRedCount" height='60'>
+											<td class="input-group">
+												<span   class="input-group-addon">个数</span>
+												<input id="count" class="form-control" type="text" value="1">
+											</td>
+										</tr>
+										<tr height='60'>
+											<td class="input-group">
+												<span  id="spanGreetings" class="input-group-addon">祝福</span>
+												<input id="greetings" class="form-control" type="text" value="恭喜发财，大吉大利" maxlength="18">
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+							
+						</div>
+						<div class="modal-footer">
+							<button id="redPacketSend" type="button" class="btn sou">发送</button>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 输入密码 -->
+			<div id="inputPassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 400px;margin-top: 300px">
+					<div class="modal-header" style="background-color: #ff4528">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel" style="text-align: center;">输入密码</h4>
+					</div>
+					<div id="wrap" class="modal-body" style="background-color: white;text-align: center;">
+						<input id="redp1" type="password" name="" class="inputRedPackePassword"><input id="redp2" type="password" name="" class="inputRedPackePassword"><input id="redp3" type="password" name="" class="inputRedPackePassword"><input id="redp4" type="password" name="" class="inputRedPackePassword"><input id="redp5" type="password" name="" class="inputRedPackePassword"><input id="redp6" type="password" name="" class="inputRedPackePassword">
+					</div>
+					<div class="modal-footer" style="background-color: white;">
+							<button id="redPacketSendOK" type="button" class="btn sou">发送</button>	
+						</div>
+				</div>
+			</div>
+			<!--领取红包-->
+			<div id="getredpacket" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 500px;">
+					<div class="modal-content">
+						<div class="modal-header" style="background-color: #ff4528">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">红包</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-12">
+									<form class="form-horizontal">
+										<div id="redpacket_details" class="form-group" style="margin-left: 100px">
+										<p>666</p>
+											
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="close" style="background-color: #2E3238;border: 0">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 设置管理员 -->
+			<div id="memberManagerDialog" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width:500px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">群组成员</h4>
+						</div>
+						<div class="modal-body">
+							<div
+								style="border-left: 1px solid #ddd; border-right: 1px solid #eeeeee; border-bottom:1px solid #eeeeee; height:500px; overflow-y: scroll; overflow-x: hidden;">
+								<table class="table">
+									<tbody id="tbMemberList">
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="close_btn" onclick="$('#memberManagerDialog').modal('hide');">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 群文件 -->
+			<div id="findgroupfile" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 620px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header" style="padding: 8px 15px;">
+							<div id="myModalLabel"  style="height: 32px; line-height: 32px;">
+								群文件
+								<button id="btnUploadGroupFile"  class='upload_btn' style="float: right;margin-right: 5px">上传
+								</button>
+							</div>
+						</div>
+						<div class="modal-body">
+							<div style="height: 300px; overflow-y: scroll; overflow-x: hidden;">
+								<div id="gfile"></div>
+							</div>
+						</div>
+						<div class="modal-footer" style="padding: 8px 15px;">
+							<button type="button" class="close_btn" onclick="$('#findgroupfile').modal('hide');">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="memberManagerDialog" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 400px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">成员管理</h4>
+						</div>
+						<div class="modal-body">
+							<div
+								style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 300px; overflow-y: scroll; overflow-x: hidden;">
+								<table class="table">
+									<tbody id="tbMemberList">
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="close_btn" onclick="$('#memberManagerDialog').modal('hide');">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="userModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 360px;margin-top: 100px">
+					<div class="modal-content">
+						<div class="modal-header" style="padding: 10px 15px">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">详细信息</h4>
+						</div>
+						<div class="modal-body" id="userModalBody"></div>
+						
+					</div>
+				</div>
+			</div>
+
+			<!-- 打招呼 -->
+			<div id="divSeeHai" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 600px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="modalName">打招呼</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-7">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">打招呼</label>
+											<div class="col-sm-9">
+												<input id="seeText" name="seeText" type="text" placeholder="" autocomplete="off" class="form-control">
+												<p class="help-block">请输入要发送的内容!</p>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div  class="modal-footer">
+								<span id="errorInfo" style="float:left" class="error"></span>
+							
+							<button type="button" class="btn sou" id="seeHaiSend">发送</button>
+							<div id="loading_modify" style="display: none;">
+								<img src="img/loading.gif" />&nbsp;发送中...
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 回复打招呼 -->
+			<div id="divReplySeeHai" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 600px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="modalName">回复</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-7">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">回复</label>
+											<div class="col-sm-9">
+												<input id="replyText" name="seeText" type="text" placeholder="" autocomplete="off" class="form-control">
+												<p class="help-block">请输入要发送的内容!</p>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div  class="modal-footer">
+								<span id="errorInfo" style="float:left" class="error"></span>
+							<!-- <button type="button" class="btn sou" id="replySeeSendCancel">取消发送</button> -->
+							<button type="button" class="btn btn-primary" id="replySeeSend">发送</button>
+							<div id="loading_modify" style="display: none;">
+								<img src="img/loading.gif" />&nbsp;发送中...
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 加群验证 -->
+			<div id="sendRoomVerifyDiv" class="modal fade" tabindex="-1" role="dialog" 
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 600px;">
+					<div class="modal-content" style="margin-top:20%;">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="modalName" style="padding-left:10%;">
+								群组验证 请输入进群描述
+							</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-9" style="margin-left:5%;">
+									<label class="col-sm-2 control-label"
+									style="font-size:16px;margin-top:10px;width:20%;">描述</label>
+									<div class="col-sm-8">
+										<input id="roomNeedVerifyText"  type="text"
+										 placeholder="请输入要发送的内容" autocomplete="off"
+										  class="form-control">
+										<!-- <p class="help-block">请输入要发送的内容!</p> -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<div  class="modal-footer">
+								<span id="errorInfo" style="float:left" class="error"></span>
+									<button type="button" class="btn sou" 
+									onclick="$('#sendRoomVerifyDiv').modal('hide');" >取消发送</button>
+									<button type="button" class="btn sou" 
+									onclick="GroupManager.sendNeedVerify();">发送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<div id="roomVerifyDiv" class="modal fade" tabindex="-1" role="dialog" 
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 600px;">
+					<div class="modal-content" style="margin-top:15%;height:550px;">
+						<div class="modal-header" style="text-align:center;">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h3 id="roomVerifyTitle" class="modal-title" id="modalName">
+									邀请详情
+								</h3>
+						</div>
+						<div class="modal-body" style="height:65%;">
+							<div style="height:55%;text-align:center;border-bottom:1px solid #ddd; "> 
+									
+								<img id="roomVerifyImg" class="roundAvatar" width="60" height="60"
+								src='img/im_10000.png' alt=''>	
+								<div id="roomVerifyName" style="font-size:16px;">小兔兔</div>
+								<div id="roomVerifyDesc" class="control-label"
+								 style="font-size:18px;margin-top:3%;">
+									某某某 想加入群聊 你好
+								</div>
+								<div id="roomVerifyReason" class="control-label"
+								 style="font-size:20px;margin-top:3%;">
+									某某某 想加入群聊 你好
+								</div>
+							 </div>
+							
+							<div style="margin:0 2%;text-align:center;">
+								
+								<div id="verifyUserList" class="" 
+								style="max-height:180px; overflow-y:auto;
+								padding:5%;">
+									<div class="col-md-4" style="display:inline;">
+										<img class="roundAvatar" width="50" height="50"
+										src='img/im_10000.png' alt=''>
+										<p>lili</p>		
+									</div>
+									<div class="col-md-4" style="display:inline;" >
+										<img class="roundAvatar" width="50" height="50"
+										src='img/im_10000.png' alt=''>
+										<p>5771</p>	
+									</div>		
+								</div>
+							</div>
+								
+						</div>
+						<div  class="modal-footer" style="text-align:center;margin-top:5%;">
+								<!-- <button type="button" class="btn sou" 
+									onclick="$('#roomVerifyDiv').modal('hide');" >取消发送</button> -->
+									<button id="roomVerifyBtn" type="button" class="btn btn-success" 
+									style="width:100px;height:40px;" 
+									onclick="GroupManager.acceptRoomVerify();">确认邀请</button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 选择文件 -->
+			<!-- <div id="uploadFileModal" class="modal fade" tabindex="-1" role="dialog"  aria-hidden="true">
+					
+					
+
+					<div class="modal-dialog" style="width: 100%;max-width: 400px;margin-top: 60px;">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="uploadModalLabel">文件上传</h4>
+							</div>
+							<div class="modal-body">
+							<form id="uploadFileFrom" action="" method="post" enctype="multipart/form-data">
+									<input id="uploadUserId"  type="hidden" name="userId" value="" /><br>
+									<input id="myfile" name="file" type="file" accept="*/*" style="width: 300px;display: none;" onchange="UI.upload()"> 
+									<div class="progress">
+									    <div></div>
+									</div>
+									
+							</form>
+								
+									<span id="myFilePreview" ></span>
+								</p>
+								<img id="myImgPreview" src="https://plus.yixin.im/res/default/card.png?8fa89eb5c07677f613cb2552cffe8280"
+									 style="width: 120px;" /> 
+								<input id="myFileUrl" name="myFileUrl" type="hidden" />
+								<input id="filePath" name="filePath" type="hidden" />
+							</div>
+							
+						</div>
+					</div>
+			</div> -->
+			
+			<!-- 创建公司 -->
+			<div id="newCompanyModal" class="modal fade" tabindex="-1" style="margin-top: 40px" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">新建公司</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-7">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">公司名称</label>
+											<div class="col-sm-9">
+												<input id="newCompanyName" name="newCompanyName" type="text" placeholder="" autocomplete="off" class="form-control">
+												<p class="help-block">请填写公司名称</p>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="btnCreateCompany" onclick="CompanyManager.createCompany()" style="background-color: #61B664;border: 0">完成创建</button>
+							<div id="loading_comp" style="display: none;">
+								<img src="img/loading.gif" />&nbsp;创建中...
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 显示公司公告 -->
+			<div id="showCompanyNotice"></div>
+
+			
+			<!-- 创建部门-->
+			<div id="newDepartmentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 600px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="modalName">创建部门</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-7">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">部门名称</label>
+											<div class="col-sm-9">
+												<input id="departmentName" name="departmentName" type="text" placeholder="" autocomplete="off" class="form-control">
+												<p class="help-block">请填写需要创建的部门名称</p>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div id="footer" class="modal-footer">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 修改公司信息 -->
+		    <div id="modify_companyInfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">编辑公司信息</h4>
+						</div>
+						<div class="modal-body">
+								<form id="formcompany" role="form" class="form-horizontal">
+								
+								<div class="form-group">
+									<label class="col-sm-2 control-label">公司名称</label>
+									<div class="col-sm-5">
+										<input id="companyName" name="companyName" type="text" placeholder="" class="form-control"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">公司公告</label>
+									<div class="col-sm-5">
+										<textarea id="companyNotice" name="companyNotice" type="text" placeholder="" class="noticeInput"></textarea>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<span id="errorInfo" style="float:left" class="error"></span>
+							<button type="button" class="btn btn-primary" id="confirmModify">修改</button>
+							<div id="loading_modify" style="display: none;">
+								<img src="img/loading.gif" />&nbsp;创建中...
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 常用语 -->
+		    <div id="modify_usefulText" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">聊天常用语</h4>
+						</div>
+						<div class="modal-body">
+							
+						<ul id="userfulTextList" class="userfulTextEdi_ul"></ul>
+
+						<form id="form_usefulText" role="form" class="form-horizontal" style="margin-top:40px;">
+							
+							<div class="form-group">
+								<!-- <div class="col-sm-6 control-label">添加常用语</div> -->
+								<div class="col-sm-6">
+									<textarea id="usefulContent" name="companyNotice" type="text" placeholder="输入要添加的常用语..." class="noticeInput"></textarea>
+									<!-- <textarea  class="ipt ipt-area" ka="setting-word" name="word" data-range="1,200" placeholder="输入常用语..."></textarea> -->
+								</div>
+							</div>
+						</form>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="confirmAdd">设置</button>
+							<div id="loading_modify" style="display: none;">
+								<img src="img/loading.gif" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 添加员工 -->
+			<div id="addEmployee" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="empModalLabel">添加员工</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-5">
+									选择好友：<br />
+									<div class="chooseFriend">
+										<table class="table">
+											<tbody id="cpFriendsList">
+											</tbody>
+										</table>
+
+										<div id="employees_page"></div>
+									</div>
+								</div>
+
+								<div class="col-sm-5" style="margin-left: 50px; width: 270px;">已选好友：<br/>
+									<div id="areadyChooseFriends" style="border:1px solid #ddd;max-height: 400px; overflow-y:auto;">
+										
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div id="addEmployeeFooter" class="modal-footer">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 编辑我的职位 -->
+		    <div id="modify_myPosition" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">编辑我的职位</h4>
+						</div>
+						<div class="modal-body">
+							<form id="form3" role="form" class="form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-2 control-label">职位名称</label>
+									<div class="col-sm-5">
+										<input id="positionName" name="positionName" type="text" placeholder="" class="form-control"/>
+									</div>
+								</div>
+							</form>
+
+						</div>
+						<div class="modal-footer">
+							<span id="poErrorInfo" style="float:left" class="error"></span>
+							<button type="button" class="btn btn-primary" id="positionModify" style="background-color: #61B664;border-color: #61B664">修改</button>
+							<div id="loading_modifyPosition" style="display: none;">
+								<img src="img/loading.gif" />&nbsp;修改中...
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 设置管理员 公司相关-->
+			<div id="setAdmin" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 600px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="adminModalLabel">设置管理员</h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-sm-5">
+									选择成员：<br />
+									<div
+										style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 300px; overflow-y: scroll; overflow-x: hidden;">
+										<table class="table">
+											<tbody id="setAdminFriendList">
+											</tbody>
+										</table>
+										<div id="admins_page"></div>
+									</div>
+								</div>
+								<div class="col-sm-5">
+									已选成员：<br />
+									<div id="setAdminShowArea"></div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn sou" id="btnSetAdmin" style="color: white;">确定添加</button>
+							<div id="loading_setAdmin" style="display: none;">
+								<img src="img/loading.gif" />&nbsp;设置中...
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 百度地图 -->
+			<div id="map" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 1125px;margin-top: 60px">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">地图</h4>
+						</div>
+						<div class="modal-body">
+							<div style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 600px; overflow-y: scroll; overflow-x: hidden;">
+								<table class="table">
+									<tbody id="gname">
+										<div id="baiduMap" style="height: 579px;width: 1100px;">
+				
+										</div>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button id="mapSubmit" type="button" 
+							class="btn sou">发送此位置</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- 聊天图片点击放大显示区 -->
+			<div id='imgZoom_div' style="display: none;"></div>
+			
+			<!--群消息已读列表-->
+			<div id="groupReadList" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" style="width: 100%;max-width: 400px;margin-top: 60px;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">已读列表</h4>
+						</div>
+						<div class="modal-body">
+							
+							<div id="readUserList" style="min-height: 250px;">
+								
+							</div>
+							<!-- <div id="myNearPage" style="height: 60px"></div> -->
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+			
+			<!--音视频-->
+			<!-- data-backdrop="static" -->
+			<!-- <div id="divSipml5" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" 
+					aria-hidden="true" >
+				
+				<div class="modal-dialog" style="width:100%;height:100%;align:center;"> 
+					<iframe  id="sipml5" class="modal-content" src="sipml5/call.html" scrolling="no"
+							style="width:40%;height:90%;padding:0.2%;margin-left:30%;">
+					</iframe>
+					<div id="sipml5" >
+									
+					</div>
+					
+					 <iframe  src="sipml5/call.html" id="sipml5" width="100%" height="100%"  class="modal-content"> 
+				</div>
+			</div> -->
+			
+			</div>
+
+	    </div>
+
+    </div>
+
+
+ <!-- layui -->
+<script type="text/javascript" src="./layui/layui.all.js"></script>
+
+<script src="assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+<!-- 聊天界面滚动条相关 -->
+<script type="text/javascript" src="scrollbar/jquery.nanoscroller.js"></script>
+  <!-- 滚动条相关  -->
+<script type="text/javascript" src="assets/js/jquery.nicescroll.js" ></script> 
+<!-- <script type="text/javascript" src="assets/js/jquery.scrollTo.js"></script>  -->
+
+<!-- websocket IM  -->
+<script src="js/protobuf.js"></script>
+<script src="js/websocket_sdk.js"></script>
+<script src="js/webim.js"></script>
+
+<!-- 群聊相关的  -->
+<script src="js/_coolchat-group.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="js/tb_areas.js"></script>
+<script type="text/javascript" src="assets/js/jquery.md5.js" ></script>
+
+<!-- 本地数据库 相关 -->
+<script src="assets/js/cookieStorage.js" type="text/javascript"></script>
+<script src="assets/js/localStoreage.js" type="text/javascript"></script>
+<script src="js/dbUtils.js" type="text/javascript"></script>
+<script src="js/dataUtils.js" type="text/javascript"></script>
+
+<!-- 客服模块相关js -->
+<script src="js/customerService.js" type="text/javascript"></script>
+<!-- 系统相关的公用 方法 -->
+<script src="js/commons.js" type="text/javascript"></script>
+<!-- 配置相关  数据储存相关  -->
+<script src="js/_coolchat-commons.js" type="text/javascript"></script>
+<!-- 里面放的都是一些页面要调用的方法  js-->
+<script src="js/chat-function.js" type="text/javascript"></script>
+<!--单聊 聊天有关的  js-->
+<script src="js/_coolchat.js" type="text/javascript"></script>
+<!--聊天界面 UI 界面处理 相关的 -->
+<script src="js/chat-ui.js" type="text/javascript"></script>
+<!--聊天界面 index 页面 初始化相关的 -->
+<script src="js/chat-init.js" type="text/javascript"></script>
+<!--调用接口相关的 Js -->
+<script src="js/chat-sdk.js" type="text/javascript"></script>
+
+<!--组织架构相关 js -->
+<script src="js/_coolchat-company.js" type="text/javascript"></script>
+<script src="assets/js/jquery.jmp3.js" type="text/javascript"></script>
+
+<!-- 直播相关 js -->
+<!-- <script src="js/liveRoom.js" type="text/javascript"></script> -->
+<!-- 多点登陆相关 -->
+<script src="js/deviceManager.js" type="text/javascript"></script>
+
+<!-- 消息加密相关-->
+<script src="js/forge.js"></script>
+<script src="assets/js/crypto-js.js"></script>
+<script src="assets/js/jsencrypt.min.js"></script>
+<script src="assets/js/elliptic.js"></script>
+
+<script src="js/encryptUtils.js"></script>
+<script src="js/apiAuthUtils.js"></script>
+
+
+<!--文件MD5 -->
+<script type="text/javascript" src="assets/js/spark-md5.min.js"></script>
+
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=jKNQmZGpICFGGVpZL2qMIWz5FQQG14PW"></script>
+
+<script type="text/javascript" src="js/baidu-map.js"></script> 
+<script type="text/javascript" src="assets/js/contextMenu/src/jquery.contextMenu.js"></script>
+<script type="text/javascript" src="assets/js/contextMenu/dist/jquery.ui.position.min.js"></script>
+<script type="text/javascript" src="js/contextMenu.js"></script>
+
+<!-- 视频播放器 -->
+<link rel="stylesheet" href="assets/dist/plyr.css">
+<script type="text/javascript" src="assets/dist/plyr.min.js"></script>
+
+<script type="text/javascript" src="Recorderjs/dist/recorder.js"></script>
+<script type="text/javascript" src="js/chat-voice.js"></script>
+
+<!-- jitsi -->
+<!-- <script type="text/javascript" src="./jitsi/js/UI.js"></script>
+<script type="text/javascript" src = "./jitsi/js/external_api.js"></script> -->
+
+<!-- [if lt IE 9] -->
+<!-- <script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script> -->
+<!-- <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script> -->
+
+<!--[endif]-->
+	
+<script type="text/javascript">
+
+
+	document.onkeydown=function(event){
+	 if (event.keyCode == 116) {
+	 			if (confirm("重新加载此网站？")){
+	            	DataUtils.setLogoutTime(WEBIM.getTimeSecond());
+	                return true;
+	            }else
+	                return false;
+				}
+		 }
+ 	document.getElementById("messageBody").onkeydown = function (e) {
+            e = e || window.event;
+            if (e.ctrlKey && e.keyCode == 13) {
+                var $messageBody = $("#messageBody"), text = $messageBody.val();
+                $messageBody.val(text + " \n ");
+                return;
+            }
+            if (e.keyCode === 13) {
+                var content = $("#messageBody").val();
+                if (myFn.isNil(content)) {
+                    // ownAlert(3, "请输入要发送的内容");
+                    return;
+                }
+                var msg = WEBIM.createMessage(1, content);
+                UI.sendMsg(msg);
+                setTimeout(function () {
+                    $("#messageBody").val(".").val("");
+                }, 200);
+            }
+    };
+
+	onload = function(){
+            var txts = wrap.getElementsByTagName("input");
+            for(var i = 0; i<txts.length;i++){
+                var t = txts[i];
+                t.index = i;
+                t.setAttribute("readonly", true);
+                t.onkeyup=function(){
+                    this.value=this.value.replace(/^(.).*$/,'$1');
+                    var next = this.index + 1;
+                    if(next > txts.length - 1) return;
+                    txts[next].removeAttribute("readonly");
+                    txts[next].focus();
+                }
+            }
+            txts[0].removeAttribute("readonly");
+	}
+	
+	document.addEventListener(
+    	'paste',
+    	function(e) {
+    	    let items = event.clipboardData && event.clipboardData.items;
+    	    let file = null;
+    	    if (items && items.length) {
+    	        for (let i = 0; i < items.length; i++) {
+    	            if (items[i].type.indexOf('image') !== -1) {
+    	                file = items[i].getAsFile(); // 此时file就是剪切板中的图片文件
+    	                break;
+    	            }
+    	        }
+    	    }
+    	    if (file.size === 0) {
+    	        return;
+    	    }
+
+    	    var imgMsg = WEBIM.createMessage(2, " ");
+    	    DataUtils.saveMessage(imgMsg);
+    	    var data = new FormData();
+    		data.append("id",imgMsg.messageId);
+    		data.append("userId",myData.userId);
+    		data.append('file', file);
+    		// var xhr = new XMLHttpRequest();
+    		$.ajax({
+                    contentType:"multipart/form-data",
+                    type:"POST",
+                    url:AppConfig.uploadServer + "/upload/UploadifyServlet",
+                    data:data,
+                    dataType:"json",
+                    processData:false,
+                    contentType:false,
+                    success:function(result){
+                        console.log(result);
+                        imgMsg.content = result.url;
+                        var content = '<img src="'+ result.url +'"></img>'
+                        layer.open({
+                          title: '发送图片',
+                          content: content,
+                          yes:function(index, layero){
+                            UI.showMsg(imgMsg,myData.userId,1,1,"newMsg");
+                            UI.sendMsg(imgMsg);
+                            layer.close(index);
+                          }
+                        });     
+                    }
+                });
+    	},
+    	false
+    );
+ 
+	
+</script>
+
+
+<!-- 音视频 会议需要的js -->
+<!-- <script src="sipml5/jscss/sipml5.js" type="text/javascript" ></script>  -->
+
+<!-- <script type="text/javascript">
+ 	 var box=document.getElementById("box");
+	box.ondrop = function(e) {  
+        e.preventDefault();  
+        this.className = 'upload-drop-zone';  
+			 var dt = e.dataTransfer;
+			 //$("#myfile").val(e);
+			 $("#myfile").append(dt.files[0]);
+			 alert($("#myfile").val());
+        UI.upload();
+    }  
+  
+    box.ondragover = function() {  
+        this.className = 'upload-drop-zone drop';  
+        return false;  
+    }  
+
+    box.ondragleave = function() {  
+        this.className = 'upload-drop-zone';  
+        return false;  
+    }  
+ </script> -->
+
+</body>
+	
+
+</html>

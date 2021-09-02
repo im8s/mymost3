@@ -1,0 +1,313 @@
+syntax = "proto3"; 
+
+//option java_package = "com.shiku.imserver.common.proto";//写的是生成文件的包名  
+//option java_outer_classname = "MessageProBuf";//生成的类文件名 
+
+package Message;
+
+//required optional  repeated
+	
+//消息 数据
+message MessageHead
+{
+
+	/**
+	 *发送者;
+	 */
+	 string from = 1;
+	/**
+	 * 接受者;
+	 */
+	 string to = 2;
+	
+	/**
+	 * 消息id
+	 * 
+	 */
+	 string messageId = 3;
+	
+	/**
+	 * 聊天类型;(单聊,群聊)
+	 */
+	 int32 chatType = 4;
+	/**
+	 *是否离线消息   true 离线消息
+	 */
+	 bool offline = 5;
+	
+}
+
+
+
+//消息的 body 
+message ChatMessage
+{
+	 MessageHead messageHead=1;
+	
+	 string fromUserId = 2;
+	
+	 string fromUserName= 3;
+	
+	 string toUserId= 4;
+	
+	 string toUserName= 5;
+	/**
+	 * 
+	 * 消息发送时间
+	 */
+	 int64 timeSend= 6;
+	
+	/**
+	 * 消息类型;
+	 */
+	 int32 type= 7;
+	
+	/**
+	 * 消息内容;
+	 */
+	 string content=8;
+	
+	/**
+	 * 消息发到哪个群组;
+	 */
+	 string objectId=9;
+	
+	 string fileName=10;
+	 
+	 // 是否加密传输
+	 bool isEncrypt=11;
+	 
+	 int64 deleteTime=12;
+	 // 是否阅后即焚
+	 bool isReadDel=13;
+	 
+	 int64 fileSize=14; //  文件大小 单位字节
+	 int64 fileTime=15; // 文件播放时长  录音时长，视频时长
+	
+	// 1.当为地理位置时，有效 2.特殊：当为图片时，该值为图片的宽度
+	double location_x=16;
+	// 1.当为地理位置时，有效 2.特殊：当为图片时，该值为图片的高度
+	double location_y=17;
+	 
+}
+
+
+
+
+
+
+/**
+ * 登陆授权消息
+*/
+message AuthMessage
+{
+	 MessageHead messageHead=1;
+	
+	 string token = 2;
+	 
+	 string password = 3;
+}
+
+/**
+ * 登陆授权消息结果
+*/
+message AuthRespMessageProBuf
+{
+	 MessageHead messageHead=1;
+	
+	/**
+	 * 登陆结果  1 登陆 成功     0 登陆失败   
+	 */
+	int32  status=2;
+	
+	/*
+	 * 提示信息
+	 */
+	string arg=3;
+	
+	string token=4;
+	
+	string resources=5;
+	
+}
+/**
+ * 消息回执
+*/
+message MessageReceiptStatusProBuf
+{
+	 MessageHead messageHead=1;
+	
+	/**
+	 *   0  发送中     1  到达服务器 
+	 *    2 已接收   3 已读
+	 */
+	int32  status=2;
+	
+	/*
+	 * 提示信息
+	 */
+	string messageId=3;
+	
+	
+	
+}
+
+
+/**
+ * 加入群组消息
+*/
+message JoinGroupMessageProBuf
+{
+	 MessageHead messageHead=1;
+	
+	 string jid = 2;
+	 
+	 int64 seconds = 3;
+}
+
+
+message ExitGroupMessageProBuf
+{
+	 MessageHead messageHead=1;
+	
+	 string jid = 2;
+	 
+}
+
+/**
+ * 群组协议结果
+*/
+message GroupMessageRespProBuf
+{
+	 MessageHead messageHead=1;
+	
+	string jid = 2;
+	 /**
+	 * 1     成功
+	 * -1  失败
+	 */
+	int32  status=3;
+	 /**
+	 * 是否退出群组协议
+	 */
+	bool isExit=4;
+}
+/**
+ * 漫游聊天记录
+*/
+message PullMessageHistoryRecordReqProBuf
+{
+	 MessageHead messageHead=1;
+	
+	 string jid = 2;
+	 /**
+	 * 请求数量
+	 */
+	 int32 size = 3;
+	 /**
+	 * 开始时间
+	 */
+	 int64 startTime = 4;
+	 /**
+	 * 结束时间
+	 */
+	 int64 endTime = 5;
+}
+
+/**
+ * 漫游聊天记录  结果
+*/
+message PullMessageHistoryRecordRespProBuf
+{
+	 /**
+	  * 请求ID 标识
+	 */
+	 string messageId = 1;
+	
+	 string jid = 2;
+	 /**
+	 * 
+	 */
+	 int32 chatType = 3;
+	 
+	 
+	 repeated ChatMessage messageList = 4;
+	 /**
+	 * 消息总数
+	 */
+	 int32 count = 5;
+
+}
+/**
+ * 批量拉取群组消息数量
+*/
+message PullBatchGroupMessageReqProBuf
+{
+	 MessageHead messageHead=1;
+	/**
+	 * jid 群组jid   lastTime 群组的最后一条消息时间
+	 * 群组数据集合["jid1,lastTime","jid2,lastTime"]
+	 */
+	 repeated string jidList = 2;
+	 /**
+	 *拉取消息的截止时间
+	 */
+	 int64 endTime = 3;
+}
+
+/**
+ * 批量拉取群组消息数量   及最后几条消息  结果   (单个群组的)
+*/
+message PullGroupMessageRespProBuf
+{	
+    /**
+	  * 请求ID 标识
+	 */
+	 string messageId = 1;
+	/**
+	 *群组jid
+	 */
+	 string jid=2;
+	 /**
+	 *群组消息数量
+	 */
+	 int64 count = 3;
+	 /**
+	  *消息集合
+	 */
+	 repeated ChatMessage messageList = 4;
+
+}
+
+
+//心跳协议
+message PingMessageProBuf
+{
+     MessageHead messageHead=1;
+}
+
+
+message CommonSuccessProBuf
+{
+    MessageHead messageHead=1;
+}
+
+//错误协议
+message CommonErrorProBuf
+{
+	  MessageHead messageHead=1;
+	  int32 code = 2;
+	  string arg = 3; //错误参数，格式：xx,xxx,xxxx
+}
+
+
+
+
+
+
+
+
+
+
+
+

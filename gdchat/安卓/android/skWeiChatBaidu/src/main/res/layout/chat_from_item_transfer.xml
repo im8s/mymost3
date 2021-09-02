@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/chat_item_padding_bottom"
+    android:paddingLeft="@dimen/chat_item_padding_left"
+    android:paddingRight="@dimen/chat_item_padding_right"
+    android:paddingTop="@dimen/chat_item_padding_top">
+
+    <TextView
+        android:id="@+id/time_tv"
+        style="@style/ChattingUISystem"
+        android:visibility="gone" />
+
+    <com.sk.weichat.view.HeadView
+        android:id="@+id/chat_head_iv"
+        android:layout_width="@dimen/chat_head_size"
+        android:layout_height="@dimen/chat_head_size"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/time_tv"
+        android:layout_marginEnd="@dimen/chat_head_right"
+        android:layout_marginStart="@dimen/chat_head_left"
+        android:layout_marginTop="@dimen/chat_head_top"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/avatar_normal" />
+
+    <TextView
+        android:id="@+id/nick_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time_tv"
+        android:layout_marginTop="@dimen/chat_head_top"
+        android:layout_toLeftOf="@id/chat_head_iv"
+        android:text=""
+        android:textSize="@dimen/SmallerTextSize"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/chat_warp_view"
+        android:layout_width="@dimen/red_tiem"
+        android:layout_height="84dp"
+        android:layout_below="@id/nick_name"
+        android:layout_marginTop="@dimen/chat_head_top"
+        android:layout_marginRight="6dp"
+        android:layout_toLeftOf="@id/chat_head_iv"
+        android:background="@mipmap/transfer_not_receive_right_icon">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/transfer_icon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/iv_image"
+            >
+
+            <TextView
+                android:id="@+id/chat_text_money"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:maxWidth="140dp"
+                android:maxLines="1"
+                android:text="100.0元"
+                android:textColor="@color/white"
+                android:textSize="@dimen/chat_text_size" />
+            <TextView
+                android:id="@+id/chat_text_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginBottom="4dp"
+                android:layout_alignParentBottom="true"
+                android:text="@string/zhuanzhang"
+                android:textColor="@color/white"
+                android:textSize="13dp" />
+            <View
+
+                android:layout_width="wrap_content"
+                android:layout_height="3dp"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/chat_text_desc_new"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginBottom="3dp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/zhuanzhang"
+            android:textColor="@color/Grey_500"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+
+
+    <include layout="@layout/view_holder_state_from" />
+
+    <CheckBox
+        android:id="@+id/chat_msc"
+        style="@style/CustomCheckBoxTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_alignTop="@id/chat_warp_view"
+        android:clickable="false"
+        android:visibility="gone" />
+
+</RelativeLayout>

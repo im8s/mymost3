@@ -1,0 +1,68 @@
+syntax="proto3";                //Proto协议
+package pb;                     //当前包名
+option csharp_namespace="Pb";   //给C#提供的选项
+option go_package="./;pb";
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+//Lottery状态
+message LotteryState{
+	int32		Type=1;
+	int32		Code=2;
+}
+
+//Lottery服务器
+message LotteryServer{
+	string 		ServerTime=1;   	//服务器时间
+}
+
+//lottery信息
+message LotteryInfo{
+	string 		Periods=1;
+	string 		BeginTime=2;
+	string 		OpenTime=3;
+	string 		CollectTime=4;
+	string 		OpenContent=5;
+}
+
+//lottery信息列表
+message LotteryList{
+	repeated LotteryInfo 	Lotterys=1;
+}
+
+//下一期信息
+message LotteryNext{
+	LotteryInfo 	LotInfo=1;   	//下一期信息
+}
+
+//最近一期开奖信息
+message LotteryLatest{
+	LotteryInfo 	LotInfo=1;   	//最近一期开奖信息
+}
+
+//Lottery请求消息
+message LotteryRequest{
+	int32		Type=1;
+}
+
+//lotteryLottery响应消息
+message LotteryResponse{
+	oneof Data {
+			LotteryState 	LotStatus=1;		//状态信息
+			LotteryServer 	LotServer=2;   		//服务器时间
+			LotteryList 	LotList=3;			//lottery列表
+			LotteryNext		LotNext=4;			//下期信息
+			LotteryLatest 	LotLatest=5;		//开奖信息
+	}
+}
+
+//Lottery服务service定义
+service LotteryQuery{
+    rpc FetchLotteryInfo(LotteryRequest) returns (LotteryResponse);
+}
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+

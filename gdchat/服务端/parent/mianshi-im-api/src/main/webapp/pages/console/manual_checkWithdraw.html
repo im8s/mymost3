@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扫码手动充值-审核提现申请</title>
+    <link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-row">
+    <div id="back" class="layui-col-md1">&nbsp;</div>
+    <div id="checkWithdrawList" class="layui-col-md10">
+        <div class="" style="margin-top: 2%">
+            <input type="text" name="" class="layui-input checkWithdraw_keyword" style="width: 15%;display: inline" placeholder="请输入提现用户Id" oninput="value=value.replace(/[^\d]/g,'')">
+            <button class="layui-btn  search_checkWithdraw">搜索</button>
+            <div class="layui-form-item timeComponent" style="display: inline">
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="padding: 9px 8px;width: 150px">提现的时间范围：</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" id="checkWithdrawDate" placeholder="请选择时间范围" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 接收账户列表 -->
+        <div id="checkWithdrawList_table" class="layui-card" style="margin-top: 1%">
+            <div class="layui-card-header">提现申请列表</div>
+            <div class="layui-card-body">
+                <table id="checkWithdraw_table" lay-filter="checkWithdraw_table"></table>
+            </div>
+            <div id="totalRechagre">
+                <div class="layui-card-body">
+                    <table id="myBill_table" lay-filter="myBill_table">
+                    </table>
+                    <span style="margin-left: 80px">总提现申请金额：<cite class="totalWithdraw"></cite>  元</span>
+                    <span style="margin-left: 50px">审核成功金额：<cite class="successWithdraw"></cite>  元</span>
+                    <span style="margin-left: 50px">审核失败总额：<cite class="failureWithdraw"></cite>  元</span>  <!-- 当前总转出金额-->
+                    <span style="margin-left: 50px">申请中总额：<cite class="applyWithdraw"></cite>  元</span>
+                    <span style="margin-left: 50px">忽略总额：<cite class="ignoreCount"></cite>  元</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="checkWithdrawBar">
+    {{#  if(d.status == 1){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-danger approve" lay-event="approve">通过审核</a>
+    <a class="layui-btn layui-btn-xs layui-btn-primary disallowance" lay-event="disallowance">驳回</a>
+    <a class="layui-btn layui-btn-xs layui-btn-primary ignore" lay-event="ignore">忽略</a>
+    {{#  } }}
+    {{#  if(d.status == 2||d.status == -1||d.status == -2){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="">通过审核</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="">驳回</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="">忽略</a>
+    {{#  } }}
+<!--    <a class="layui-btn layui-btn-xs layui-btn-danger delete" lay-event="delete">删除</a>-->
+</script>
+</body>
+<script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.form.js"></script>
+<script type="text/javascript" src="/pages/console/js/common.js"></script>
+<script type="text/javascript" src="./js/console_ui.js"></script>
+<script type="text/javascript" src="./js/manual_checkWithdraw.js"></script>
+</html>

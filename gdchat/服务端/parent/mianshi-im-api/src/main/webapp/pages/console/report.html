@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>举报管理</title>
+    <link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+    <div class="layui-row">
+        <div id="back" class="layui-col-md1">&nbsp;</div>
+        <input id="pageCount"  name="" style="display: none">
+        <div id="report_div" class="layui-col-md10">
+            <div class="" style="margin-top: 2%">
+                <input id="sender" type="text" name="" class="layui-input" style="width: 15%;display: inline" placeholder="举报的人Id">
+                <input id="receiver" type="text" name="" class="layui-input" style="width: 15%;display: inline" placeholder="被举报的人Id">
+                <button class="layui-btn  search_report">搜索</button>
+                <form class="layui-form" action="" style="float: left">
+                    <div class="layui-form-item">
+                        <select id="complaint_select" class="layui-select" lay-verify="required" value="">
+                            <option value="0">被举报的人</option>
+                            <option value="1">被举报的群组</option>
+                            <option value="2">被举报的网页</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <!-- 举报列表 -->
+            <div id="reportList" class="layui-card" style="margin-top: 1%">
+                <div class="layui-card-header">举报列表</div>
+                <div class="layui-card-body">
+                    <table id="report_table" lay-filter="report_table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input id="report_limlt" value="15" type="hidden">
+
+    <script type="text/html" id="reportUserListBar">
+        <a class="layui-btn layui-btn-xs layui-btn-danger delete" lay-event="delete">删除</a>
+        {{#  if(d.toUserStatus == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-primary lockingUser" lay-event="lockingUser">封号</a>
+        {{#  }else{  }}
+        <a class="layui-btn layui-btn-xs layui-btn-primary cancelLockingUser" lay-event="cancelLockingUser">解封</a>
+        {{#  } }}
+    </script>
+
+    <script type="text/html" id="reportRoomListBar">
+        <a class="layui-btn layui-btn-xs layui-btn-danger delete" lay-event="delete">删除</a>
+        {{#  if(d.roomStatus == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-primary lockingRoom" lay-event="lockingRoom">封群</a>
+        {{#  }else{  }}
+        <a class="layui-btn layui-btn-xs layui-btn-primary cancelLockingRoom" lay-event="cancelLockingRoom">解封</a>
+        {{#  } }}
+    </script>
+
+    <script type="text/html" id="reportWebListBar">
+        <a class="layui-btn layui-btn-xs layui-btn-danger delete" lay-event="delete">删除</a>
+        {{#  if(d.webStatus == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-primary lockingWeb" lay-event="lockingWeb">禁用被举报网页</a>
+        {{#  }else{  }}
+        <a class="layui-btn layui-btn-xs layui-btn-primary cancelLockingWeb" lay-event="cancelLockingWeb">解禁被举报网页</a>
+        {{#  } }}
+    </script>
+
+</body>
+<script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/pages/console/js/common.js"></script>
+<script type="text/javascript" src="./js/console_ui.js"></script>
+<script type="text/javascript" src="./js/report.js"></script>
+</html>

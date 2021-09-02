@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>云钱包转账记录</title>
+</head>
+<link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+
+<body>
+<div class="layui-row">
+    <div id="back" class="layui-col-md1">&nbsp;</div>
+    <input id="pageCount"  name="" style="display: none">
+    <div id="transfer_div" class="layui-col-md10">
+        <div class="" style="margin-top: 2%">
+            <input id="pageCount" type="" name="" style="display: none">
+            <input type="text" name="" class="layui-input transfer_keyword" style="width: 15%;display: inline" placeholder="转账用户Id">
+            <button class="layui-btn  search_transfer">搜索</button>
+            <div class="layui-form-item timeComponent" style="display: inline">
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="padding: 9px 8px;width: 150px">转账的时间范围：</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" id="transferMsgDate" placeholder="请选择时间范围" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 转账记录 -->
+        <div id="transferList" class="layui-card" style="margin-top: 1%">
+            <div class="layui-card-header">转账记录</div>
+            <div class="layui-card-body">
+                <table id="transfer_table" lay-filter="transfer_table"></table>
+                <span style="display: inline;">未交易金额：<cite class="notTrading"></cite>  元</span>
+                <span style="margin-left: 25%;display: inline;">转账失败金额：<cite class="transferFailed"></cite>  元</span>
+                <span style="margin-left: 25%;">转账成功金额：<cite class="transferSuccess"></cite>  元</span>
+                <span style="margin-left: 21%;">转账过期已退还金额：<cite class="transferLoss"></cite>  元</span>
+                <span style="margin-left: 21%;">对方拒收已退还金额：<cite class="transferRefund"></cite>  元</span>
+                <span style="margin-left: 21%;display: inline;">转账待确认接收金额：<cite class="confirmed"></cite>  元</span>
+            </div>
+        </div>
+    </div>
+</div>
+<input id="ybTransferAccounts_limlt" value="15" type="hidden">
+
+    <script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+    <script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+    <script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+    <script type="text/javascript" src="/pages/console/js/common.js"></script>
+    <script type="text/javascript" src="./js/console_ui.js"></script>
+    <script type="text/javascript" src="/pages/console/js/ybTransferAccounts.js"></script>
+</body>
+</html>

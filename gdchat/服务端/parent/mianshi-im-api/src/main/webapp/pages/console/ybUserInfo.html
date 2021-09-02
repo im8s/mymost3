@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云钱包账户管理</title>
+</head>
+<link href="/pages/common/layui/css/layui.css" rel="stylesheet" media="all">
+<body>
+<div class="layui-row">
+    <div id="back" class="layui-col-md1">&nbsp;</div>
+    <input id="pageCount" type="" name="" style="display: none">
+    <div id="YopUserInfo_div" class="layui-col-md10">
+        <div class="YopUserInfo_btn_div" style="margin-top: 2%">
+            <input id="userId" type="text" name="" class="layui-input" style="width: 15%;display: inline" placeholder="用户Id">
+            <button class="layui-btn search_YopUserInfo">搜索</button>
+<!--            <button onclick="YopUser.copy()">数据转移</button>-->
+            <div class="layui-form-item timeComponent" style="display: inline">
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="padding: 9px 8px;width: 150px">时间范围：</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" id="YopUserInfoDate" placeholder="请选择时间范围" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="YopUserInfo" class="layui-card" style="margin-top: 1%">
+            <div class="layui-card-header">云钱包账户信息列表</div>
+            <div class="layui-card-body">
+                <table id="YopUserInfo_table" lay-filter="YopUserInfo_table">
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="YopUserBill_div" class="layui-col-md10" style="display:none;">
+        <div class="YopUserInfo_btn_div" style="margin-top: 2%">
+            <form id="BillType_form" class="layui-form" action="" style="float: left;">
+                <div class="layui-form-item">
+                    <select id="BillType" class="layui-select">
+                        <option value="">请选择交易类型</option>
+                        <option value="1">充值</option>
+                        <option value="2">提现</option>
+                        <option value="8">红包</option>
+                        <option value="3">转账</option>
+                    </select>
+                </div>
+            </form>
+            <button class="layui-btn search_YopUserBill">搜索</button>
+            <div class="layui-form-item timeComponent" style="display: inline">
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="padding: 9px 8px;width: 150px">时间范围：</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" id="YopUserBillDate" placeholder="请选择时间范围" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="YopUserBill" class="layui-card" style="margin-top: 1%;">
+            <div class="layui-card-header">钱包用户账单</div>
+            <div class="layui-card-body">
+                <table id="YopUserBill_table" lay-filter="YopUserBill_table"></table>
+                <button onclick="YopUser.button_back()" class="layui-btn layui-btn-primary layui-btn-sm" style="">&lt;&lt;返回</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script type="text/html" id="YopUserInfoBar">
+    {{#  if(d.status == 1){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-primary freeze" lay-event="freeze">冻结</a>
+    {{#  } }}
+    {{#  if(d.status == -1){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-primary unfreeze" lay-event="unfreeze">解冻</a>
+    {{#  } }}
+    <a class="layui-btn layui-btn-xs layui-btn-primary bill" lay-event="bill">账单</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger delete" lay-event="delete">删除</a>
+</script>
+
+
+<script type="text/javascript" src="/pages/common/jquery/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/pages/console/js/common.js"></script>
+<script type="text/javascript" src="./js/console_ui.js"></script>
+<script type="text/javascript" src="./js/core.js"></script>
+<script type="text/javascript" src="./js/tripledes.js"></script>
+<script type="text/javascript" src="/pages/console/js/ybUserInfo.js"></script>
+
+</body>
+</html>

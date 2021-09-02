@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扫码手动充值-审核充值申请</title>
+    <link href="/pages/common/layui/css/layui.css" rel="stylesheet">
+</head>
+<body>
+<div class="layui-row">
+    <div id="back" class="layui-col-md1">&nbsp;</div>
+    <div id="checkRechargeList" class="layui-col-md10">
+        <div class="" style="margin-top: 2%">
+            <input type="text" name="" class="layui-input checkRecharge_keyword" style="width: 15%;display: inline" placeholder="请输入用户Id" oninput="value=value.replace(/[^\d]/g,'')">
+            <button class="layui-btn  search_checkRecharge">搜索</button>
+            <div class="layui-form-item timeComponent" style="display: inline">
+                <div class="layui-inline">
+                    <label class="layui-form-label" style="padding: 9px 8px;width: 150px">充值的时间范围：</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" id="checkRechargeDate" placeholder="请选择时间范围" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 接收账户列表 -->
+        <div id="RechargeList_table" class="layui-card" style="margin-top: 1%">
+            <div class="layui-card-header">充值申请列表</div>
+            <div class="layui-card-body">
+                <table id="checkRecharge_table" lay-filter="checkRecharge_table"></table>
+            </div>
+            <div id="totalRechagre">
+                <div class="layui-card-body">
+                    <table id="myBill_table" lay-filter="myBill_table">
+                    </table>
+                    <span style="margin-left: 80px">总充值申请金额：<cite class="totalRecharge"></cite>  元</span>
+                    <span style="margin-left: 50px">审核成功金额：<cite class="successRecharge"></cite>  元</span>
+                    <span style="margin-left: 50px">审核失败总额：<cite class="failureRecharge"></cite>  元</span>  <!-- 当前总转出金额-->
+                    <span style="margin-left: 50px">申请中总额：<cite class="applyRecharge"></cite>  元</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script type="text/html" id="checkRechargeBar">
+    {{#  if(d.status == 1){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-danger approve" lay-event="approve">通过审核</a>
+    <a class="layui-btn layui-btn-xs layui-btn-primary ignore" lay-event="ignore">忽略</a>
+    {{#  } }}
+    {{#  if(d.status == 2||d.status == -1){ }}
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="">通过审核</a>
+    <a class="layui-btn layui-btn-xs layui-btn-disabled" lay-event="">忽略</a>
+    {{#  } }}
+    <a class="layui-btn layui-btn-xs layui-btn-danger delete" lay-event="delete">删除</a>
+</script>
+</body>
+<script type="text/javascript" src="/pages/common/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/pages/console/assets/xss-filters.1.2.7.min.js"></script>
+<script type="text/javascript" src="/pages/common/layui/layui.all.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.md5.js"></script>
+<script type="text/javascript" src="/pages/assets/js/jquery.form.js"></script>
+<script type="text/javascript" src="/pages/console/js/common.js"></script>
+<script type="text/javascript" src="./js/console_ui.js"></script>
+<script type="text/javascript" src="./js/manual_checkRecharge.js"></script>
+</html>
